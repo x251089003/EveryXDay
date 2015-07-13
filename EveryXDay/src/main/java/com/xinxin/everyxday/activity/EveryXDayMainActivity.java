@@ -1,4 +1,4 @@
-package com.ikimuhendis.ldrawer.sample;
+package com.xinxin.everyxday.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -25,7 +25,7 @@ import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
 import java.util.Locale;
 
 
-public class SampleActivity extends Activity {
+public class EveryXDayMainActivity extends Activity {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
