@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_listview_item_selector"
+    android:padding="16dp" >
+
+    <ImageView
+        android:id="@+id/showorder_list_user_avater"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp" />
+
+    <TextView
+        android:id="@+id/showorder_list_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/showorder_list_user_avater"
+        android:layout_alignTop="@id/showorder_list_user_avater"
+        android:layout_toRightOf="@id/showorder_list_user_avater"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/showorder_item_nickname"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textview_middle_size" />
+
+    <TextView
+        android:id="@+id/showorder_list_user_publish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/showorder_list_user_avater"
+        android:layout_alignBottom="@id/showorder_list_user_avater"
+        android:layout_toRightOf="@id/showorder_list_user_avater"
+        android:text="@string/showorder_item_time"
+        android:textColor="@color/global_text_grey_color"
+        android:textSize="@dimen/textview_small_size" />
+
+    <ImageView
+        android:id="@+id/showorder_list_img"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@id/showorder_list_user_avater"
+        android:scaleType="centerCrop" />
+
+</RelativeLayout>

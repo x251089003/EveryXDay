@@ -1,3 +1,31 @@
 <resources>
     <dimen name="navdrawer_width">260dp</dimen>
+
+    <!-- 首页底部tab高度 -->
+    <dimen name="activity_main_tab_height">58dp</dimen>
+    <dimen name="activity_top_bar_height">48dp</dimen>
+
+    <!-- show order & photo picker -->
+    <dimen name="entry_edit_text_height">130dp</dimen>
+    <dimen name="entry_picker_img_padding">10dp</dimen>
+    <dimen name="photo_picker_img_padding">3dp</dimen>
+    <dimen name="textview_hugest_size">32dp</dimen>
+    <dimen name="textview_huger_size">22dp</dimen>
+    <dimen name="textview_huge_size">20dp</dimen>
+    <dimen name="textview_big_size">18dp</dimen>
+    <dimen name="textview_middle_size">16dp</dimen>
+    <dimen name="textview_smiddle_size">15dp</dimen>
+    <dimen name="textview_small_size">14dp</dimen>
+    <dimen name="textview_smaller_size">13dp</dimen>
+    <dimen name="textview_mini_size">12dp</dimen>
+    <dimen name="textview_minier_size">10dp</dimen>
+
+    <!-- fragmetshoworder -->
+    <dimen name="show_order_pb_image_padding">10dp</dimen>
+
+    <!-- list view padding -->
+    <dimen name="main_list_view_spacing_padding">12dp</dimen>
+
+    <!-- top title custom height -->
+    <dimen name="title_view_custom_width">200dp</dimen>
 </resources>

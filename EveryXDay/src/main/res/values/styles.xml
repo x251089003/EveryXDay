@@ -5,13 +5,14 @@
     </style>
 
     <style name="ActionBar" parent="android:Widget.ActionBar">
+        <item name="android:height">56dp</item>
         <item name="android:background">@color/actionbar_color</item>
         <item name="android:icon">@android:color/transparent</item>
         <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
     </style>
 
     <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/ac_title_color</item>
         <item name="android:textSize">18sp</item>
     </style>
 

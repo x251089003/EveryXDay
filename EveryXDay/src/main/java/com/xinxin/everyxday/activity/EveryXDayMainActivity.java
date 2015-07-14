@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 
+import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
 import com.xinxin.ldrawer.ActionBarDrawerToggle;
 import com.xinxin.ldrawer.DrawerArrowDrawable;
 
@@ -130,12 +131,13 @@ public class EveryXDayMainActivity extends Activity {
 //                        String appUrl = "https://play.google.com/store/apps/details?id=" + getPackageName();
 //                        Intent rateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(appUrl));
 //                        startActivity(rateIntent);
-                        Fragment fragment = new PlanetFragment();
-                        Bundle args = new Bundle();
-                        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-                        fragment.setArguments(args);
+                        FragmentShowOrderFeaturedContent fragment = new FragmentShowOrderFeaturedContent();
+//                        Bundle args = new Bundle();
+//                        args.putInt("planet_number", position);
+//                        fragment.setArguments(args);
 
                         FragmentManager fragmentManager = getFragmentManager();
+//                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
                         // update selected item and title, then close the drawer
@@ -172,28 +174,28 @@ public class EveryXDayMainActivity extends Activity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    /**
-     * Fragment that appears in the "content_frame", shows a planet
-     */
-    public static class PlanetFragment extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
-
-        public PlanetFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String planet = getResources().getStringArray(R.array.planets_array)[i];
-
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-                    "drawable", getActivity().getPackageName());
-            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
-            getActivity().setTitle(planet);
-            return rootView;
-        }
-    }
+//    /**
+//     * Fragment that appears in the "content_frame", shows a planet
+//     */
+//    public static class PlanetFragment extends Fragment {
+//        public static final String ARG_PLANET_NUMBER = "planet_number";
+//
+//        public PlanetFragment() {
+//            // Empty constructor required for fragment subclasses
+//        }
+//
+//        @Override
+//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                                 Bundle savedInstanceState) {
+//            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
+//            int i = getArguments().getInt(ARG_PLANET_NUMBER);
+//            String planet = getResources().getStringArray(R.array.planets_array)[i];
+//
+//            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
+//                    "drawable", getActivity().getPackageName());
+//            ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
+//            getActivity().setTitle(planet);
+//            return rootView;
+//        }
+//    }
 }
