@@ -1,24 +1,11 @@
-/******************************************************************************
- * PROPRIETARY/CONFIDENTIAL 
- * Copyright (c) 2015 XianTao Technology Co.,Ltd
- * 
- * All rights reserved. This medium contains confidential and proprietary 
- * source code and other information which is the exclusive property of 
- * XianTao Technology Co.,Ltd. None of these materials may be used, 
- * disclosed, transcribed, stored in a retrieval system, translated into any 
- * other language or other computer language, or transmitted in any 
- * form or by any means (electronic, mechanical, photocopied, recorded 
- * or otherwise) without the prior written permission of XianTao Technology 
- * Co.,Ltd. 
- *******************************************************************************/
 package com.xinxin.everyxday.base.loopj.postdata;
 
-import com.txx.miaosha.base.loopj.requestclient.RequestClient;
-import com.txx.miaosha.util.AndroidOSInfoUtil;
-import com.txx.miaosha.util.SignUtil;
-import com.txx.miaosha.util.StringUtil;
-import com.txx.miaosha.util.TimeUtil;
-import com.txx.miaosha.util.sp.ProjectSettingInfoPreUtl;
+import com.xinxin.everyxday.base.loopj.requestclient.RequestClient;
+import com.xinxin.everyxday.util.AndroidOSInfoUtil;
+import com.xinxin.everyxday.util.ProjectSettingInfoPreUtil;
+import com.xinxin.everyxday.util.SignUtil;
+import com.xinxin.everyxday.util.StringUtil;
+import com.xinxin.everyxday.util.TimeUtil;
 
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
@@ -59,7 +46,7 @@ public class CommonRequestHeaderGenerate {
 		headers.add(new BasicHeader(RequestClient.USER_AGENT_KEY, generateUserAgent()));
 		
 		//所有请求带上Access-Key 暂时只有首页晒单列表必须带上
-		ProjectSettingInfoPreUtl psip = ProjectSettingInfoPreUtl.getInstance();
+		ProjectSettingInfoPreUtil psip = ProjectSettingInfoPreUtil.getInstance();
 		String accessKey = psip.getAccessKey();
 		if(!StringUtil.isEmpty(accessKey)){
 			headers.add(new BasicHeader(RequestClient.ACCESS_KEY, accessKey));
@@ -93,8 +80,8 @@ public class CommonRequestHeaderGenerate {
 		Date d = new Date(now.getTime() + now.getTimezoneOffset()*60*1000 + 5*60*1000);////获取当前时间+5分钟
 		String expires = sdf.format(d);
 		headers.add(new BasicHeader(RequestClient.EXPIRES_KEY, expires));
-		
-		ProjectSettingInfoPreUtl psip = ProjectSettingInfoPreUtl.getInstance();
+
+		ProjectSettingInfoPreUtil psip = ProjectSettingInfoPreUtil.getInstance();
 		String accessKey = psip.getAccessKey();
 		String secretKey = psip.getSecretKey();
 
@@ -147,7 +134,7 @@ public class CommonRequestHeaderGenerate {
 		userAgentBuilder.append(RequestClient.JAVA_VERSION);
 		userAgentBuilder.append(")");
 		
-		String accessKey = ProjectSettingInfoPreUtl.getInstance().getAccessKey();
+		String accessKey = ProjectSettingInfoPreUtil.getInstance().getAccessKey();
 		if(StringUtil.isEmpty(accessKey)){
 			userAgentBuilder.append(" -");
 		}else{

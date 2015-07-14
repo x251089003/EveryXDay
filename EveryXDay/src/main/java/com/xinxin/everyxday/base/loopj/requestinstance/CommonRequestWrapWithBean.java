@@ -4,13 +4,10 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.loopj.android.http.RequestParams;
-import com.txx.miaosha.bean.base.CommonResponseBody;
+import com.xinxin.everyxday.bean.base.CommonResponseBody;
 
 /**
  * 用于非列表型接口返回非列表型数据的请求和解析
- * 
- * @author tangjie
- * 
  * @param <T>
  */
 

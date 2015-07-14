@@ -1,8 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name"> 淘小仙 </string>
+    <string name="app_website">taoxiaoxian.com</string>
+    <string name="app_info">每日高性价比产品抢购，晒单返现金</string>
+    <string name="app_version_title">当前版本：</string>
+    <string name="app_weixin_title">官方微信：taoxiaoxian520</string>
+    <string name="app_weibo_title">官方微博：淘小仙2015</string>
+    <string name="app_qq_title">商家群号：445216988</string>
+    <string name="app_fensi_title">粉丝群号：428633724</string>
+    <string name="app_contact_title">联系电话：</string>
+    <string name="app_contact">4008-888-888</string>
+    <string name="app_tips">重要提示</string>
+    <string name="app_copyright">北京仙淘科技有限公司\ncopyright©2015</string>
+    <string name="splash_copyright">Copyright©2015</string>
+
     <!-- 提示文字 -->
     <string name="request_failure">请求失败</string>
     <string name="loading">正在加载</string>
+
+    <!-- 主界面 MainActivity -->
+    <string name="activity_main_bottom_kill_item_text">秒杀</string>
+    <string name="activity_main_bottom_worth_buy_item_text">值得买</string>
+    <string name="activity_main_bottom_show_order_item_text">晒单</string>
+    <string name="activity_main_bottom_my_item_text">我的</string>
+
+    <!-- 首页秒杀 -->
+    <string name="fragment_kill_title">淘小仙</string>
+    <string name="fragment_kill_list_more_kill_title">限时秒杀</string>
+    <string name="fragment_kill_list_more_worth_buy_title">编辑推荐</string>
+    <string name="fragment_kill_list_more_title">更多</string>
+
+    <!-- 秒杀记录&晒单返现 -->
+    <string name="action_pay">立即代付</string>
+    <string name="action_photo">马上晒单</string>
+
+    <!-- 秒杀详情 -->
+    <string name="fragment_kill_detail_title">淘小仙</string>
+    <string name="fragment_kill_result_title">秒杀结果</string>
+    <string name="fragment_kill_result_waitting_result">处理中，请稍候...</string>
+    <string name="sec_kill_step_title">秒杀玩法：</string>
+    <string name="sec_kill_step_detail">查看详情 ></string>
+    <string name="sec_kill_step_1">1，等待结果</string>
+    <string name="sec_kill_step_2">2，确认订单</string>
+    <string name="sec_kill_step_3">3，完成代付</string>
+    <string name="sec_kill_step_4">4，坐等收货</string>
+
+    <!-- 值得买item -->
+    <string name="worthbuy_item_from">天猫</string>
+    <string name="worthbuy_item_title">新低价:Cannon 佳能 EOS 5D Mark III 24-105mm 单反套机 大家一起来抢购吧</string>
+    <string name="worthbuy_item_oldprice">199元</string>
+    <string name="worthbuy_item_curprice">9.9</string>
+    <string name="worthbuy_item_yuan">元</string>
+    <string name="worthbuy_item_tag">年终大促</string>
+    <string name="worthbuy_item_selltotalcount">88888</string>
+    <string name="worthbuy_item_jian">件</string>
+    <string name="worthbuy_item_yishouchu">已售出</string>
+    <string name="worthbuy_main_title">值得买</string>
+    <string name="worthbuy_main_noinfo">暂无信息</string>
+
+    <!-- 晒单 -->
+    <string name="showorder_title">晒单</string>
+    <string name="showorder_item_nickname">淘小仙</string>
+    <string name="showorder_item_time">1分钟前</string>
+    <string name="showorder_item_content">大家一起来晒单！</string>
+    <string name="showorder_item_countzan">8888</string>
+    <string name="showorder_juedezan">人觉得很赞</string>
+    <string name="showorder_item_title_name">宝贝名称：</string>
+    <string name="showorder_item_publish_name">立即晒单</string>
+    <string name="waiting_to_show_activity_topbar_title">晒单返现</string>
+    <string name="uncashback">不要返现</string>
+    <string name="icashback">我要返现</string>
+
+    <!-- 晒单对话框 -->
+    <string name="showorder_select_dialog_take_photo">拍照</string>
+    <string name="showorder_select_dialog_from_library">从相册选择</string>
+    <string name="showorder_progress_dialog_msg">正在发布，请稍候...</string>
+
+    <!-- 晒单-相册 -->
+    <string name="showorder_albunm_title">选择</string>
+    <string name="showorder_albunm_edittext_hint">评价一下抢到的宝贝吧</string>
+    <string name="showorder_albunm_topbar_upload">晒单</string>
+    <string name="showorder_albunm_selected_seckill_title">对应宝贝：</string>
+    <string name="showorder_albunm_selectpic_title">选取照片</string>
+
+    <!-- 我的 首页 -->
+    <string name="fragment_my_title">我的</string>
+    <string name="fragment_my_login_text">立即登录</string>
+    <string name="fragment_my_slogan">自由自在，想淘就淘！</string>
+    <string name="fragment_my_mywallet_title">我的钱包</string>
+    <string name="fragment_my_mycoupon_title">我的优惠券</string>
+    <string name="fragment_my_mywallet_detail">账户余额随时提现</string>
+    <string name="fragment_my_show2return_title">晒单返现</string>
+    <string name="fragment_my_show2return_detail">秒杀宝贝晒单返现</string>
+    <string name="fragment_my_killhistory_title">秒杀记录</string>
+    <string name="fragment_my_killhistory_detail">历史秒杀记录</string>
+    <string name="fragment_my_task_title">每日任务</string>
+    <string name="fragment_my_task_detail">做任务得奖金</string>
+    <string name="fragment_my_invite_title">邀请好友</string>
+    <string name="fragment_my_help_intro_title">使用帮助</string>
+    <string name="fragment_my_setting_title">设置</string>
+
+    <!-- 登录、注册 -->
+    <string name="activity_login_header_title">用户登录</string>
+    <string name="activity_login_title">输入你的手机号码</string>
+    <string name="activity_login_description">您将收到验证身份的短信。手机登录将有效避免垃圾广告、骚扰信息。</string>
+    <string name="activity_register_description">您将收到验证身份的短信。手机注册将有效避免垃圾广告、骚扰信息。</string>
+    <string name="activity_login_tel_num_hint">输入您的手机号码</string>
+    <string name="activity_login_password_hint">输入您的密码</string>
+    <string name="activity_login_send_tel_num_btn">获取验证码</string>
+    <string name="activity_login_send_tel_num_btn_loading_tip">请求中...</string>
+    <string name="activity_login_login_btn">登录</string>
+    <string name="activity_register_header_title">注册</string>
+    <string name="activity_register_get_security_code_failure_tip">亲，网络不给力哦，请调整后重试</string>
+
+    <!-- activity_register_feed_back_sms_code -->
+    <string name="feed_back_sms_code_nickname_hint">昵称</string>
+    <string name="feed_back_sms_code_hint">输入短信验证码</string>
+    <string name="feed_back_invite_code_hint">输入好友的邀请码(可选)</string>
+    <string name="feed_back_sms_code_send_btn">完成</string>
+
+    <!-- 我的-我的钱包 -->
+    <string name="fragment_my_wallet_title">我的钱包</string>
+    <string name="fragment_my_wallet_item_balance_title">账户余额</string>
+    <string name="fragment_my_wallet_item_charge_title">充值</string>
+    <string name="fragment_my_wallet_item_return_title">提现</string>
+
+    <!-- 设置 -->
+    <string name="message_setting_title">消息通知</string>
+    <string name="help_setting_title">使用帮助</string>
+    <string name="clear_setting_title">清除缓存</string>
+    <string name="about_setting_title">关于</string>
+    <string name="question_setting_title">常见问题</string>
+    <string name="suggest_setting_title">客服中心</string>
+    <string name="invite_user_setting_title">邀请好友</string>
+    <string name="quit_setting_title">退出账号</string>
+    <string name="checkupdate_setting_title">检查更新</string>
+    <string name="checkupdate_dialog_msg">正在检查，请稍候...</string>
+    <string name="agree_setting_title">用户协议</string>
+    <string name="safe_setting_title">购买保障</string>
+
+    <!-- 宝贝详情 -->
+    <string name="goods_detail_title">淘宝详情</string>
+
+    <!-- 提现页面 -->
+    <string name="withdraw_topbar_title">申请提现</string>
+    <string name="withdraw_ali_account_hint">输入您的支付宝账号</string>
+    <string name="withdraw_amount_hint">输入提现金额</string>
+    <string name="withdraw_sms_code_hint">输入短信验证码</string>
+    <string name="withdraw_submit_text">提现</string>
+    <string name="withdraw_get_sms_code">获取验证码</string>
+    <string name="withdraw_progress_dialog_sms_code_msg">努力加载中，请稍候...</string>
+
+    <!-- AccountRechargeActivity -->
+    <string name="account_recharge_view_title">充值</string>
+    <string name="account_recharge_tip">请输入充值金额</string>
+    <string name="account_recharge_btn_text">确认充值</string>
+
+    <!-- FeaturedOrderCommentActivity -->
+    <string name="featured_order_comment_view_title">评论</string>
+    <string name="featured_order_comment_tip">赶紧来评论吧</string>
+    <string name="featured_order_comment_btn_text">发送</string>
+
+    <!-- 大米推送 -->
+    <string name="reset">已暂停推送, 点此重新启用</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="log">日志</string>
+    <string name="settings">设置</string>
+    <string name="set_alias">设置别名</string>
+    <string name="unset_alias">撤销别名</string>
+    <string name="subscribe_topic">订阅标签</string>
+    <string name="unsubscribe_topic">撤销标签</string>
+    <string name="set_env">设置环境</string>
+    <string name="set_accept_time">设置时间</string>
+    <string name="pause_push">暂停推送</string>
+    <string name="current_env">当前环境：%s</string>
+    <string name="official_env">线上环境</string>
+    <string name="sandbox_env">沙箱环境</string>
+    <string name="register_success">Register push success.</string>
+    <string name="register_fail">Register push fail.</string>
+    <string name="recv_message"> Receive a message. Content is \"%1$s\"</string>
+    <string name="set_alias_success"> Set alias \"%1$s\" success.</string>
+    <string name="set_alias_fail"> Set alias fail for %1$s.</string>
+    <string name="unset_alias_success"> Unset alias \"%1$s\" success.</string>
+    <string name="unset_alias_fail"> Unset alias fail for %1$s.</string>
+    <string name="subscribe_topic_success"> Subscribe topic \"%1$s\" success.</string>
+    <string name="subscribe_topic_fail"> Subscribe topic fail for %1$s.</string>
+    <string name="unsubscribe_topic_success"> Unsubscribe topic \"%1$s\" success.</string>
+    <string name="unsubscribe_topic_fail"> Unsubscribe topic fail for %1$s.</string>
+    <string name="set_accept_time_success"> Set accept time %1$s - %2$s success.</string>
+    <string name="set_accept_time_fail"> Set accept time fail for %1$s.</string>
+
+    <string name="app_description">Android drawer icon with material design animation</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 
 </resources>

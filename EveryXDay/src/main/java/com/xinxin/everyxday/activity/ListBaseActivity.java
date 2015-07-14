@@ -12,11 +12,21 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 
 
+import com.loopj.android.http.RequestParams;
+import com.txx.androidpaginglibrary.listwrap.listview.PagingListViewWrapBase;
+import com.txx.androidpaginglibrary.listwrap.listview.PagingRefreshingListViewWrap;
+import com.txx.androidpaginglibrary.listwrap.loaderrorview.LoadListDataErrorViewWrap;
+import com.xinxin.everyxday.base.loopj.requestinstance.CommonListRequestWrap;
+import com.xinxin.everyxday.bean.base.CommonResponseBody;
+import com.xinxin.everyxday.bean.base.CommonResponseHeader;
+import com.xinxin.everyxday.util.StringUtil;
+
 import java.util.List;
+import com.txx.androidpaginglibrary.R;
 
 public abstract class ListBaseActivity<T> extends Activity implements
-	ListDataLoadWrapDelegate<T>, PagingListViewWrapDelegate,
-	LoadListDataErrorViewWrapDelegate{
+		CommonListRequestWrap.ListDataLoadWrapDelegate<T>,PagingListViewWrapBase.PagingListViewWrapDelegate,
+		LoadListDataErrorViewWrap.LoadListDataErrorViewWrapDelegate {
 
 	protected Context context;
 	protected LayoutInflater inflater;
@@ -46,7 +56,7 @@ public abstract class ListBaseActivity<T> extends Activity implements
 	 * @param pagingListViewWrapDelegate
 	 * @return
 	 */
-	public abstract PagingListViewWrapBase getPagingListViewWrap(PagingListViewWrapDelegate pagingListViewWrapDelegate);
+	public abstract PagingListViewWrapBase getPagingListViewWrap(PagingListViewWrapBase.PagingListViewWrapDelegate pagingListViewWrapDelegate);
 			
 	/**
 	 * 获取listview的parentView

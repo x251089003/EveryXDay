@@ -7,16 +7,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.loopj.android.http.RequestParams;
-import com.txx.miaosha.bean.base.CommonResponseBody;
+import com.xinxin.everyxday.bean.base.CommonResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 用于非列表型接口返回列表型数据的请求和解析
- * 
- * @author tangjie
- * 
  * @param <T>
  */
 

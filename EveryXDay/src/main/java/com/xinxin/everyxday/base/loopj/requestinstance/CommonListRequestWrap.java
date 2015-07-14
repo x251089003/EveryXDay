@@ -11,17 +11,16 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.handler.TextHttpResponseHandler;
-import com.txx.androidpaginglibrary.R;
-import com.txx.miaosha.base.jsonparser.InterfaceResultParser;
-import com.txx.miaosha.base.loopj.jsoncache.ResponseCachePolicy;
-import com.txx.miaosha.base.loopj.postdata.CommonRequestHeaderGenerate;
-import com.txx.miaosha.base.loopj.postdata.RequestPostDataWrap;
-import com.txx.miaosha.base.loopj.requestclient.RequestClient;
-import com.txx.miaosha.base.netcode.ResultCodeUtil;
-import com.txx.miaosha.bean.base.CommonResponseBody;
-import com.txx.miaosha.bean.base.CommonResponseErrorBean;
-import com.txx.miaosha.bean.base.CommonResponseHeader;
-import com.txx.miaosha.util.StringUtil;
+import com.xinxin.everyxday.base.jsonparser.InterfaceResultParser;
+import com.xinxin.everyxday.base.loopj.jsoncache.ResponseCachePolicy;
+import com.xinxin.everyxday.base.loopj.postdata.CommonRequestHeaderGenerate;
+import com.xinxin.everyxday.base.loopj.postdata.RequestPostDataWrap;
+import com.xinxin.everyxday.base.loopj.requestclient.RequestClient;
+import com.xinxin.everyxday.base.netcode.ResultCodeUtil;
+import com.xinxin.everyxday.bean.base.CommonResponseBody;
+import com.xinxin.everyxday.bean.base.CommonResponseErrorBean;
+import com.xinxin.everyxday.bean.base.CommonResponseHeader;
+import com.xinxin.everyxday.util.StringUtil;
 
 import org.apache.http.Header;
 
@@ -33,6 +32,8 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.txx.androidpaginglibrary.R;
 
 public class CommonListRequestWrap<T> {
 	
@@ -125,7 +126,7 @@ public class CommonListRequestWrap<T> {
 		}
 		
 		Header[] headers = CommonRequestHeaderGenerate.generateRequestHeader(RequestClient.REQUEST_TYPE_GET, null,
-				listDataLoadWrapDelegate.isRequestNeedSignParams(), 
+				listDataLoadWrapDelegate.isRequestNeedSignParams(),
 				RequestPostDataWrap.generateUrlWithParams(listDataLoadWrapDelegate.getRequestType(), requestParams));
 		
 		RequestClient.get(context, requestUrl, headers, requestParams, new TextHttpResponseHandler() {

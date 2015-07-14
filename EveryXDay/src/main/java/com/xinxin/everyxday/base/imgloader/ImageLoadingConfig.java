@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.txx.miaosha.widget.AnimatioinAndCornerBitmapDisplayer;
+import com.xinxin.everyxday.widget.AnimatioinAndCornerBitmapDisplayer;
 
 public class ImageLoadingConfig {
 	

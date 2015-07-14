@@ -8,7 +8,7 @@ import com.xinxin.everyxday.bean.MineBean;
 
 public class UserInfoPreUtil extends PrefUtilBase {
 	
-	private static final String DEFAULT_PREF_NAME = "miaosha_sp";
+	private static final String DEFAULT_PREF_NAME = "everyxday_sp";
 
 	private static UserInfoPreUtil instance;
 	private static SharedPreferences sp;

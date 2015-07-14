@@ -3,8 +3,14 @@ package com.xinxin.everyxday.base.loopj.requestinstance;
 import android.app.ProgressDialog;
 import android.content.Context;
 
-import com.google.gson.Gson;
 
+import com.google.gson.Gson;
+import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.handler.TextHttpResponseHandler;
+import com.xinxin.everyxday.base.loopj.postdata.CommonRequestHeaderGenerate;
+import com.xinxin.everyxday.base.loopj.postdata.RequestPostDataWrap;
+import com.xinxin.everyxday.base.loopj.requestclient.RequestClient;
+import com.xinxin.everyxday.bean.base.CommonResponseBody;
 
 import org.apache.http.Header;
 
@@ -63,12 +69,12 @@ public class BrowserInterceptRequestWrap<T> {
 	public void getRequest(){
 		
 		String urlWithParams = RequestPostDataWrap.generateUrlWithParams(requestType, requestParams);
-		RequestClient.get(cxt, requestType, 
-				CommonRequestHeaderGenerate.generateRequestHeader(RequestClient.REQUEST_TYPE_GET, null, isNeedSigned, urlWithParams), 
+		RequestClient.get(cxt, requestType,
+				CommonRequestHeaderGenerate.generateRequestHeader(RequestClient.REQUEST_TYPE_GET, null, isNeedSigned, urlWithParams),
 				requestParams, new ServerRresponseHandler());
 	}
 	
-	private class ServerRresponseHandler extends TextHttpResponseHandler{
+	private class ServerRresponseHandler extends TextHttpResponseHandler {
 		
 		@Override
 		public void setRequestHeaders(Header[] requestHeaders) {

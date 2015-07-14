@@ -1,5 +1,10 @@
 package com.xinxin.everyxday.base.loopj.jsoncache;
 
+import com.xinxin.everyxday.EveryXDayApplication;
+import com.xinxin.everyxday.global.InterfaceUrlDefine;
+import com.xinxin.everyxday.util.Md5Encode;
+import com.xinxin.everyxday.util.StringUtil;
+
 import java.io.File;
 
 //TODO
@@ -21,8 +26,8 @@ public class ResponseCachePolicy extends ResponseCachePolicyBase {
 	
 	@Override
 	protected String getResponseHeaderCacheFilePath(String requestUrl, int page){
-		return MiaoShaApplication.getInstance().getLocalStorageUtil().getFileCacheAbsoluteDir() + 
-				File.separator+ Md5Encode.getMD5(requestUrl+page+"header");
+		return EveryXDayApplication.getInstance().getLocalStorageUtil().getFileCacheAbsoluteDir() +
+				File.separator+ Md5Encode.getMD5(requestUrl + page + "header");
 	}
 	
 	@Override
@@ -41,7 +46,7 @@ public class ResponseCachePolicy extends ResponseCachePolicyBase {
 	//本地缓存文件规则
 	@Override
 	protected String getDataCacheFilePath(String requestUrl, int page){
-		return MiaoShaApplication.getInstance().getLocalStorageUtil().getFileCacheAbsoluteDir() + 
+		return EveryXDayApplication.getInstance().getLocalStorageUtil().getFileCacheAbsoluteDir() +
 				File.separator+ Md5Encode.getMD5(requestUrl+page);
 	}
 

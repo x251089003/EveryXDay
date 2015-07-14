@@ -7,15 +7,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.handler.TextHttpResponseHandler;
-import com.txx.miaosha.base.jsonparser.InterfaceResultParser;
-import com.txx.miaosha.base.loopj.postdata.CommonRequestHeaderGenerate;
-import com.txx.miaosha.base.loopj.postdata.RequestPostDataWrap;
-import com.txx.miaosha.base.loopj.requestclient.RequestClient;
-import com.txx.miaosha.base.netcode.ResultCodeUtil;
-import com.txx.miaosha.bean.base.CommonResponseBody;
-import com.txx.miaosha.bean.base.CommonResponseErrorBean;
-import com.txx.miaosha.bean.base.CommonResponseHeader;
-import com.txx.miaosha.util.StringUtil;
+import com.xinxin.everyxday.base.jsonparser.InterfaceResultParser;
+import com.xinxin.everyxday.base.loopj.postdata.CommonRequestHeaderGenerate;
+import com.xinxin.everyxday.base.loopj.postdata.RequestPostDataWrap;
+import com.xinxin.everyxday.base.loopj.requestclient.RequestClient;
+import com.xinxin.everyxday.base.netcode.ResultCodeUtil;
+import com.xinxin.everyxday.bean.base.CommonResponseBody;
+import com.xinxin.everyxday.bean.base.CommonResponseErrorBean;
+import com.xinxin.everyxday.bean.base.CommonResponseHeader;
+import com.xinxin.everyxday.util.StringUtil;
 
 import org.apache.http.Header;
 

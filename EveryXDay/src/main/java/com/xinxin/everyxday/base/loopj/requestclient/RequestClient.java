@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.handler.AsyncHttpResponseHandler;
-import com.txx.miaosha.util.StringUtil;
+import com.xinxin.everyxday.util.StringUtil;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;

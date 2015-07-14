@@ -19,11 +19,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 
-import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
-import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
+import com.xinxin.ldrawer.ActionBarDrawerToggle;
+import com.xinxin.ldrawer.DrawerArrowDrawable;
 
 import java.util.Locale;
 
+import com.xinxin.everyxday.R;
 
 public class EveryXDayMainActivity extends Activity {
 

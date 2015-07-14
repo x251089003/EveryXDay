@@ -1,16 +1,3 @@
-/******************************************************************************
- * PROPRIETARY/CONFIDENTIAL 
- * Copyright (c) 2015 XianTao Technology Co.,Ltd
- * 
- * All rights reserved. This medium contains confidential and proprietary 
- * source code and other information which is the exclusive property of 
- * XianTao Technology Co.,Ltd. None of these materials may be used, 
- * disclosed, transcribed, stored in a retrieval system, translated into any 
- * other language or other computer language, or transmitted in any 
- * form or by any means (electronic, mechanical, photocopied, recorded 
- * or otherwise) without the prior written permission of XianTao Technology 
- * Co.,Ltd. 
- *******************************************************************************/
 package com.xinxin.everyxday.bean;
 
 public class MineBean {

@@ -1,8 +1,8 @@
 package com.xinxin.everyxday.base.loopj.postdata;
 
 import com.loopj.android.http.RequestParams;
-import com.txx.miaosha.base.loopj.requestclient.RequestClient;
-import com.txx.miaosha.util.StringUtil;
+import com.xinxin.everyxday.base.loopj.requestclient.RequestClient;
+import com.xinxin.everyxday.util.StringUtil;
 
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;

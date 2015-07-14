@@ -1,4 +1,4 @@
-package com.ikimuhendis.ldrawer;
+package com.xinxin.ldrawer;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -33,7 +33,7 @@ public class ActionBarDrawerToggle extends android.support.v4.app.ActionBarDrawe
     }
 
     public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, DrawerArrowDrawable drawerImage, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
-        super(activity, drawerLayout, R.drawable.ic_drawer, openDrawerContentDescRes, closeDrawerContentDescRes);
+        super(activity, drawerLayout, R.drawable.ic_drawerxx, openDrawerContentDescRes, closeDrawerContentDescRes);
         mActivity = activity;
         mDrawerLayout = drawerLayout;
         mOpenDrawerContentDescRes = openDrawerContentDescRes;

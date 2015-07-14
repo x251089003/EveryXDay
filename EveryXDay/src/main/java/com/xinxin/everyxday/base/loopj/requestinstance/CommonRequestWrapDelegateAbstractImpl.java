@@ -4,7 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.xinxin.everyxday.activity.R;
+import com.xinxin.everyxday.R;
+
 import com.xinxin.everyxday.bean.base.CommonResponseBody;
 import com.xinxin.everyxday.bean.base.CommonResponseErrorBean;
 
