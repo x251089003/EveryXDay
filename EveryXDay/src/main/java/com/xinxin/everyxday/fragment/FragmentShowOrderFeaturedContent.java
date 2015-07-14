@@ -65,7 +65,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 			SwipeRefreshLayout refreshListView = (SwipeRefreshLayout)listView;
 			ListView contentView = (ListView)refreshListView.findViewById(R.id.list_view);
 			contentView.setDivider(new ColorDrawable(R.color.transparent));
-			contentView.setDividerHeight(1);
+			contentView.setDividerHeight(0);
 			contentView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 		}
 		
@@ -96,15 +96,16 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		
 		ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
 		ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
-		
+
+//		ImageView aboveImg = (ImageView)convertView.findViewById(R.id.showorder_list_img_above);
 		convertView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
-				if(!isActivityAttached()){
+
+				if (!isActivityAttached()) {
 					return;
 				}
-				
+
 //				Intent intent = new Intent();
 //				intent.setClass(getAttachActivity(), ShowOrderFeaturedDetailContentActivity.class);
 //				intent.putExtra(CommonWebViewActivity.KILL_HELP_ACTIVITY_VIEW_TITLE, "晒单精选");
