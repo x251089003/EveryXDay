@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="common_paging_color_white">#ffffff</color>
+    <color name="common_paging_color_black">#FF000000</color>
+    <color name="common_paging_color_com_bg_color">#f2f2f2</color>
+    
+    <color name="global_bg_grey_color">#EAEAEA</color>
+    <color name="global_text_grey_color">#878787</color>
+    <color name="global_text_main_color">#E92F39</color>
+    <color name="global_line_main_color">#DCDCDC</color>
+    
+    <color name="app_main_theme_color">#eb4f38</color>
+    <color name="app_main_theme_color_two">#ea8010</color>
+    <color name="app_main_theme_color_three">#f4c600</color>
+    <color name="app_main_theme_color_four">#a9b7b7</color>
+
+</resources>

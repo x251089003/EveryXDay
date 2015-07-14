@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="view_pager_with_tab_line_title_selected_color">#eb4f38</color>
+    <color name="view_pager_with_tab_line_title_default_color">#666666</color>
+    
+    <color name="view_pager_with_tab_line_under_line_color">#eb4f38</color>
+
+</resources>

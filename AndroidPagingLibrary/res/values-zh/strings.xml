@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="common_paging_click_reload_tip">点击重新加载</string>
+    <string name="common_paging_loading_tip">正在载入…</string>
+    <string name="common_paging_network_failure_tip">网络连接失败</string>
+    <string name="common_paging_list_load_empty_tip">暂无数据</string>
+    <string name="common_paging_reload_tip">重新加载</string>
+    <string name="common_paging_no_more_tip">没有更多内容啦</string>
+    <string name="nodata_reload">点击屏幕&#160;&#160;&#160;&#160;重新加载</string>
+
+</resources>

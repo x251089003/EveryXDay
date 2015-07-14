@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textview_huge_size">20dp</dimen>
+    <dimen name="textview_big_size">18dp</dimen>
+    <dimen name="textview_middle_size">16dp</dimen>
+    <dimen name="textview_smiddle_size">15dp</dimen>
+    <dimen name="textview_small_size">14dp</dimen>
+    <dimen name="textview_mini_size">12dp</dimen>
+</resources>

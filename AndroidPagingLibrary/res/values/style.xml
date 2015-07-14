@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="myProgressBarStyleLarge">
+
+　　        <item name="android:indeterminateDrawable">@drawable/common_loading_animation</item>
+
+　　        <item name="android:minWidth">44dp</item>
+
+　　        <item name="android:maxWidth">44dp</item>
+
+　　        <item name="android:minHeight">44dp</item>
+
+　　        <item name="android:maxHeight">44dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="view_pager_with_tab_line_title_vertical_max_padding">0dp</dimen>
+    
+    <dimen name="view_pager_with_tab_line_title_line_height">4dp</dimen>
+
+</resources>

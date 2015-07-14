@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reload_btn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView 
+        android:id="@+id/imageView_click_reload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/empty_view_reload"/>
+    
+    <!-- <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView_click_reload"
+        android:layout_centerHorizontal="true"
+        android:text="@string/nodata_reload"
+	    android:textSize="@dimen/textview_middle_size"
+        android:textColor="@color/global_text_grey_color"/> -->
+
+</RelativeLayout>
