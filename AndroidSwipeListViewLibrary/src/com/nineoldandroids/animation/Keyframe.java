@@ -23,7 +23,7 @@ import android.view.animation.Interpolator;
  * by {@link ValueAnimator} to define the values that the animation target will have over the course
  * of the animation. As the time proceeds from one keyframe to the other, the value of the
  * target object will animate between the value at the previous keyframe and the value at the
- * next keyframe. Each keyframe also holds an optional {@link TimeInterpolator}
+ * next keyframe. Each keyframe also holds an optional 
  * object, which defines the time interpolation over the intervalue preceding the keyframe.
  *
  * <p>The Keyframe class itself is abstract. The type-specific factory methods will return

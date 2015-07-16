@@ -31,4 +31,5 @@ dependencies {
     compile project(':AndroidNetWorkLibrary')
     compile project(':AndroidPagingLibrary')
     compile project(':AndroidViewPagerWithTabLineLibrary')
+    compile 'com.jakewharton:butterknife:7.0.1'
 }

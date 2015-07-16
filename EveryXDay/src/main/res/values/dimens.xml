@@ -28,4 +28,5 @@
 
     <!-- top title custom height -->
     <dimen name="title_view_custom_width">200dp</dimen>
+    <dimen name="global_menu_avatar_size">64dp</dimen>
 </resources>
