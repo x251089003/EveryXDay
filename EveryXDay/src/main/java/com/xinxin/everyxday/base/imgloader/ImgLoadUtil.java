@@ -14,20 +14,20 @@ import com.xinxin.everyxday.R;
  */
 public class ImgLoadUtil {
 
-	private static final DisplayImageOptions commonDisplayOptions = ImageLoadingConfig.generateDisplayImageOptions(R.drawable.common_default_loading_bg);
-	private static final DisplayImageOptions commonDisplayOptionsWithAnimation = ImageLoadingConfig.generateDisplayImageOptionsWithAnimation(R.drawable.common_default_loading_bg);
-	private static final DisplayImageOptions commonDisplayOptionsWithAnimationAndNoCorner = ImageLoadingConfig.generateDisplayImageOptionsWithAnimationAndNoCorner(R.drawable.common_default_loading_bg);
+	private static final DisplayImageOptions commonDisplayOptions = ImageLoadingConfig.generateDisplayImageOptions();
+//	private static final DisplayImageOptions commonDisplayOptionsWithAnimation = ImageLoadingConfig.generateDisplayImageOptionsWithAnimation(R.drawable.common_default_loading_bg);
+//	private static final DisplayImageOptions commonDisplayOptionsWithAnimationAndNoCorner = ImageLoadingConfig.generateDisplayImageOptionsWithAnimationAndNoCorner(R.drawable.common_default_loading_bg);
 	
 	public static void displayImage(String imgUrl, ImageView imgView){
 		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptions);
 	}
 	
 	public static void displayImageWithAnimation(String imgUrl, ImageView imgView){
-		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptionsWithAnimation);
+		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptions);
 	}
 	
 	public static void displayImageWithAnimationAndNoCorner(String imgUrl, ImageView imgView){
-		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptionsWithAnimationAndNoCorner);
+		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptions);
 	}
 	
 	public static Bitmap loadImageSync(String imgUrl){

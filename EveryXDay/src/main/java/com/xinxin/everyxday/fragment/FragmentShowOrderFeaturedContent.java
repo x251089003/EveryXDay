@@ -88,7 +88,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		ImgLoadUtil.displayImageWithAnimation(vo.getAvatar(), userPhoto);
 		
 		TextView userName = (TextView)convertView.findViewById(R.id.showorder_list_user_name);
-		userName.setText(vo.getTitle());
+		userName.setText(vo.getTitle().replace("今日最佳：",""));
 		
 		TextView publishTime = (TextView)convertView.findViewById(R.id.showorder_list_user_publish_time);
 //		publishTime.setText(TimeUtil.getStandardDate(""+vo.getCreateTime().getTime()/1000));

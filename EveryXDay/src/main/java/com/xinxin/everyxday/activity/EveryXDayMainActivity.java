@@ -78,6 +78,8 @@ public class EveryXDayMainActivity extends Activity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+        initShowOrderFragment();
+
 
 //        String[] values = new String[]{
 //            "Stop Animation (Back icon)",
@@ -156,6 +158,12 @@ public class EveryXDayMainActivity extends Activity {
 //
 //            }
 //        });
+    }
+
+    private void initShowOrderFragment() {
+        FragmentShowOrderFeaturedContent fragment = new FragmentShowOrderFeaturedContent();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
     }
 
     @Override

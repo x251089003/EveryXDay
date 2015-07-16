@@ -76,6 +76,7 @@ public class InterfaceResultParser extends InterfaceResultParserBase {
 					int urlStartIndex = headerValue.indexOf("<");
 					int urlEndIndex = headerValue.indexOf(">");
 					headerValue = headerValue.substring(urlStartIndex+1, urlEndIndex);
+					System.out.println("headerValue ===== " + headerValue);
 					responseHeader.setLink(headerValue);
 				}
 			}
