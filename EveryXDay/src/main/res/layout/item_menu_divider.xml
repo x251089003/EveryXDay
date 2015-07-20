@@ -6,5 +6,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#E1511A" />
+        android:background="#ececec" />
 </FrameLayout>

@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
+    compileSdkVersion 22
     buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 20
+        targetSdkVersion 22
         versionCode 3
         versionName "1.0"
     }
@@ -32,4 +32,5 @@ dependencies {
     compile project(':AndroidPagingLibrary')
     compile project(':AndroidViewPagerWithTabLineLibrary')
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.traex.rippleeffect:library:1.3'
 }

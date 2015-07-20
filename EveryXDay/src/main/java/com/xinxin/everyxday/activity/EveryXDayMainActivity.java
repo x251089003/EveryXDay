@@ -6,11 +6,13 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,9 +20,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
+import com.xinxin.everyxday.fragment.FragmentSortContent;
 import com.xinxin.everyxday.widget.GlobalMenuView;
 import com.xinxin.ldrawer.ActionBarDrawerToggle;
 import com.xinxin.ldrawer.DrawerArrowDrawable;
@@ -31,7 +35,7 @@ import com.xinxin.everyxday.R;
 
 import butterknife.Bind;
 
-public class EveryXDayMainActivity extends Activity {
+public class EveryXDayMainActivity extends Activity implements GlobalMenuView.OnItemClickListener{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -41,6 +45,8 @@ public class EveryXDayMainActivity extends Activity {
 
     private LinearLayout menuLayout;
 
+    private FragmentShowOrderFeaturedContent fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +55,14 @@ public class EveryXDayMainActivity extends Activity {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
 
+
         menuLayout = (LinearLayout)findViewById(R.id.navdrawer);
         menuView = new GlobalMenuView(this);
         menuLayout.addView(menuView);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        menuView.setOnItemClickListener(this);
 
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setScrimColor(getResources().getColor(R.color.whitetransparent));
 
         drawerArrow = new DrawerArrowDrawable(this) {
             @Override
@@ -137,7 +146,7 @@ public class EveryXDayMainActivity extends Activity {
 //                        startActivity(Intent.createChooser(share,
 //                            getString(R.string.app_name)));
 //                        break;
-//                    case 6:
+////                    case 6:
 ////                        String appUrl = "https://play.google.com/store/apps/details?id=" + getPackageName();
 ////                        Intent rateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(appUrl));
 ////                        startActivity(rateIntent);
@@ -161,7 +170,7 @@ public class EveryXDayMainActivity extends Activity {
     }
 
     private void initShowOrderFragment() {
-        FragmentShowOrderFeaturedContent fragment = new FragmentShowOrderFeaturedContent();
+        fragment = new FragmentShowOrderFeaturedContent();
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
     }
@@ -188,6 +197,28 @@ public class EveryXDayMainActivity extends Activity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        System.out.println("这里这里这里这里这里这里这里这里这里这里这里这里这里");
+        FragmentManager fragmentManager = getFragmentManager();
+        switch (position){
+            case 0:
+                fragment = new FragmentShowOrderFeaturedContent();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                menuView.setItemChecked(position, true);
+                mDrawerLayout.closeDrawers();
+                break;
+            case 1:
+                FragmentSortContent sortFragment = new FragmentSortContent();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
+                menuView.setItemChecked(position, true);
+                mDrawerLayout.closeDrawers();
+                break;
+            default:
+                break;
+        }
     }
 
 //    /**

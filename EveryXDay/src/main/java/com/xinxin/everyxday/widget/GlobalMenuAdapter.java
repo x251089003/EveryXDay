@@ -30,13 +30,14 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
     }
 
     private void setupMenuItems() {
-        menuItems.add(new GlobalMenuItem(R.drawable.ic_global_menu_feed, "每一天"));
-        menuItems.add(new GlobalMenuItem(R.drawable.ic_global_menu_direct, "分类"));
-        menuItems.add(new GlobalMenuItem(R.drawable.ic_global_menu_news, "喜欢过的"));
-        menuItems.add(new GlobalMenuItem(R.drawable.ic_global_menu_popular, "我想投稿"));
+        menuItems.add(new GlobalMenuItem(R.drawable.home, "今页"));
+        menuItems.add(new GlobalMenuItem(R.drawable.sort, "分类"));
+        menuItems.add(new GlobalMenuItem(R.drawable.like, "喜欢过的"));
+        menuItems.add(new GlobalMenuItem(R.drawable.send, "我想投稿"));
+        menuItems.add(new GlobalMenuItem(R.drawable.give, "支持我们"));
         menuItems.add(GlobalMenuItem.dividerMenuItem());
-        menuItems.add(new GlobalMenuItem(0, "设置"));
-        menuItems.add(new GlobalMenuItem(0, "关于"));
+        menuItems.add(new GlobalMenuItem(R.drawable.setting, "设置"));
+        menuItems.add(new GlobalMenuItem(R.drawable.about, "关于"));
         notifyDataSetChanged();
     }
 

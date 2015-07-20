@@ -105,7 +105,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 				if (!isActivityAttached()) {
 					return;
 				}
-
+				System.out.println("这里这里这里这里这里这里这里这里这里这里这里这里这里");
 //				Intent intent = new Intent();
 //				intent.setClass(getAttachActivity(), ShowOrderFeaturedDetailContentActivity.class);
 //				intent.putExtra(CommonWebViewActivity.KILL_HELP_ACTIVITY_VIEW_TITLE, "晒单精选");

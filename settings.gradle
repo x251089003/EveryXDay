@@ -1,1 +1,1 @@
-include ':EveryXDay', 'AndroidLDrawerLibrary', 'AndroidViewPagerWithTabLineLibrary', 'AndroidNetWorkLibrary', 'AndroidPagingLibrary', 'AndroidSwipeListViewLibrary', ':AndroidLibrarySupport'
+include ':EveryXDay', 'AndroidLDrawerLibrary', 'AndroidViewPagerWithTabLineLibrary', 'AndroidNetWorkLibrary', 'AndroidPagingLibrary', 'AndroidSwipeListViewLibrary', ':AndroidLibrarySupport', ':MaterialDesign'

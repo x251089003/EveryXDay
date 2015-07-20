@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    >
+
+        <ImageView
+            android:id="@+id/sort_left"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop" />
+        <!--<com.andexert.library.RippleView-->
+            <!--android:id="@+id/more"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="220dp"-->
+            <!--app:rv_rippleDuration="300">-->
+            <ImageView
+                android:id="@+id/sort_left_above"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:background="@color/greyer_middle_transparent"/>
+        <!--</com.andexert.library.RippleView>-->
+        <TextView
+            android:id="@+id/sort_left_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/showorder_item_nickname"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowColor="@color/ac_title_color"
+            android:shadowRadius="3"
+            android:layout_gravity="center"/>
+
+</FrameLayout>
