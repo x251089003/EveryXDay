@@ -51,12 +51,13 @@ public class EveryXDayMainActivity extends Activity{
     private FragmentShowOrderFeaturedContent fragment;
 
     private int completeFlag = 0;
+    ActionBar ab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
-        ActionBar ab = getActionBar();
+        ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
 
@@ -211,12 +212,14 @@ public class EveryXDayMainActivity extends Activity{
                 FragmentManager fragmentManager = getFragmentManager();
                 switch (position){
                     case 0:
+                        ab.setTitle("一千零一页");
                         fragment = new FragmentShowOrderFeaturedContent();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
                     case 1:
+                        ab.setTitle("分类");
                         FragmentSortContent sortFragment = new FragmentSortContent();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
                         menuView.setItemChecked(position, true);
