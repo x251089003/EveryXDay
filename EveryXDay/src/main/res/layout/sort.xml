@@ -3,13 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
 
     <GridView
         android:id="@+id/gview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="2"
+        android:verticalSpacing="12dp"
+        android:horizontalSpacing="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none"
         >
 
     </GridView>

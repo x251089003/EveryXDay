@@ -42,7 +42,8 @@
             android:id="@+id/more"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            app:rv_rippleDuration="300">
+            app:rv_rippleDuration="300"
+            app:rv_type="rectangle">
             <ImageView
                 android:id="@+id/showorder_list_img_above"
                 android:layout_width="match_parent"

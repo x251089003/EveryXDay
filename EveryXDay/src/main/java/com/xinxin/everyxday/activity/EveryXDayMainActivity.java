@@ -25,6 +25,8 @@ import android.widget.Toast;
 
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
 import com.xinxin.everyxday.fragment.FragmentSortContent;
+import com.xinxin.everyxday.util.ResultInterface;
+import com.xinxin.everyxday.widget.GlobalMenuAdapter;
 import com.xinxin.everyxday.widget.GlobalMenuView;
 import com.xinxin.ldrawer.ActionBarDrawerToggle;
 import com.xinxin.ldrawer.DrawerArrowDrawable;
@@ -35,17 +37,20 @@ import com.xinxin.everyxday.R;
 
 import butterknife.Bind;
 
-public class EveryXDayMainActivity extends Activity implements GlobalMenuView.OnItemClickListener{
+public class EveryXDayMainActivity extends Activity{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
     private boolean drawerArrowColor;
-    private GlobalMenuView menuView;
+    private ListView menuView;
+    GlobalMenuAdapter globalMenuAdapter;
 
     private LinearLayout menuLayout;
 
     private FragmentShowOrderFeaturedContent fragment;
+
+    private int completeFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +62,9 @@ public class EveryXDayMainActivity extends Activity implements GlobalMenuView.On
 
 
         menuLayout = (LinearLayout)findViewById(R.id.navdrawer);
-        menuView = new GlobalMenuView(this);
-        menuLayout.addView(menuView);
-        menuView.setOnItemClickListener(this);
+        menuView = (ListView)findViewById(R.id.menuview);
+        globalMenuAdapter = new GlobalMenuAdapter(this,listener);
+        menuView.setAdapter(globalMenuAdapter);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setScrimColor(getResources().getColor(R.color.whitetransparent));
@@ -199,28 +204,30 @@ public class EveryXDayMainActivity extends Activity implements GlobalMenuView.On
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        System.out.println("这里这里这里这里这里这里这里这里这里这里这里这里这里");
-        FragmentManager fragmentManager = getFragmentManager();
-        switch (position){
-            case 0:
-                fragment = new FragmentShowOrderFeaturedContent();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                menuView.setItemChecked(position, true);
-                mDrawerLayout.closeDrawers();
-                break;
-            case 1:
-                FragmentSortContent sortFragment = new FragmentSortContent();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
-                menuView.setItemChecked(position, true);
-                mDrawerLayout.closeDrawers();
-                break;
-            default:
-                break;
+    ResultInterface listener = new ResultInterface() {
+        @Override
+        public void OnComplete(int state, int position) {
+            if(state == 1){
+                FragmentManager fragmentManager = getFragmentManager();
+                switch (position){
+                    case 0:
+                        fragment = new FragmentShowOrderFeaturedContent();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                        menuView.setItemChecked(position, true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case 1:
+                        FragmentSortContent sortFragment = new FragmentSortContent();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
+                        menuView.setItemChecked(position, true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
-    }
-
+    };
 //    /**
 //     * Fragment that appears in the "content_frame", shows a planet
 //     */

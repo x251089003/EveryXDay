@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -32,8 +33,8 @@ public class GlobalMenuView extends ListView implements View.OnClickListener {
     }
 
     private void setupAdapter() {
-        globalMenuAdapter = new GlobalMenuAdapter(getContext());
-        setAdapter(globalMenuAdapter);
+//        globalMenuAdapter = new GlobalMenuAdapter(getContext(),this);
+//        setAdapter(globalMenuAdapter);
     }
 
     private void setupHeader() {
@@ -45,6 +46,11 @@ public class GlobalMenuView extends ListView implements View.OnClickListener {
 
         addHeaderView(vHeader);
         vHeader.setOnClickListener(this);
+    }
+
+    @Override
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        super.setOnItemClickListener(listener);
     }
 
     @Override

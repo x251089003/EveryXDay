@@ -8,7 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.andexert.library.RippleView;
 import com.xinxin.everyxday.R;
+import com.xinxin.everyxday.util.ResultInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +24,12 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
 
     private final LayoutInflater inflater;
     private final List<GlobalMenuItem> menuItems = new ArrayList<GlobalMenuItem>();
+    private ResultInterface listener;
 
-    public GlobalMenuAdapter(Context context) {
+    public GlobalMenuAdapter(Context context,ResultInterface listener) {
         super(context, 0);
         this.inflater = LayoutInflater.from(context);
+        this.listener = listener;
         setupMenuItems();
     }
 
@@ -67,7 +71,7 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (getItemViewType(position) == TYPE_MENU_ITEM) {
             MenuItemViewHolder holder;
             if (convertView == null) {
@@ -82,6 +86,16 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
             holder.tvLabel.setText(item.label);
             holder.ivIcon.setImageResource(item.iconResId);
             holder.ivIcon.setVisibility(item.iconResId == 0 ? View.GONE : View.VISIBLE);
+
+            holder.mRippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+
+                @Override
+                public void onComplete(RippleView rippleView) {
+                    System.out.println("完成！！！！！！！！！！！！！！！");
+                    listener.OnComplete(1, position);
+                }
+
+            });
 
             return convertView;
         } else {
@@ -99,6 +113,8 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
         ImageView ivIcon;
         @Bind(R.id.tvLabel)
         TextView tvLabel;
+        @Bind(R.id.myripple)
+        RippleView mRippleView;
 
         public MenuItemViewHolder(View view) {
             ButterKnife.bind(this,view);

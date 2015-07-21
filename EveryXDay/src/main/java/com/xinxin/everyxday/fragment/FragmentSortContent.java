@@ -2,6 +2,7 @@ package com.xinxin.everyxday.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -24,7 +25,9 @@ import com.xinxin.everyxday.global.InterfaceUrlDefine;
 import com.xinxin.everyxday.util.TimeUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xinxin on 15/7/18.
@@ -36,16 +39,18 @@ public class FragmentSortContent extends Fragment {
     private View sortView;
     private GridView mGridView;
     private SortAdapter mSortAdapter;
-    private SortBean mSortBean;
+    List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
 
     // 图片封装为一个数组
-    private int[] icon = { R.drawable.earth, R.drawable.earth,
+    private int[] icon = { R.drawable.chuanyi, R.drawable.chihuo,
+            R.drawable.jiaju, R.drawable.lvxing, R.drawable.baobao,
+            R.drawable.meizhuang, R.drawable.earth, R.drawable.earth,
             R.drawable.earth, R.drawable.earth, R.drawable.earth,
             R.drawable.earth, R.drawable.earth, R.drawable.earth,
-            R.drawable.earth, R.drawable.earth, R.drawable.earth,
-            R.drawable.earth };
-    private String[] iconName = { "女装", "男装", "女鞋", "男鞋", "美妆", "数码", "生活",
-            "家居", "美食", "创意", "植物", "礼物" };
+            R.drawable.earth, R.drawable.earth
+    };
+    private String[] iconName = { "穿衣", "吃货", "家居", "旅行", "包包", "美妆", "母婴",
+            "户外", "手帐", "手办", "创意", "清新" , "科技", "设计", "無印良品", "中国制造"};
 
     public static FragmentSortContent newInstance(Bundle args) {
         FragmentSortContent myFragment = new FragmentSortContent();
@@ -68,17 +73,15 @@ public class FragmentSortContent extends Fragment {
         return sortView;
     }
 
-    private ArrayList<SortBean> getData() {
+    private void getData() {
+        // 将上述资源转化为list集合
+        for (int i = 0; i < iconName.length; i++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("image", icon[i]);
+            map.put("title", iconName[i]);
 
-        for (int i = 0;i<12;i++){
-            mSortBean = new SortBean();
-            mSortBean.setId(i);
-            mSortBean.setIcon(icon[i]);
-            mSortBean.setName(iconName[i]);
-            voList.add(mSortBean);
+            dataList.add(map);
         }
-
-        return voList;
     }
 
     private void initViews() {
@@ -108,12 +111,12 @@ public class FragmentSortContent extends Fragment {
 
         @Override
         public int getCount() {
-            return 12;
+            return dataList.size();
         }
 
         @Override
-        public SortBean getItem(int position) {
-            return voList.get(position);
+        public Map getItem(int position) {
+            return dataList.get(position);
         }
 
         @Override
@@ -135,8 +138,8 @@ public class FragmentSortContent extends Fragment {
                 holder = (ViewHolder)convertView.getTag();//取出ViewHolder对象
             }
 
-            holder.sortName.setText(voList.get(position).getName().toString());
-            holder.sortImageView.setBackgroundResource(R.drawable.about);
+            holder.sortName.setText(dataList.get(position).get("title").toString());
+            holder.sortImageView.setImageResource((Integer) dataList.get(position).get("image"));
 
             return convertView;
         }
