@@ -13,7 +13,8 @@
     <color name="grey_transparent">#F4F4F4</color>
     <color name="greyer_transparent">#32000000</color>
     <color name="greyer_less_transparent">#B2555555</color>
-    <color name="greyer_middle_transparent">#64000000</color>
+    <color name="greyer_middle_transparent">#60000000</color>
+    <!--<color name="greyer_middle_transparent">#64000000</color>-->
     <color name="greyer_deep_transparent">#B2000000</color>
     <color name="greyest_transparent">#96000000</color>
 

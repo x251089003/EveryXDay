@@ -44,13 +44,13 @@ public class FragmentSortContent extends Fragment {
     // 图片封装为一个数组
     private int[] icon = { R.drawable.chuanyi, R.drawable.chihuo,
             R.drawable.jiaju, R.drawable.lvxing, R.drawable.baobao,
-            R.drawable.meizhuang, R.drawable.earth, R.drawable.earth,
-            R.drawable.earth, R.drawable.earth, R.drawable.earth,
-            R.drawable.earth, R.drawable.earth, R.drawable.earth,
-            R.drawable.earth, R.drawable.earth
+            R.drawable.meizhuang, R.drawable.muying, R.drawable.shouzhang,
+            R.drawable.sheying, R.drawable.wanju, R.drawable.shouji, R.drawable.kechuandai,
+            R.drawable.diannao, R.drawable.wurenji, R.drawable.wuyinliangpin,
+            R.drawable.zhongguozhizao
     };
     private String[] iconName = { "穿衣", "吃货", "家居", "旅行", "包包", "美妆", "母婴",
-            "户外", "手帐", "手办", "创意", "清新" , "科技", "设计", "無印良品", "中国制造"};
+            "手帐" , "摄影", "玩具", "手机", "可穿戴", "电脑", "无人机", "無印良品", "中国制造"};
 
     public static FragmentSortContent newInstance(Bundle args) {
         FragmentSortContent myFragment = new FragmentSortContent();
