@@ -34,7 +34,7 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
     }
 
     private void setupMenuItems() {
-        menuItems.add(new GlobalMenuItem(R.drawable.home, "今页"));
+        menuItems.add(new GlobalMenuItem(R.drawable.home, "NEW"));
         menuItems.add(new GlobalMenuItem(R.drawable.sort, "分类"));
         menuItems.add(new GlobalMenuItem(R.drawable.like, "喜欢过的"));
         menuItems.add(new GlobalMenuItem(R.drawable.send, "我想投稿"));
