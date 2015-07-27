@@ -237,7 +237,7 @@ public class EveryXDayMainActivity extends Activity{
                 FragmentManager fragmentManager = getFragmentManager();
                 switch (position){
                     case 0:
-                        ab.setTitle("一千零一页");
+                        ab.setTitle("NEW");
                         fragment = new FragmentShowOrderFeaturedContent();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
                         menuView.setItemChecked(position, true);
