@@ -49,8 +49,8 @@ public class FragmentSortContent extends Fragment {
             R.drawable.diannao, R.drawable.wurenji, R.drawable.wuyinliangpin,
             R.drawable.zhongguozhizao
     };
-    private String[] iconName = { "穿衣", "吃货", "家居", "旅行", "包包", "美妆", "母婴",
-            "手帐" , "摄影", "玩具", "手机", "可穿戴", "电脑", "无人机", "無印良品", "中国制造"};
+    private String[] iconName = { "#穿衣", "#吃货", "#家居", "#旅行", "#包包", "#美妆", "#母婴",
+            "#手帐" , "#摄影", "#玩具", "#手机", "#可穿戴", "#电脑", "#无人机", "#無印良品", "#中国制造"};
 
     public static FragmentSortContent newInstance(Bundle args) {
         FragmentSortContent myFragment = new FragmentSortContent();
