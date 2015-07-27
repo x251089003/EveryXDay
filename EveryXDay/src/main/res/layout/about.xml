@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="2000dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="24dp"
+        android:text="每  一  天  都  是  崭  新  的\n这  里  属  于  每  一  个  人"
+        android:textSize="14sp"
+        android:lineSpacingMultiplier="1.5"
+        android:textColor="@color/ac_title_color"
+        android:gravity="center_horizontal"
+        android:id="@+id/textView"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver."
+            android:id="@+id/textView2"
+            android:textSize="14sp"
+            android:textColor="@color/ac_title_color"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="1.0.0"
+            android:id="@+id/textView_version"
+            android:textSize="14sp"
+            android:textColor="@color/ac_title_color"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

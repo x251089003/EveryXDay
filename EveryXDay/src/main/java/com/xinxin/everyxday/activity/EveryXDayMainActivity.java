@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -23,6 +24,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.nispok.snackbar.Snackbar;
+import com.xinxin.everyxday.fragment.FragmentAbout;
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
 import com.xinxin.everyxday.fragment.FragmentSortContent;
 import com.xinxin.everyxday.util.ResultInterface;
@@ -205,6 +208,28 @@ public class EveryXDayMainActivity extends Activity{
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    private long mExitTime;
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                Snackbar.with(getApplicationContext()) // context
+                        .colorResource(R.color.app_main_theme_color_transparent)
+                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                        .text("再按一次退出程序") // text to display
+                        .show(this);
+                mExitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     ResultInterface listener = new ResultInterface() {
         @Override
         public void OnComplete(int state, int position) {
@@ -222,6 +247,13 @@ public class EveryXDayMainActivity extends Activity{
                         ab.setTitle("分类");
                         FragmentSortContent sortFragment = new FragmentSortContent();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
+                        menuView.setItemChecked(position, true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case 7:
+                        ab.setTitle("关于");
+                        FragmentAbout aboutFragment = new FragmentAbout();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
