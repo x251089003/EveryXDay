@@ -42,12 +42,12 @@ public class FragmentSortContent extends Fragment {
     List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
 
     // 图片封装为一个数组
-    private int[] icon = { R.drawable.chuanyi, R.drawable.chihuo,
-            R.drawable.jiaju, R.drawable.lvxing, R.drawable.baobao,
-            R.drawable.meizhuang, R.drawable.muying, R.drawable.shouzhang,
-            R.drawable.sheying, R.drawable.wanju, R.drawable.shouji, R.drawable.kechuandai,
-            R.drawable.diannao, R.drawable.wurenji, R.drawable.wuyinliangpin,
-            R.drawable.zhongguozhizao
+    private int[] icon = { R.mipmap.chuanyi, R.mipmap.chihuo,
+            R.mipmap.jiaju, R.mipmap.lvxing, R.mipmap.baobao,
+            R.mipmap.meizhuang, R.mipmap.muying, R.mipmap.shouzhang,
+            R.mipmap.sheying, R.mipmap.wanju, R.mipmap.shouji, R.mipmap.kechuandai,
+            R.mipmap.diannao, R.mipmap.wurenji, R.mipmap.wuyinliangpin,
+            R.mipmap.zhongguozhizao
     };
     private String[] iconName = { "#穿衣", "#吃货", "#家居", "#旅行", "#包包", "#美妆", "#母婴",
             "#手帐" , "#摄影", "#玩具", "#手机", "#可穿戴", "#电脑", "#无人机", "#無印良品", "#中国制造"};

@@ -34,15 +34,15 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
     }
 
     private void setupMenuItems() {
-        menuItems.add(new GlobalMenuItem(R.drawable.home, "NEW"));
-        menuItems.add(new GlobalMenuItem(R.drawable.sort, "分类"));
-        menuItems.add(new GlobalMenuItem(R.drawable.like, "喜欢过的"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.home, "NEW"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.sort, "分类"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.like, "喜欢过的"));
         menuItems.add(GlobalMenuItem.dividerMenuItem());
-        menuItems.add(new GlobalMenuItem(R.drawable.send, "分享新品"));
-        menuItems.add(new GlobalMenuItem(R.drawable.give, "支持NEW"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.send, "分享新品"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.give, "支持NEW"));
         menuItems.add(GlobalMenuItem.dividerMenuItem());
-        menuItems.add(new GlobalMenuItem(R.drawable.setting, "设置"));
-        menuItems.add(new GlobalMenuItem(R.drawable.about, "关于"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.setting, "设置"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.about, "关于"));
         notifyDataSetChanged();
     }
 

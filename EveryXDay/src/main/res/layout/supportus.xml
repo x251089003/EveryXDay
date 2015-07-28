@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:toggle="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/tools"
+<com.gc.materialdesign.views.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -11,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
         android:background="@color/white"
         android:id="@+id/parent">
 
@@ -21,13 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_gravity="center_horizontal"
-            android:text="感  谢"
+            android:text="感    谢"
             android:textSize="18sp"
             android:textColor="@color/ac_title_color"
+            android:textStyle="bold"
             />
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:background="#d5d5d5"
             android:layout_marginTop="8dp"
             />
@@ -40,16 +40,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:layout_centerVertical="true"
-                android:text="梦想总是遥不可及，是不是应该放弃，您的支持会让有梦想的年轻人更加坚定，会让NEW变的更好。非常感谢您对NEW的支持！"
+                android:text="梦 想 总 是 遥 不 可 及，是 不 是 应 该 放 弃，您 的 支 持 会 让 有 梦 想 的 年 轻 人 更 加 坚 定，会 让 NEW 变 的 更 好。非 常 感 谢 您 对 NEW 的 支 持！"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
-                android:textStyle="bold"/>
+                android:lineSpacingMultiplier="1.5"
+                />
         </RelativeLayout>
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:background="@color/app_main_theme_color"
+            android:paddingLeft="48dp"
+            android:paddingRight="48dp"
+            android:text="    支持￥1    " />
 
     </LinearLayout>
 
-</ScrollView>
+</com.gc.materialdesign.views.ScrollView>

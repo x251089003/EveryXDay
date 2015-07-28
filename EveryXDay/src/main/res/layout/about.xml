@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:id="@+id/imageView"
-        android:src="@drawable/logo2"/>
+        android:src="@mipmap/logo2"/>
 
     <TextView
         android:layout_width="match_parent"

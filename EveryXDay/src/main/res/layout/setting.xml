@@ -271,7 +271,7 @@
                 android:layout_height="44dp"
                 android:id="@+id/imageView_weixin"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/weixin"/>
+                android:background="@mipmap/weixin"/>
 
             <ImageView
                 android:layout_width="44dp"
@@ -279,7 +279,7 @@
                 android:id="@+id/imageView_friend"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/pengyouquan"/>
+                android:background="@mipmap/pengyouquan"/>
 
             <ImageView
                 android:layout_width="44dp"
@@ -287,14 +287,14 @@
                 android:id="@+id/imageView_sina"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/sina"/>
+                android:background="@mipmap/sina"/>
 
             <ImageView
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:id="@+id/imageView_qq"
                 android:layout_marginLeft="16dp"
-                android:background="@drawable/qq"/>
+                android:background="@mipmap/qq"/>
         </LinearLayout>
 
     </LinearLayout>
