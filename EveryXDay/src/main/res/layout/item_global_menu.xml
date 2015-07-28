@@ -7,7 +7,7 @@
     android:gravity="center_vertical"
     app:rv_color="@color/app_main_theme_color"
     app:rv_type="rectangle"
-    app:rv_rippleDuration="100"
+    app:rv_rippleDuration="200"
     android:id="@+id/myripple">
 
     <LinearLayout

@@ -37,8 +37,9 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
         menuItems.add(new GlobalMenuItem(R.drawable.home, "NEW"));
         menuItems.add(new GlobalMenuItem(R.drawable.sort, "分类"));
         menuItems.add(new GlobalMenuItem(R.drawable.like, "喜欢过的"));
-        menuItems.add(new GlobalMenuItem(R.drawable.send, "我想投稿"));
-        menuItems.add(new GlobalMenuItem(R.drawable.give, "支持我们"));
+        menuItems.add(GlobalMenuItem.dividerMenuItem());
+        menuItems.add(new GlobalMenuItem(R.drawable.send, "分享新品"));
+        menuItems.add(new GlobalMenuItem(R.drawable.give, "支持NEW"));
         menuItems.add(GlobalMenuItem.dividerMenuItem());
         menuItems.add(new GlobalMenuItem(R.drawable.setting, "设置"));
         menuItems.add(new GlobalMenuItem(R.drawable.about, "关于"));

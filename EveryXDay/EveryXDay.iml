@@ -98,6 +98,7 @@
     <orderEntry type="library" exported="" name="MiPush_SDK_Client_2_2_13_sdk" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="snackbar-2.10.10" level="project" />
+    <orderEntry type="library" exported="" name="rebound-0.3.8" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-22.0.0" level="project" />
     <orderEntry type="module" module-name="AndroidNetWorkLibrary" exported="" />
     <orderEntry type="module" module-name="AndroidViewPagerWithTabLineLibrary" exported="" />

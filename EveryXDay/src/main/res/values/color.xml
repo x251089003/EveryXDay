@@ -90,6 +90,6 @@
         <item>@color/gplus_color_4</item>
     </integer-array>
 
-    <color name="whitetransparent">#adffffff</color>
+    <color name="whitetransparent">#32000000</color>
 
 </resources>

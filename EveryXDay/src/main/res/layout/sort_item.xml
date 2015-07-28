@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:gravity="center_vertical"
     app:rv_type="rectangle"
-    app:rv_rippleDuration="200"
+    app:rv_rippleDuration="300"
     android:id="@+id/myripple">
 
     <FrameLayout

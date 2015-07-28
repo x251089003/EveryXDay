@@ -26,8 +26,10 @@ import android.widget.Toast;
 
 import com.nispok.snackbar.Snackbar;
 import com.xinxin.everyxday.fragment.FragmentAbout;
+import com.xinxin.everyxday.fragment.FragmentSetting;
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
 import com.xinxin.everyxday.fragment.FragmentSortContent;
+import com.xinxin.everyxday.fragment.FragmentSupportUs;
 import com.xinxin.everyxday.util.ResultInterface;
 import com.xinxin.everyxday.widget.GlobalMenuAdapter;
 import com.xinxin.everyxday.widget.GlobalMenuView;
@@ -235,6 +237,11 @@ public class EveryXDayMainActivity extends Activity{
         public void OnComplete(int state, int position) {
             if(state == 1){
                 FragmentManager fragmentManager = getFragmentManager();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 switch (position){
                     case 0:
                         ab.setTitle("NEW");
@@ -250,7 +257,21 @@ public class EveryXDayMainActivity extends Activity{
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case 5:
+                        ab.setTitle("支持NEW");
+                        FragmentSupportUs supportFragment = new FragmentSupportUs();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, supportFragment).commit();
+                        menuView.setItemChecked(position, true);
+                        mDrawerLayout.closeDrawers();
+                        break;
                     case 7:
+                        ab.setTitle("设置");
+                        FragmentSetting settingFragment = new FragmentSetting();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, settingFragment).commit();
+                        menuView.setItemChecked(position, true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case 8:
                         ab.setTitle("关于");
                         FragmentAbout aboutFragment = new FragmentAbout();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
