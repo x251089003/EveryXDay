@@ -14,5 +14,6 @@
     <color name="app_main_theme_color_two">#ea8010</color>
     <color name="app_main_theme_color_three">#f4c600</color>
     <color name="app_main_theme_color_four">#a9b7b7</color>
+    <color name="app_black_color_transparent">#ad000000</color>
 
 </resources>

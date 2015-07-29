@@ -8,6 +8,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nispok.snackbar.Snackbar;
+import com.nispok.snackbar.SnackbarManager;
+import com.nispok.snackbar.listeners.ActionClickListener;
 import com.txx.androidpaginglibrary.R;
 
 /**
@@ -48,17 +51,32 @@ public class LoadListDataErrorViewWrap {
 			loadingView = inflater.inflate(R.layout.common_paging_load_view, null);
 		}
 		
-		RelativeLayout reloadBtn = (RelativeLayout) netErroView.findViewById(R.id.reload_btn);
-		reloadBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				loadListDataErrorViewWrapDelegate.addFirstPageReloadingView(loadingView);
-			}
-		});
-		
+//		RelativeLayout reloadBtn = (RelativeLayout) netErroView.findViewById(R.id.reload_btn);
+//		reloadBtn.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				loadListDataErrorViewWrapDelegate.addFirstPageReloadingView(loadingView);
+//			}
+//		});
+
 		loadListDataErrorViewWrapDelegate.addLoadFirstPageDataFailureView(netErroView);
-		
-		Toast.makeText(context, context.getResources().getString(R.string.common_paging_network_failure_tip), Toast.LENGTH_SHORT).show();
+		SnackbarManager.show(
+				Snackbar.with(context) // context
+						.text("网络连接失败") // text to display
+						.colorResource(R.color.app_black_color_transparent)
+						.actionLabel("重新加载") // action button label
+						.duration(Snackbar.SnackbarDuration.LENGTH_INDEFINITE)
+						.dismissOnActionClicked(true)
+						.actionListener(new ActionClickListener() {
+							@Override
+							public void onActionClicked(Snackbar snackbar) {
+								loadListDataErrorViewWrapDelegate.addFirstPageReloadingView(loadingView);
+							}
+						})
+		);// action button's ActionClickListener
+
+
+//		Toast.makeText(context, context.getResources().getString(R.string.common_paging_network_failure_tip), Toast.LENGTH_SHORT).show();
 		
 	}
 

@@ -210,9 +210,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="44dp"
-            android:text="感谢"
+            android:text="感  谢"
             android:textSize="18sp"
             android:textColor="@color/ac_title_color"
             />
