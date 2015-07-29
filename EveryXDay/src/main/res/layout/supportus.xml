@@ -18,16 +18,207 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="32dp"
-            android:layout_gravity="center_horizontal"
-            android:text="感    谢"
+            android:text="支持￥1"
             android:textSize="18sp"
             android:textColor="@color/ac_title_color"
-            android:textStyle="bold"
             />
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="8dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:text="无私地支持"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/ac_title_color"
+                android:id="@+id/textView_one" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/button_one"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:background="@color/app_main_theme_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="    支持￥1    " />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#ececec" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="32dp"
+            android:text="支持￥10"
+            android:textSize="18sp"
+            android:textColor="@color/ac_title_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="8dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:text="获得NEW送出的卡片"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/ac_title_color"
+                android:id="@+id/textView_ten" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/button_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:background="@color/app_main_theme_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="    支持￥10    " />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#ececec" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="32dp"
+            android:text="支持￥100"
+            android:textSize="18sp"
+            android:textColor="@color/ac_title_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="8dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:text="获得NEW送出的礼物"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/ac_title_color"
+                android:id="@+id/textView_bai" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/button_bai"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:background="@color/app_main_theme_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="    支持￥100    " />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#ececec" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="32dp"
+            android:text="支持￥1000"
+            android:textSize="18sp"
+            android:textColor="@color/ac_title_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="8dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:text="连续12个月获得礼物"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/ac_title_color"
+                android:id="@+id/textView_qian" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/button_qian"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:background="@color/app_main_theme_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="    支持￥1000    " />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#ececec" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="44dp"
+            android:text="感谢"
+            android:textSize="18sp"
+            android:textColor="@color/ac_title_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
             android:background="#d5d5d5"
             android:layout_marginTop="8dp"
             />
@@ -36,27 +227,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="64dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="梦 想 总 是 遥 不 可 及，是 不 是 应 该 放 弃，您 的 支 持 会 让 有 梦 想 的 年 轻 人 更 加 坚 定，会 让 NEW 变 的 更 好。非 常 感 谢 您 对 NEW 的 支 持！"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
-                android:lineSpacingMultiplier="1.5"
+                android:lineSpacingMultiplier="1.2"
                 />
         </RelativeLayout>
-
-        <com.gc.materialdesign.views.ButtonRectangle
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:background="@color/app_main_theme_color"
-            android:paddingLeft="48dp"
-            android:paddingRight="48dp"
-            android:text="    支持￥1    " />
 
     </LinearLayout>
 

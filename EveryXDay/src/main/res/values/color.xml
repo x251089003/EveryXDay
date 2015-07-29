@@ -3,7 +3,7 @@
     <color name="actionbar_color">#ffffff</color>
     <color name="drawer_arrow_second_color">#303f9f</color>
 
-    <color name="app_main_theme_color_less">#ea8010</color>
+    <color name="app_main_theme_color_less">#ffac25</color>
     <color name="app_main_theme_color">#ff6f28</color>
     <color name="app_main_theme_color_transparent">#ad000000</color>
     <color name="app_main_theme_color_grey">#B9E92F39</color>

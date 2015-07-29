@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.nispok.snackbar.Snackbar;
 import com.xinxin.everyxday.fragment.FragmentAbout;
 import com.xinxin.everyxday.fragment.FragmentSetting;
+import com.xinxin.everyxday.fragment.FragmentShareProduct;
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
 import com.xinxin.everyxday.fragment.FragmentSortContent;
 import com.xinxin.everyxday.fragment.FragmentSupportUs;
@@ -254,6 +255,13 @@ public class EveryXDayMainActivity extends Activity{
                         ab.setTitle("分类");
                         FragmentSortContent sortFragment = new FragmentSortContent();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
+                        menuView.setItemChecked(position, true);
+                        mDrawerLayout.closeDrawers();
+                        break;
+                    case 4:
+                        ab.setTitle("分享新品");
+                        FragmentShareProduct shareFragment = new FragmentShareProduct();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, shareFragment).commit();
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;

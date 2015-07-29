@@ -36,4 +36,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+    compile 'me.gujun.android.taggroup:library:1.4'
 }

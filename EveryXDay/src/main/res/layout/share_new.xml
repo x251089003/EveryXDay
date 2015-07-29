@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="32dp"
+        android:text="分享精彩是一种好习惯"
+        android:textSize="18sp"
+        android:textColor="@color/ac_title_color"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d5d5d5"
+        android:layout_marginTop="8dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:id="@+id/editText"
+        android:background="@drawable/text_field"
+        android:hint="网址粘贴在这里，拒绝黄赌毒"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="32dp"
+        android:text="产品至少包含以下任意一条"
+        android:textSize="18sp"
+        android:textColor="@color/ac_title_color"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d5d5d5"
+        android:layout_marginTop="8dp"
+        />
+
+    <me.gujun.android.taggroup.TagGroup
+        android:id="@+id/tag_group"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        style="@style/TagGroup.Large"
+        app:atg_textColor="@color/white"
+        app:atg_borderColor="@color/app_main_theme_color"
+        app:atg_backgroundColor="@color/app_main_theme_color"
+        app:atg_pressedBackgroundColor="@color/app_main_theme_color"/>
+</LinearLayout>
