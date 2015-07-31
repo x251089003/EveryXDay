@@ -1,16 +1,27 @@
 package com.xinxin.everyxday.fragment;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.loopj.android.http.RequestParams;
@@ -22,11 +33,24 @@ import com.xinxin.everyxday.util.TimeUtil;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment<ShowOrderFeaturedBean> {
 	
 	private ArrayList<ShowOrderFeaturedBean> voList = new ArrayList<ShowOrderFeaturedBean>();
+
+	private final ArrayList<Integer> likedPositions = new ArrayList<>();
+
+	private final Map<ImageView, AnimatorSet> likeAnimations = new HashMap<>();
+
+	private static final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
+	private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
+	private static final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
 	
 	public static FragmentShowOrderFeaturedContent newInstance(Bundle args) {
 		FragmentShowOrderFeaturedContent myFragment = new FragmentShowOrderFeaturedContent();
@@ -89,6 +113,23 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		
 		TextView userName = (TextView)convertView.findViewById(R.id.showorder_list_user_name);
 		userName.setText(vo.getTitle().replace("今日最佳：",""));
+
+		final ImageView like = (ImageView)convertView.findViewById(R.id.btnLike);
+		like.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (!likedPositions.contains(position)) {
+					likedPositions.add(position);
+					updateHeartButton(like, true, position);
+					System.out.println("daxiao === " + likeAnimations.size());
+				}
+			}
+		});
+		if (likedPositions.contains(position)) {
+			like.setBackgroundResource(R.mipmap.ic_heart_red);
+		}else{
+			like.setBackgroundResource(R.mipmap.ic_heart_outline_grey);
+		}
 		
 		TextView publishTime = (TextView)convertView.findViewById(R.id.showorder_list_user_publish_time);
 //		publishTime.setText(TimeUtil.getStandardDate(""+vo.getCreateTime().getTime()/1000));
@@ -117,6 +158,54 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 //				startActivity(intent);
 			}
 		});
+	}
+
+	private void updateHeartButton(final ImageView view, boolean animated, int position) {
+		if (animated) {
+			if (!likeAnimations.containsKey(view)) {
+				AnimatorSet animatorSet = new AnimatorSet();
+				likeAnimations.put(view, animatorSet);
+
+				ObjectAnimator rotationAnim = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f);
+				rotationAnim.setDuration(300);
+				rotationAnim.setInterpolator(ACCELERATE_INTERPOLATOR);
+
+				ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(view, "scaleX", 0.2f, 1f);
+				bounceAnimX.setDuration(300);
+				bounceAnimX.setInterpolator(OVERSHOOT_INTERPOLATOR);
+
+				ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(view, "scaleY", 0.2f, 1f);
+				bounceAnimY.setDuration(300);
+				bounceAnimY.setInterpolator(OVERSHOOT_INTERPOLATOR);
+				bounceAnimY.addListener(new AnimatorListenerAdapter() {
+					@Override
+					public void onAnimationStart(Animator animation) {
+						view.setBackgroundResource(R.mipmap.ic_heart_red);
+					}
+				});
+
+				animatorSet.play(rotationAnim);
+				animatorSet.play(bounceAnimX).with(bounceAnimY).after(rotationAnim);
+
+				animatorSet.addListener(new AnimatorListenerAdapter() {
+					@Override
+					public void onAnimationEnd(Animator animation) {
+						likeAnimations.remove(view);
+					}
+				});
+
+				animatorSet.start();
+				System.out.println("pos =========== " + position);
+			}
+		}
+//		else {
+//			if (likedPositions.contains(position)) {
+//				view.setBackgroundResource(R.mipmap.ic_heart_red);
+////				view.setImageResource(R.mipmap.ic_heart_red);
+//			} else {
+//				view.setBackgroundResource(R.mipmap.ic_heart_outline_grey);
+//			}
+//		}
 	}
 
 	@Override

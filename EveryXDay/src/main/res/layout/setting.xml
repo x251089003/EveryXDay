@@ -88,7 +88,8 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:rv_rippleDuration="300"
-            app:rv_type="rectangle">
+            app:rv_type="rectangle"
+            app:rv_color="@color/black" >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp"

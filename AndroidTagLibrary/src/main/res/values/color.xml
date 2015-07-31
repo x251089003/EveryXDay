@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="actionbar_color">#ffffff</color>
+    <color name="drawer_arrow_second_color">#303f9f</color>
+
+    <color name="app_main_theme_color_less">#ffac25</color>
+    <color name="app_main_theme_color">#ff6f28</color>
+    <color name="app_main_theme_color_transparent">#ad000000</color>
+    <color name="app_main_theme_color_grey">#B9E92F39</color>
+    <color name="app_contact_color_blue">#416DB2</color>
+    <color name="transparent">#00000000</color>
+    <color name="back_btn_bg_olor">#2000</color>
+    <!-- <color name="grey_transparent">#10000000</color> -->
+    <color name="grey_transparent">#F4F4F4</color>
+    <color name="greyer_transparent">#32000000</color>
+    <color name="greyer_less_transparent">#B2555555</color>
+    <color name="greyer_middle_transparent">#60000000</color>
+    <!--<color name="greyer_middle_transparent">#64000000</color>-->
+    <color name="greyer_deep_transparent">#B2000000</color>
+    <color name="greyest_transparent">#96000000</color>
+
+    <!-- bottom tab bar text color -->
+    <color name="tab_bar_text_default_color">#FF626262</color>
+    <color name="tab_bar_text_select_color">#1dadff</color>
+    <color name="tab_bar_bg_default_color">#FCFCFC</color>
+
+    <!-- picker photo -->
+    <color name="photo_picker_common_paging_color_white">#ffffff</color>
+    <color name="photo_picker_common_paging_color_black">#FF000000</color>
+    <color name="photo_picker_common_paging_color">#f2f2f2</color>
+
+    <color name="global_bg_grey_color">#EAEAEA</color>
+    <color name="global_text_grey_color">#878787</color>
+    <color name="global_text_grey_light_color">#535353</color>
+    <color name="global_text_main_color">#E92F39</color>
+    <color name="global_line_main_color">#DCDCDC</color>
+    <color name="global_green_color">#9ED900</color>
+    <color name="global_blue_color">#465783</color>
+    <color name="global_greener_color">#11cd6e</color>
+    <color name="global_edittext_bg_color">#ffd2d2d2</color>
+    <color name="global_edittext_pressed_color">#ffededed</color>
+    <color name="global_edittext_light_pressed_color">#48ededed</color>
+    <color name="black">#271E1E</color>
+    <color name="deepgrey">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <color name="half_transparent_white">#E0FFFFFF</color>
+
+    <color name="tag_bg_blue">#5490CA</color>
+    <color name="tag_bg_green">#2DA263</color>
+    <color name="tag_bg_pink">#F27B9D</color>
+    <color name="tag_bg_orange">#FDBB54</color>
+    <color name="tag_bg_red">#E92F39</color>
+
+    <color name="ac_title_color">#5c5c5c</color>
+
+
+    <!--适配Materail Design后添加的颜色-->
+    <color name="text_100">#ff000000</color>
+    <color name="text_87">#dd000000</color>
+    <color name="text_80">#cc000000</color>
+    <color name="text_60">#99000000</color>
+    <color name="text_54">#69000000</color>
+
+    <color name="text_100_inverse">#ffffffff</color>
+    <color name="text_87_inverse">#ddffffff</color>
+    <color name="text_80_inverse">#ccffffff</color>
+    <color name="text_60_inverse">#99ffffff</color>
+    <color name="text_54_inverse">#89ffffff</color>
+
+    <color name="divider">#ebeef4</color>
+    <color name="edit_hint">#ff808080</color>
+
+    <color name="search_text_color">#ffa3a3a3</color>
+
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+
+    <color name="bg_followers_counter">#ff5656</color>
+
+    <color name="bg_emotion">#ff313740</color>
+
+    <color name="chglib_background_default_divider_color">#DADADC</color>
+
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+    <color name="whitetransparent">#32000000</color>
+
+</resources>

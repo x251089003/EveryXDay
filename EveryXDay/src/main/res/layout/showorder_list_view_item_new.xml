@@ -65,5 +65,15 @@
             android:shadowColor="@color/ac_title_color"
             android:shadowRadius="3"
             android:layout_gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/btnLike"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="right|top"
+            android:background="@mipmap/ic_heart_outline_grey"
+             />
     </FrameLayout>
 </RelativeLayout>

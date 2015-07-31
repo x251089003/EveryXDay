@@ -40,6 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.ShareNewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/mySwipeBackLayout"/>
     </application>
 
 </manifest>

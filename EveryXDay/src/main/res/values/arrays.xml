@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="continents">
+        <item>有创意</item>
+        <item>好玩</item>
+        <item>逼格足够高</item>
+        <item>科技感</item>
+        <item>美味</item>
+        <item>简洁</item>
+        <item>有个性</item>
+        <item>有范</item>
+        <item>无印良品</item>
+        <item>中国制造</item>
+        <item>大片组图</item>
+        <item>原创</item>
+        <item>可穿戴力作</item>
+        <item>文艺小清新</item>
+    </string-array>
+
+</resources>

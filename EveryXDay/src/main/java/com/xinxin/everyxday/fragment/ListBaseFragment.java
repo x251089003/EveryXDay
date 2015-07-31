@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -197,6 +198,8 @@ public abstract class ListBaseFragment<T> extends Fragment implements
 	}
 
 	public abstract void addListViewToContainer(View listView);
+
+//	public abstract void addRecyleView(RecyclerView recyclerView);
 
 	@Override
 	public int getListCount() {
