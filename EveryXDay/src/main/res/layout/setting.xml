@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:toggle="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -86,25 +86,22 @@
         <com.andexert.library.RippleView
             android:id="@+id/question"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:rv_rippleDuration="300"
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
             app:rv_type="rectangle"
-            app:rv_color="@color/black" >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_gravity="center_horizontal"
-                >
+            app:rv_color="@color/app_main_theme_color" >
+
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
                     android:text="常见问题"
                     android:textSize="14sp"
                     android:textColor="@color/ac_title_color"
                     android:textStyle="bold"/>
-            </RelativeLayout>
+
         </com.andexert.library.RippleView>
 
         <View

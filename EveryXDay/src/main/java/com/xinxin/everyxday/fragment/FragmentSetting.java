@@ -34,9 +34,9 @@ public class FragmentSetting extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         settingView = inflater.inflate(R.layout.setting, null);
         question = (RippleView)settingView.findViewById(R.id.question);
-        question.setOnClickListener(new View.OnClickListener() {
+        question.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
-            public void onClick(View view) {
+            public void onComplete(RippleView rippleView) {
                 Intent intent = new Intent(getActivity(), ShareNewActivity.class);
                 startActivity(intent);
             }
