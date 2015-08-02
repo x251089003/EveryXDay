@@ -6,13 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.xinxin.everyxday.R;
-
-import me.kaede.tagview.OnTagClickListener;
-import me.kaede.tagview.Tag;
-import me.kaede.tagview.TagView;
 
 
 /**
@@ -21,7 +16,6 @@ import me.kaede.tagview.TagView;
 public class FragmentShareProduct extends Fragment {
 
     private View shareView;
-    private TagView tagView;
 
     public static FragmentShareProduct newInstance(Bundle args) {
         FragmentShareProduct myFragment = new FragmentShareProduct();
@@ -37,24 +31,24 @@ public class FragmentShareProduct extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         shareView = inflater.inflate(R.layout.share_new, null);
-        tagView = (TagView) shareView.findViewById(R.id.tagview);
-        //SET LISTENER
-        tagView.setOnTagClickListener(new OnTagClickListener() {
-
-            @Override
-            public void onTagClick(Tag tag, int position) {
-                switch (position){
-                    case 0:
-                        tag.tagTextColor = getActivity().getResources().getColor(R.color.ac_title_color);
-                        break;
-                }
-                Toast.makeText(getActivity(), "click tag id=" + tag.id + " position=" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
-        Tag tag = new Tag("有创意");
-        tag.tagTextColor = this.getResources().getColor(R.color.app_main_theme_color);
-        tag.background = this.getResources().getDrawable(R.drawable.bg_tag);
-        tagView.addTag(tag);
+//        tagView = (TagView) shareView.findViewById(R.id.tagview);
+//        //SET LISTENER
+//        tagView.setOnTagClickListener(new OnTagClickListener() {
+//
+//            @Override
+//            public void onTagClick(Tag tag, int position) {
+//                switch (position){
+//                    case 0:
+//                        tag.tagTextColor = getActivity().getResources().getColor(R.color.ac_title_color);
+//                        break;
+//                }
+//                Toast.makeText(getActivity(), "click tag id=" + tag.id + " position=" + position, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        Tag tag = new Tag("有创意");
+//        tag.tagTextColor = this.getResources().getColor(R.color.app_main_theme_color);
+//        tag.background = this.getResources().getDrawable(R.drawable.bg_tag);
+//        tagView.addTag(tag);
 //        String[] tags = getResources().getStringArray(R.array.continents);
 //        tagView.addTags(tags);
 //        <string-array name="continents">

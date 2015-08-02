@@ -20,10 +20,24 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="mySwipeBackLayout">
+    <style name="mySwipeBackLayout" parent="SwipeBackLayoutBaseTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <style name="SwipeBackLayoutBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- toolbar（actionbar）颜色 -->
+        <item name="colorPrimary">@color/app_main_theme_color</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@color/app_main_theme_color</item>
+        <!-- 窗口的背景颜色 -->
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 

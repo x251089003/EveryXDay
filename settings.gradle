@@ -1,1 +1,1 @@
-include ':EveryXDay', 'AndroidLDrawerLibrary', 'AndroidNetWorkLibrary', 'AndroidPagingLibrary', "AndroidTagLibrary"
+include ':EveryXDay', 'AndroidLDrawerLibrary', 'AndroidNetWorkLibrary', 'AndroidPagingLibrary'

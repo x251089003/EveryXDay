@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp">
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="32dp"
-        android:text="分享精彩是一种好习惯"
-        android:textSize="18sp"
-        android:textColor="@color/ac_title_color"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#d5d5d5"
-        android:layout_marginTop="8dp"
-        />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:id="@+id/editText"
-        android:hint="网址粘贴处，拒绝黄赌毒"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:padding="10dp"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="32dp"
-        android:text="产品至少包含以下任意一条"
-        android:textSize="18sp"
-        android:textColor="@color/ac_title_color"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#d5d5d5"
-        android:layout_marginTop="8dp"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="32dp"
+            android:text="分享精彩是一种好习惯"
+            android:textSize="18sp"
+            android:textColor="@color/ac_title_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="8dp"
+            />
 
-    <me.kaede.tagview.TagView
-        android:id="@+id/tagview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:lineMargin="5dp"
-        app:tagMargin="3dp"
-        app:textPaddingBottom="3dp"
-        app:textPaddingLeft="10dp"
-        app:textPaddingRight="10dp"
-        app:textPaddingTop="3dp">
-    </me.kaede.tagview.TagView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:id="@+id/editText"
+            android:hint="网址粘贴处，拒绝黄赌毒"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="32dp"
+            android:text="产品至少包含以下任意一条"
+            android:textSize="18sp"
+            android:textColor="@color/ac_title_color"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="8dp"
+            />
+    </LinearLayout>
+
 </LinearLayout>
