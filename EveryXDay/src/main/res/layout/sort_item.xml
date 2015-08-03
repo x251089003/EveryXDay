@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     app:rv_type="rectangle"
@@ -34,7 +35,9 @@
             android:text="@string/showorder_item_nickname"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"/>
     </FrameLayout>
 
 </com.andexert.library.RippleView>

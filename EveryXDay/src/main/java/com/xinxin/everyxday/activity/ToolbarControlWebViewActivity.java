@@ -1,5 +1,6 @@
 package com.xinxin.everyxday.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.webkit.WebViewClient;
 import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.github.ksoichiro.android.observablescrollview.ObservableWebView;
 import com.xinxin.everyxday.R;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by xinxin on 15/8/3.
@@ -77,5 +80,10 @@ public class ToolbarControlWebViewActivity extends ToolbarControlBaseActivity<Ob
             return false;
         }
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

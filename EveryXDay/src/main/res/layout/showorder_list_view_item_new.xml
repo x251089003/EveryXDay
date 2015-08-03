@@ -52,18 +52,59 @@
                 android:scaleType="centerCrop"
                 android:background="@drawable/abc_list_selector_disabled_holo_dark"/>
         </com.andexert.library.RippleView>
-        <TextView
-            android:id="@+id/showorder_list_user_name"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:text="@string/showorder_item_nickname"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
-            tools:ignore="MissingPrefix"/>
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/showorder_list_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/showorder_item_nickname"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/showorder_list_user_name">
+                <TextView
+                    android:id="@+id/new_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="7月7日"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+                    tools:ignore="MissingPrefix"/>
+
+                <TextView
+                    android:id="@+id/new_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/new_time"
+                    android:layout_marginLeft="4dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="#科技"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+                    tools:ignore="MissingPrefix"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
 
         <ImageButton
             android:id="@+id/btnLike"

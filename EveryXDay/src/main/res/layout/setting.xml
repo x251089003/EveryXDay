@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:scrollbars="none">
 
@@ -20,10 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="通知"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -71,10 +74,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="协助"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -134,10 +139,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="简介"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -192,10 +199,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="应用"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -286,16 +295,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="把NEW分享给朋友"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textColor="@color/ac_title_color"
-            android:layout_marginTop="44dp"/>
+            android:layout_marginTop="56dp"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingTop="32dp"
-            android:paddingBottom="72dp"
+            android:paddingBottom="96dp"
             android:gravity="center_horizontal">
 
             <ImageView

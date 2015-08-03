@@ -3,6 +3,7 @@
     xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:scrollbars="none">
 
@@ -19,10 +20,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="支持￥1"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -67,10 +70,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="支持￥10"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -115,10 +120,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="支持￥100"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -163,10 +170,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="44dp"
             android:text="支持￥1000"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
@@ -211,10 +220,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="44dp"
-            android:text="感  谢"
+            android:layout_marginTop="56dp"
+            android:text="感谢有你"
             android:textSize="18sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
         <View
             android:layout_width="match_parent"
