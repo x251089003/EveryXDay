@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="12dp"
     android:paddingBottom="12dp"
     android:paddingLeft="15dp"
@@ -39,7 +40,7 @@
             android:layout_height="220dp"
             android:scaleType="centerCrop" />
         <com.andexert.library.RippleView
-            android:id="@+id/more"
+            android:id="@+id/item_rippleview"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             app:rv_rippleDuration="300"
@@ -49,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:scaleType="centerCrop"
-                android:background="@color/greyer_middle_transparent"/>
+                android:background="@drawable/abc_list_selector_disabled_holo_dark"/>
         </com.andexert.library.RippleView>
         <TextView
             android:id="@+id/showorder_list_user_name"
@@ -59,12 +60,10 @@
             android:singleLine="true"
             android:text="@string/showorder_item_nickname"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowColor="@color/ac_title_color"
-            android:shadowRadius="3"
-            android:layout_gravity="center"/>
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"/>
 
         <ImageButton
             android:id="@+id/btnLike"

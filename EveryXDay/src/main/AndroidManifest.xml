@@ -44,6 +44,15 @@
             android:name=".activity.ShareNewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/mySwipeBackLayout"/>
+        <activity
+            android:name=".activity.ToolbarControlWebViewActivity"
+            android:theme="@style/mySwipeBackLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.github.ksoichiro.android.observablescrollview.samples" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

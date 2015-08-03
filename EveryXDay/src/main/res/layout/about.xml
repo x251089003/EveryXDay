@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
     <ImageView
@@ -24,6 +25,8 @@
         android:textColor="@color/ac_title_color"
         android:gravity="center_horizontal"
         android:id="@+id/textView"
+        fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+        tools:ignore="MissingPrefix"
         />
 
     <LinearLayout

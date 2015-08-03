@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -42,6 +43,7 @@ import java.util.Locale;
 import com.xinxin.everyxday.R;
 
 import butterknife.Bind;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class EveryXDayMainActivity extends Activity{
 
@@ -292,6 +294,11 @@ public class EveryXDayMainActivity extends Activity{
             }
         }
     };
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 //    /**
 //     * Fragment that appears in the "content_frame", shows a planet
 //     */

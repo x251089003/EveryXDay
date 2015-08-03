@@ -24,8 +24,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 
+import com.andexert.library.RippleView;
 import com.loopj.android.http.RequestParams;
 import com.xinxin.everyxday.R;
+import com.xinxin.everyxday.activity.ToolbarControlWebViewActivity;
 import com.xinxin.everyxday.base.imgloader.ImgLoadUtil;
 import com.xinxin.everyxday.bean.ShowOrderFeaturedBean;
 import com.xinxin.everyxday.global.InterfaceUrlDefine;
@@ -112,7 +114,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		ImgLoadUtil.displayImageWithAnimation(vo.getAvatar(), userPhoto);
 		
 		TextView userName = (TextView)convertView.findViewById(R.id.showorder_list_user_name);
-		userName.setText(vo.getTitle().replace("今日最佳：",""));
+		userName.setText(vo.getTitle().replace("今日最佳：", ""));
 
 		final ImageView like = (ImageView)convertView.findViewById(R.id.btnLike);
 		like.setOnClickListener(new View.OnClickListener() {
@@ -138,26 +140,29 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
 		ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
 
-//		ImageView aboveImg = (ImageView)convertView.findViewById(R.id.showorder_list_img_above);
-		convertView.setOnClickListener(new View.OnClickListener() {
+		RippleView mRippleView = (RippleView)convertView.findViewById(R.id.item_rippleview);
+		mRippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
 			@Override
-			public void onClick(View v) {
+			public void onComplete(RippleView rippleView) {
+				Intent intent = new Intent();
+				intent.setClass(getActivity(), ToolbarControlWebViewActivity.class);
+				intent.putExtra("today_new_title", vo.getTitle().replace("今日最佳：", ""));
+				intent.putExtra("today_new_url", vo.getDetail());
+				intent.putExtra("today_new_id", vo.getId());
+				intent.putExtra("today_new_buyurl", vo.getBuyurl());
 
-				if (!isActivityAttached()) {
-					return;
-				}
-				System.out.println("这里这里这里这里这里这里这里这里这里这里这里这里这里");
-//				Intent intent = new Intent();
-//				intent.setClass(getAttachActivity(), ShowOrderFeaturedDetailContentActivity.class);
-//				intent.putExtra(CommonWebViewActivity.KILL_HELP_ACTIVITY_VIEW_TITLE, "晒单精选");
-//				intent.putExtra(CommonWebViewActivity.KILL_HELP_ACTIVITY_LOAD_URL, vo.getDetail());
-//
-//				intent.putExtra(ShowOrderFeaturedDetailContentActivity.SHOR_ORDER_FEATURED_CONTENT_ACTIVITY_ID, vo.getId());
-//				intent.putExtra(ShowOrderFeaturedDetailContentActivity.SHOR_ORDER_FEATURED_CONTENT_ACTIVITY_URL, vo.getBuyurl());
-//
-//				startActivity(intent);
+				startActivity(intent);
 			}
 		});
+//		ImageView aboveImg = (ImageView)convertView.findViewById(R.id.showorder_list_img_above);
+//		convertView.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//
+//				System.out.println("这里这里这里这里这里这里这里这里这里这里这里这里这里");
+//
+//			}
+//		});
 	}
 
 	private void updateHeartButton(final ImageView view, boolean animated, int position) {

@@ -48,4 +48,8 @@ public class SwipeBackSherlockActivity extends ActionBarActivity implements Swip
     public void scrollToFinishActivity() {
         getSwipeBackLayout().scrollToFinishActivity();
     }
+
+    protected int getScreenHeight() {
+        return findViewById(android.R.id.content).getHeight();
+    }
 }

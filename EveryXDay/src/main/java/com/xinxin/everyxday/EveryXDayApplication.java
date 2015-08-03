@@ -20,6 +20,9 @@ import com.xinxin.everyxday.util.ProjectSettingInfoPreUtil;
 import java.io.File;
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 
 public class EveryXDayApplication extends Application{
 
@@ -44,6 +47,12 @@ public class EveryXDayApplication extends Application{
         super.onCreate();
 
         instance = this;
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/FZLanTingHeiS-L-GB-Regular.TTF")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
 
         //存储application刚启动状态
         ProjectSettingInfoPreUtil psip = ProjectSettingInfoPreUtil.getInstance();
@@ -119,4 +128,5 @@ public class EveryXDayApplication extends Application{
         }
         return false;
     }
+
 }

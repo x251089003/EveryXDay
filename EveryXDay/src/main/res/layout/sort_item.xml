@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:background="@color/greyer_middle_transparent"/>
+            android:background="@drawable/abc_list_selector_disabled_holo_dark"/>
 
         <TextView
             android:id="@+id/sort_left_name"
@@ -33,11 +33,7 @@
             android:singleLine="true"
             android:text="@string/showorder_item_nickname"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowColor="@color/ac_title_color"
-            android:shadowRadius="3"
+            android:textSize="18sp"
             android:layout_gravity="center"/>
     </FrameLayout>
 
