@@ -6,26 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
     >
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="32dp"
-            android:text="分享精彩是一种好习惯"
-            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="44dp"
+            android:text="分享精彩给NEW"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
             />
         <View
@@ -43,7 +34,7 @@
             android:layout_marginRight="2dp"
             android:id="@+id/editText"
             android:hint="网址粘贴处，拒绝黄赌毒"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:gravity="center"
             android:padding="10dp"
             />
@@ -51,10 +42,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="44dp"
             android:text="产品至少包含以下任意一条"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/ac_title_color"
             />
         <View
@@ -63,6 +54,5 @@
             android:background="#d5d5d5"
             android:layout_marginTop="8dp"
             />
-    </LinearLayout>
 
 </LinearLayout>

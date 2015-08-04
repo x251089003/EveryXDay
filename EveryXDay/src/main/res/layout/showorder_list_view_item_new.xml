@@ -43,7 +43,7 @@
             android:id="@+id/item_rippleview"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            app:rv_rippleDuration="300"
+            app:rv_rippleDuration="200"
             app:rv_type="rectangle">
             <ImageView
                 android:id="@+id/showorder_list_img_above"

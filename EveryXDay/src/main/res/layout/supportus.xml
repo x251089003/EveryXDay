@@ -58,7 +58,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:text="    支持￥1    " />
+                android:text="    支持￥1    "
+                fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"/>
         </RelativeLayout>
 
         <View

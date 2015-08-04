@@ -97,15 +97,15 @@
             app:rv_color="@color/app_main_theme_color" >
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:text="常见问题"
-                    android:textSize="14sp"
-                    android:textColor="@color/ac_title_color"
-                    android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="常见问题"
+                android:textSize="14sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"/>
 
         </com.andexert.library.RippleView>
 
@@ -114,21 +114,25 @@
             android:layout_height="1px"
             android:background="#ececec" />
 
-        <RelativeLayout
+        <com.andexert.library.RippleView
+            android:id="@+id/contact"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            >
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle"
+            app:rv_color="@color/app_main_theme_color" >
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
                 android:text="联系我们"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:textStyle="bold"/>
-        </RelativeLayout>
+
+        </com.andexert.library.RippleView>
 
         <View
             android:layout_width="match_parent"
@@ -153,42 +157,50 @@
             android:layout_marginTop="8dp"
             />
 
-        <RelativeLayout
+        <com.andexert.library.RippleView
+            android:id="@+id/service"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            >
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle"
+            app:rv_color="@color/app_main_theme_color" >
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
                 android:text="服务条款"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:textStyle="bold"/>
-        </RelativeLayout>
+
+        </com.andexert.library.RippleView>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="#ececec" />
 
-        <RelativeLayout
+        <com.andexert.library.RippleView
+            android:id="@+id/opensource"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            >
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle"
+            app:rv_color="@color/app_main_theme_color" >
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
                 android:text="开源库"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:textStyle="bold"/>
-        </RelativeLayout>
+
+        </com.andexert.library.RippleView>
 
         <View
             android:layout_width="match_parent"
@@ -213,76 +225,92 @@
             android:layout_marginTop="8dp"
             />
 
-        <RelativeLayout
+        <com.andexert.library.RippleView
+            android:id="@+id/mark"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            >
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle"
+            app:rv_color="@color/app_main_theme_color" >
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
                 android:text="评个分吧"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:textStyle="bold"/>
-        </RelativeLayout>
+
+        </com.andexert.library.RippleView>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="#ececec" />
 
-        <RelativeLayout
+        <com.andexert.library.RippleView
+            android:id="@+id/clear"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                android:text="清除缓存"
-                android:textSize="14sp"
-                android:textColor="@color/ac_title_color"
-                android:textStyle="bold"/>
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle"
+            app:rv_color="@color/app_main_theme_color" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_gravity="center_horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:text="清除缓存"
+                    android:textSize="14sp"
+                    android:textColor="@color/ac_title_color"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/clear_mb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:text="0KB"
-                android:textSize="14sp"
-                android:textColor="@color/ac_title_color"
-                android:textStyle="bold">
-            </TextView>
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/clear_mb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:text="0KB"
+                    android:textSize="14sp"
+                    android:textColor="@color/ac_title_color"
+                    android:textStyle="bold">
+                </TextView>
+            </RelativeLayout>
+        </com.andexert.library.RippleView>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="#ececec" />
 
-        <RelativeLayout
+        <com.andexert.library.RippleView
+            android:id="@+id/checkupdate"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            >
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle"
+            app:rv_color="@color/app_main_theme_color" >
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
                 android:text="检查更新"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:textStyle="bold"/>
-        </RelativeLayout>
+
+        </com.andexert.library.RippleView>
 
         <View
             android:layout_width="match_parent"
