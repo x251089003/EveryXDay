@@ -218,14 +218,7 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
                 System.out.println("pos =========== " + position);
             }
         }
-//		else {
-//			if (likedPositions.contains(position)) {
-//				view.setBackgroundResource(R.mipmap.ic_heart_red);
-////				view.setImageResource(R.mipmap.ic_heart_red);
-//			} else {
-//				view.setBackgroundResource(R.mipmap.ic_heart_outline_grey);
-//			}
-//		}
+//
     }
 
     @Override
