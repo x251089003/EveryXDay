@@ -1,6 +1,7 @@
-package com.xinxin.everyxday.activity;
+package com.xinxin.everyxday.fragment;
 
-import android.app.Activity;
+import java.util.List;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,22 +12,23 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 
-
 import com.loopj.android.http.RequestParams;
 import com.txx.androidpaginglibrary.listwrap.listview.PagingListViewWrapBase;
+import com.txx.androidpaginglibrary.listwrap.listview.PagingListViewWrapBase.PagingListViewWrapDelegate;
 import com.txx.androidpaginglibrary.listwrap.listview.PagingRefreshingListViewWrap;
 import com.txx.androidpaginglibrary.listwrap.loaderrorview.LoadListDataErrorViewWrap;
+import com.txx.androidpaginglibrary.listwrap.loaderrorview.LoadListDataErrorViewWrap.LoadListDataErrorViewWrapDelegate;
+import com.xinxin.everyxday.R;
 import com.xinxin.everyxday.base.loopj.requestinstance.CommonListRequestWrap;
 import com.xinxin.everyxday.bean.base.CommonResponseBody;
 import com.xinxin.everyxday.bean.base.CommonResponseHeader;
 import com.xinxin.everyxday.util.StringUtil;
+import com.xinxin.everyxday.widget.swipeback.SwipeBackSherlockActivity;
 
-import java.util.List;
-import com.txx.androidpaginglibrary.R;
 
-public abstract class ListBaseActivity<T> extends Activity implements
-		CommonListRequestWrap.ListDataLoadWrapDelegate<T>,PagingListViewWrapBase.PagingListViewWrapDelegate,
-		LoadListDataErrorViewWrap.LoadListDataErrorViewWrapDelegate {
+public abstract class ListBaseActivity<T> extends SwipeBackSherlockActivity implements
+		CommonListRequestWrap.ListDataLoadWrapDelegate<T>, PagingListViewWrapDelegate,
+	LoadListDataErrorViewWrapDelegate{
 
 	protected Context context;
 	protected LayoutInflater inflater;
@@ -40,7 +42,8 @@ public abstract class ListBaseActivity<T> extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		setContentView(R.layout.activity_common_listview);
+		containerView = (LinearLayout)findViewById(R.id.myLinearLayout);
 		context = this;
 		inflater = LayoutInflater.from(context);
 		
@@ -56,7 +59,7 @@ public abstract class ListBaseActivity<T> extends Activity implements
 	 * @param pagingListViewWrapDelegate
 	 * @return
 	 */
-	public abstract PagingListViewWrapBase getPagingListViewWrap(PagingListViewWrapBase.PagingListViewWrapDelegate pagingListViewWrapDelegate);
+	public abstract PagingListViewWrapBase getPagingListViewWrap(PagingListViewWrapDelegate pagingListViewWrapDelegate);
 			
 	/**
 	 * 获取listview的parentView
@@ -209,13 +212,13 @@ public abstract class ListBaseActivity<T> extends Activity implements
 	@Override
 	public void addLoadFirstPageDataFailureView(View errorView) {
 		getContainerView().removeAllViews();
-		getContainerView().addView(errorView,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		getContainerView().addView(errorView,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 	}
 
 	@Override
 	public void addFirstPageReloadingView(View loadingView) {
 		getContainerView().removeAllViews();
-		getContainerView().addView(loadingView,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		getContainerView().addView(loadingView,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 		setListViewRefreshingStatus();
 		listDataLoadWrap.loadListData();//加载第一页
 	}
@@ -223,7 +226,7 @@ public abstract class ListBaseActivity<T> extends Activity implements
 	@Override
 	public void addEmptyView(View emptyView) {
 		getContainerView().removeAllViews();
-		getContainerView().addView(emptyView,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+		getContainerView().addView(emptyView,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 	}
 	
 	//-------------扩展部分

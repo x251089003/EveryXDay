@@ -45,6 +45,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/mySwipeBackLayout"/>
         <activity
+            android:name=".activity.SortActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/mySwipeBackLayout"/>
+        <activity
             android:name=".activity.ToolbarControlWebViewActivity"
             android:theme="@style/mySwipeBackLayout">
             <intent-filter>

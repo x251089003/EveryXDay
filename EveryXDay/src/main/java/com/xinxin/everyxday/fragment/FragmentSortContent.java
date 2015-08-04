@@ -2,6 +2,7 @@ package com.xinxin.everyxday.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,8 +17,11 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.andexert.library.RippleView;
 import com.loopj.android.http.RequestParams;
 import com.xinxin.everyxday.R;
+import com.xinxin.everyxday.activity.SortActivity;
+import com.xinxin.everyxday.activity.ToolbarControlWebViewActivity;
 import com.xinxin.everyxday.base.imgloader.ImgLoadUtil;
 import com.xinxin.everyxday.bean.ShowOrderFeaturedBean;
 import com.xinxin.everyxday.bean.SortBean;
@@ -125,7 +129,7 @@ public class FragmentSortContent extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup viewGroup) {
+        public View getView(final int position, View convertView, ViewGroup viewGroup) {
             ViewHolder holder;
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.sort_item,null);
@@ -133,6 +137,7 @@ public class FragmentSortContent extends Fragment {
                 /**得到各个控件的对象*/
                 holder.sortName = (TextView) convertView.findViewById(R.id.sort_left_name);
                 holder.sortImageView = (ImageView) convertView.findViewById(R.id.sort_left);
+                holder.mRippleView = (RippleView) convertView.findViewById(R.id.myripple);
                 convertView.setTag(holder);//绑定ViewHolder对象
             }else{
                 holder = (ViewHolder)convertView.getTag();//取出ViewHolder对象
@@ -140,6 +145,16 @@ public class FragmentSortContent extends Fragment {
 
             holder.sortName.setText(dataList.get(position).get("title").toString());
             holder.sortImageView.setImageResource((Integer) dataList.get(position).get("image"));
+            holder.mRippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+                @Override
+                public void onComplete(RippleView rippleView) {
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), SortActivity.class);
+                    intent.putExtra("title", dataList.get(position).get("title").toString());
+
+                    startActivity(intent);
+                }
+            });
 
             return convertView;
         }
@@ -149,6 +164,7 @@ public class FragmentSortContent extends Fragment {
     public final class ViewHolder{
         public ImageView sortImageView;
         public TextView sortName;
+        public RippleView mRippleView;
     }
 
     @Override
