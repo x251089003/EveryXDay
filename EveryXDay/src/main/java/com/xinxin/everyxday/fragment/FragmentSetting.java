@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 
 import com.andexert.library.RippleView;
 import com.xinxin.everyxday.R;
-import com.xinxin.everyxday.activity.ShareNewActivity;
+import com.xinxin.everyxday.activity.ContactUsActivity;
+import com.xinxin.everyxday.activity.QuestionActivity;
 
 /**
  * Created by xinxin on 15/7/28.
@@ -18,6 +19,7 @@ public class FragmentSetting extends Fragment{
 
     private View settingView;
     private RippleView question;
+    private RippleView contact;
 
     public static FragmentSetting newInstance(Bundle args) {
         FragmentSetting myFragment = new FragmentSetting();
@@ -37,7 +39,16 @@ public class FragmentSetting extends Fragment{
         question.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
-                Intent intent = new Intent(getActivity(), ShareNewActivity.class);
+                Intent intent = new Intent(getActivity(), QuestionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        contact = (RippleView)settingView.findViewById(R.id.contact);
+        contact.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                Intent intent = new Intent(getActivity(), ContactUsActivity.class);
                 startActivity(intent);
             }
         });

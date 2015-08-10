@@ -41,7 +41,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ShareNewActivity"
+            android:name=".activity.QuestionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/mySwipeBackLayout"/>
+        <activity
+            android:name=".activity.ContactUsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/mySwipeBackLayout"/>
         <activity

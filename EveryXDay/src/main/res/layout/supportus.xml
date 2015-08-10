@@ -242,14 +242,14 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="64dp"
             >
-            <TextView
+            <com.xinxin.everyxday.widget.AlignTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_centerVertical="true"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="NEW 是 一 款 非 盈 利 性 应 用，意 在 开 阔 大 家 的 眼 界，您 的 支 持 会 让 有 梦 想 的 年 轻 人 更 加 坚 定，会 让 NEW 变 的 更 好。非 常 感 谢 您 对 NEW 的 支 持！"
+                android:text="\u3000\u3000NEW是一款非盈利性应用，意在帮助大家发现生活中美的东西，您的支持会让有梦想的年轻人更加坚定，会让NEW变的更好。非常感谢您对NEW的支持！"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:lineSpacingMultiplier="1.2"
