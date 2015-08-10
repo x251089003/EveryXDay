@@ -58,8 +58,9 @@ public class EveryXDayMainActivity extends Activity{
 
     private FragmentShowOrderFeaturedContent fragment;
 
-    private int completeFlag = 0;
+    private int meuP = 0;
     ActionBar ab;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,7 @@ public class EveryXDayMainActivity extends Activity{
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
 
-
+        fragmentManager = getFragmentManager();
         menuLayout = (LinearLayout)findViewById(R.id.navdrawer);
         menuView = (ListView)findViewById(R.id.menuview);
         globalMenuAdapter = new GlobalMenuAdapter(this,listener);
@@ -91,6 +92,36 @@ public class EveryXDayMainActivity extends Activity{
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu();
+                switch (meuP){
+                    case 0:
+                        fragment = new FragmentShowOrderFeaturedContent();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                        break;
+                    case 1:
+                        FragmentSortContent sortFragment = new FragmentSortContent();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
+                        break;
+                    case 2:
+                        break;
+                    case 4:
+                        FragmentShareProduct shareFragment = new FragmentShareProduct();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, shareFragment).commit();
+                        break;
+                    case 5:
+                        FragmentSupportUs supportFragment = new FragmentSupportUs();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, supportFragment).commit();
+                        break;
+                    case 7:
+                        FragmentSetting settingFragment = new FragmentSetting();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, settingFragment).commit();
+                        break;
+                    case 8:
+                        FragmentAbout aboutFragment = new FragmentAbout();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
+                        break;
+                    default:
+                        break;
+                }
             }
 
             public void onDrawerOpened(View drawerView) {
@@ -239,52 +270,40 @@ public class EveryXDayMainActivity extends Activity{
         @Override
         public void OnComplete(int state, int position) {
             if(state == 1){
-                FragmentManager fragmentManager = getFragmentManager();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 switch (position){
                     case 0:
                         ab.setTitle("NEW");
-                        fragment = new FragmentShowOrderFeaturedContent();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                        menuView.setItemChecked(position, true);
+                        meuP = 0;
                         mDrawerLayout.closeDrawers();
+                        menuView.setItemChecked(position, true);
                         break;
                     case 1:
                         ab.setTitle("分类");
-                        FragmentSortContent sortFragment = new FragmentSortContent();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
-                        menuView.setItemChecked(position, true);
+                        meuP = 1;
                         mDrawerLayout.closeDrawers();
+                        menuView.setItemChecked(position, true);
                         break;
                     case 4:
                         ab.setTitle("分享新品");
-                        FragmentShareProduct shareFragment = new FragmentShareProduct();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, shareFragment).commit();
+                        meuP = 4;
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
                     case 5:
                         ab.setTitle("支持NEW");
-                        FragmentSupportUs supportFragment = new FragmentSupportUs();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, supportFragment).commit();
+                        meuP = 5;
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
                     case 7:
                         ab.setTitle("设置");
-                        FragmentSetting settingFragment = new FragmentSetting();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, settingFragment).commit();
+                        meuP = 7;
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
                     case 8:
                         ab.setTitle("关于");
-                        FragmentAbout aboutFragment = new FragmentAbout();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
+                        meuP = 8;
                         menuView.setItemChecked(position, true);
                         mDrawerLayout.closeDrawers();
                         break;
