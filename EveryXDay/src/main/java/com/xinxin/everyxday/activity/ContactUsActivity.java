@@ -32,7 +32,6 @@ public class ContactUsActivity extends SwipeBackSherlockActivity implements View
                 ContactUsActivity.this.finish();
             }
         });
-/* 菜单的监听可以在toolbar里设置，也可以像ActionBar那样，通过Activity的onOptionsItemSelected回调方法来处理 */
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
