@@ -265,8 +265,6 @@ public class CommonListRequestWrap<T> {
 	
 	/**
 	 * 当前加载页数，用来做缓存文件的key用。
-	 * @author tangj
-	 *
 	 */
 	private class PageVo{
 		
@@ -413,7 +411,6 @@ public class CommonListRequestWrap<T> {
 					CommonResponseBody<T> responseBody = new CommonResponseBody<T>();
 					
 					if(ResultCodeUtil.SUCESS.equals(responseHeader.getResultCode())){
-						
 						responseBody.setList(parseResponseContent(gson, str));
 					}else{
 						
@@ -438,7 +435,7 @@ public class CommonListRequestWrap<T> {
 	
 	private List<T> parseResponseContent(Gson gson, String str){
 		
-//		System.out.println("\r\n\r\n=====List<T> parseResponseContent======="+str);
+		System.out.println("\r\n\r\n=====List<T> parseResponseContent======="+str);
 		
 		JsonParser parser = new JsonParser();
 		JsonArray array = parser.parse(str).getAsJsonArray();

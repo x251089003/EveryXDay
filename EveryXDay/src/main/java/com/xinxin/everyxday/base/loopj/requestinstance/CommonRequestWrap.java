@@ -188,12 +188,11 @@ public abstract class CommonRequestWrap<T> {
 		public void onSuccess(int statusCode, Header[] headers,
 				String responseString) {
 			
-//			System.out.println("\r\n\r\n CommonRequestWrap : " + responseString);
+			System.out.println("\r\n\r\n CommonRequestWrap : " + responseString);
 			
 			CommonResponseBody<T> responseBody = getCommonResponseBodyFromJson(headers, responseString);
 			
 			if(responseBody != null){
-				
 				CommonResponseHeader responseHeader = responseBody.getResponseHeader();
 				
 				if(responseHeader != null){

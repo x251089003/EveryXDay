@@ -10,7 +10,16 @@ public class ShowOrderFeaturedBean {
 	private String cover;
 	private Date createTime;
 	private String detail;
+	private String detailNew;
 	private String buyurl;
+
+	public String getDetailNew() {
+		return detailNew;
+	}
+
+	public void setDetailNew(String detailNew) {
+		this.detailNew = detailNew;
+	}
 
 	public int getId() {
 		return id;

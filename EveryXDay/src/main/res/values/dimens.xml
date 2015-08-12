@@ -25,6 +25,7 @@
 
     <!-- list view padding -->
     <dimen name="main_list_view_spacing_padding">12dp</dimen>
+    <dimen name="detail_view_divider_height">24dp</dimen>
 
     <!-- top title custom height -->
     <dimen name="title_view_custom_width">200dp</dimen>

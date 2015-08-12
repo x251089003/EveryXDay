@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.andexert.library.RippleView;
 import com.loopj.android.http.RequestParams;
 import com.xinxin.everyxday.R;
+import com.xinxin.everyxday.activity.ToolbarControlDetailListViewActivity;
 import com.xinxin.everyxday.activity.ToolbarControlWebViewActivity;
 import com.xinxin.everyxday.base.imgloader.ImgLoadUtil;
 import com.xinxin.everyxday.bean.ShowOrderFeaturedBean;
@@ -92,6 +93,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 			ListView contentView = (ListView)refreshListView.findViewById(R.id.list_view);
 			contentView.setDivider(new ColorDrawable(R.color.transparent));
 			contentView.setDividerHeight(0);
+			contentView.setFastScrollEnabled(true);
 			contentView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 		}
 		
@@ -145,11 +147,12 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 			@Override
 			public void onComplete(RippleView rippleView) {
 				Intent intent = new Intent();
-				intent.setClass(getActivity(), ToolbarControlWebViewActivity.class);
+				intent.setClass(getActivity(), ToolbarControlDetailListViewActivity.class);
 				intent.putExtra("today_new_title", vo.getTitle().replace("今日最佳：", ""));
 				intent.putExtra("today_new_url", vo.getDetail());
 				intent.putExtra("today_new_id", vo.getId());
 				intent.putExtra("today_new_buyurl", vo.getBuyurl());
+				intent.putExtra("today_detail_new_buyurl", vo.getDetailNew());
 
 				startActivity(intent);
 			}

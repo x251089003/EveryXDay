@@ -168,11 +168,12 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
             @Override
             public void onComplete(RippleView rippleView) {
                 Intent intent = new Intent();
-                intent.setClass(SortActivity.this, ToolbarControlWebViewActivity.class);
+                intent.setClass(SortActivity.this, ToolbarControlDetailListViewActivity.class);
                 intent.putExtra("today_new_title", vo.getTitle().replace("今日最佳：", ""));
                 intent.putExtra("today_new_url", vo.getDetail());
                 intent.putExtra("today_new_id", vo.getId());
                 intent.putExtra("today_new_buyurl", vo.getBuyurl());
+                intent.putExtra("today_detail_new_buyurl", vo.getDetailNew());
 
                 startActivity(intent);
             }
