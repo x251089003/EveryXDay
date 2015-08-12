@@ -40,6 +40,7 @@ import com.xinxin.everyxday.base.loopj.requestinstance.CommonRequestWrapWithBean
 import com.xinxin.everyxday.bean.ShowOrderDetialBean;
 import com.xinxin.everyxday.bean.base.CommonResponseBody;
 import com.xinxin.everyxday.widget.AlignTextView;
+import com.xinxin.everyxday.widget.CBAlignTextView;
 
 import java.util.ArrayList;
 
@@ -109,6 +110,11 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
 
                     showOrderDetialList = mShowOrderDetialBean.getContents();
 
+                    for(int i = 0 ; i < showOrderDetialList.size() ; i++){
+                        System.out.println("img = " + showOrderDetialList.get(i).getImg());
+                        System.out.println("description = " + showOrderDetialList.get(i).getDescription());
+                    }
+
                     if(mDetailNewAdapter != null){
 
                         mDetailNewAdapter.notifyDataSetChanged();
@@ -165,12 +171,12 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
         refreshView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-                Log.v(TAG, "onScrollStateChanged: " + scrollState);
+//                Log.v(TAG, "onScrollStateChanged: " + scrollState);
             }
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                Log.v(TAG, "onScroll: firstVisibleItem: " + firstVisibleItem + " visibleItemCount: " + visibleItemCount + " totalItemCount: " + totalItemCount);
+//                Log.v(TAG, "onScroll: firstVisibleItem: " + firstVisibleItem + " visibleItemCount: " + visibleItemCount + " totalItemCount: " + totalItemCount);
             }
         });
         return refreshView;
@@ -188,7 +194,7 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
 
         @Override
         public ShowOrderDetialBean.ContentsEntity getItem(int position) {
-            if(position < showOrderDetialList.size()){
+            if(position != showOrderDetialList.size()){
                 return showOrderDetialList.get(position);
             }else{
                 return null;
@@ -217,29 +223,24 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             int type = getItemViewType(position);
-            ViewHolder holder = null;
             if(convertView == null){
                 switch (type) {
                     case ITEM_CONTENT_TYPE:
                         convertView = inflater.inflate(R.layout.detail_new_item, null);
-                        holder = new ViewHolder();
-                        /**得到各个控件的对象*/
-                        holder.detailDescription = (AlignTextView) convertView.findViewById(R.id.description);
-                        holder.detailImageView = (ImageView) convertView.findViewById(R.id.img);
-                        convertView.setTag(holder);//绑定ViewHolder对象
                         break;
                     case ITEM_SHARE_TYPE:
                         convertView = inflater.inflate(R.layout.detail_share_item, null);
                         break;
                 }
-            }else{
-                holder = (ViewHolder)convertView.getTag();//取出ViewHolder对象
             }
 
             switch (type) {
                 case ITEM_CONTENT_TYPE:
-                    holder.detailDescription.setText(showOrderDetialList.get(position).getDescription());
-                    ImgLoadUtil.displayImageWithAnimationAndNoCorner(showOrderDetialList.get(position).getImg(), holder.detailImageView);
+                    CBAlignTextView detailDescription = (CBAlignTextView) convertView.findViewById(R.id.description);
+                    ImageView detailImageView = (ImageView) convertView.findViewById(R.id.img);
+                    System.out.println("des === " +showOrderDetialList.get(position).getDescription() );
+                    detailDescription.setText(showOrderDetialList.get(position).getDescription());
+                    ImgLoadUtil.displayImageWithAnimationAndNoCorner(showOrderDetialList.get(position).getImg(), detailImageView);
                     break;
                 case ITEM_SHARE_TYPE:
 
@@ -248,12 +249,6 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
 
             return convertView;
         }
-    }
-
-    /**存放控件*/
-    public final class ViewHolder{
-        public ImageView detailImageView;
-        public AlignTextView detailDescription;
     }
 
     @Override

@@ -154,6 +154,8 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 				intent.putExtra("today_new_buyurl", vo.getBuyurl());
 				intent.putExtra("today_detail_new_buyurl", vo.getDetailNew());
 
+				System.out.println("=================  " + vo.getDetailNew());
+
 				startActivity(intent);
 			}
 		});

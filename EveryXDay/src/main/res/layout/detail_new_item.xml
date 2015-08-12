@@ -11,7 +11,7 @@
         android:layout_marginBottom="44dp"
         android:scaleType="centerCrop"/>
 
-    <com.xinxin.everyxday.widget.AlignTextView
+    <com.xinxin.everyxday.widget.CBAlignTextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
