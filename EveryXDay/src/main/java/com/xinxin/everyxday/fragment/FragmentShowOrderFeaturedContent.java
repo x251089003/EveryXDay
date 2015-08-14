@@ -31,6 +31,8 @@ import com.xinxin.everyxday.activity.ToolbarControlDetailListViewActivity;
 import com.xinxin.everyxday.activity.ToolbarControlWebViewActivity;
 import com.xinxin.everyxday.base.imgloader.ImgLoadUtil;
 import com.xinxin.everyxday.bean.ShowOrderFeaturedBean;
+import com.xinxin.everyxday.dao.model.Like;
+import com.xinxin.everyxday.dao.util.DbService;
 import com.xinxin.everyxday.global.InterfaceUrlDefine;
 import com.xinxin.everyxday.util.TimeUtil;
 
@@ -54,6 +56,8 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 	private static final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
 	private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
 	private static final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
+
+	private DbService mDbService;
 	
 	public static FragmentShowOrderFeaturedContent newInstance(Bundle args) {
 		FragmentShowOrderFeaturedContent myFragment = new FragmentShowOrderFeaturedContent();
@@ -75,6 +79,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		mDbService = DbService.getInstance(getAttachActivity());
 		loadListData();
 	}
 	
@@ -122,14 +127,23 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		like.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				if (!likedPositions.contains(position)) {
-					likedPositions.add(position);
+				if(mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size() == 0){
+					Like likeBean = new Like();
+					likeBean.setAvatar(vo.getAvatar());
+					likeBean.setCover(vo.getCover());
+					likeBean.setCreateTime(vo.getCreateTime());
+					likeBean.setDetailNew(vo.getDetailNew());
+					likeBean.setNewid(vo.getId() + "");
+					likeBean.setTitle(vo.getTitle());
+					mDbService.saveLike(likeBean);
 					updateHeartButton(like, true, position);
 					System.out.println("daxiao === " + likeAnimations.size());
 				}
 			}
 		});
-		if (likedPositions.contains(position)) {
+
+		System.out.println("LikeList === " + mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size());
+		if(mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size() != 0){
 			like.setBackgroundResource(R.mipmap.ic_heart_red);
 		}else{
 			like.setBackgroundResource(R.mipmap.ic_heart_outline_grey);

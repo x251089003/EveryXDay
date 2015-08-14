@@ -14,6 +14,9 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
+import com.xinxin.everyxday.dao.newdao.DaoMaster;
+import com.xinxin.everyxday.dao.newdao.DaoSession;
+import com.xinxin.everyxday.global.Globe;
 import com.xinxin.everyxday.util.LocalStorageUtil;
 import com.xinxin.everyxday.util.ProjectSettingInfoPreUtil;
 
@@ -27,6 +30,10 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class EveryXDayApplication extends Application{
 
     private static EveryXDayApplication instance;
+
+    private static DaoMaster daoMaster;
+
+    private static DaoSession daoSession;
 
     private LocalStorageUtil mLocalStorageUtil;
 
@@ -45,8 +52,9 @@ public class EveryXDayApplication extends Application{
     public void onCreate() {
 
         super.onCreate();
-
-        instance = this;
+        if(instance == null) {
+            instance = this;
+        }
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/FZLanTingHeiS-L-GB-Regular.TTF")
@@ -64,6 +72,36 @@ public class EveryXDayApplication extends Application{
         initImageLoader(getApplicationContext());
 
         startXiaoMiPush();
+    }
+
+    /**
+     * 取得DaoMaster
+     *
+     * @param context
+     * @return
+     */
+    public static DaoMaster getDaoMaster(Context context) {
+        if (daoMaster == null) {
+            DaoMaster.OpenHelper helper = new DaoMaster.DevOpenHelper(context, Globe.DB_NAME, null);
+            daoMaster = new DaoMaster(helper.getWritableDatabase());
+        }
+        return daoMaster;
+    }
+
+    /**
+     * 取得DaoSession
+     *
+     * @param context
+     * @return
+     */
+    public static DaoSession getDaoSession(Context context) {
+        if (daoSession == null) {
+            if (daoMaster == null) {
+                daoMaster = getDaoMaster(context);
+            }
+            daoSession = daoMaster.newSession();
+        }
+        return daoSession;
     }
 
     public void initImageLoader(Context context) {
