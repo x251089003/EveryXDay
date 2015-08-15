@@ -8,27 +8,21 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import com.andexert.library.RippleView;
 import com.loopj.android.http.RequestParams;
 import com.xinxin.everyxday.R;
 import com.xinxin.everyxday.activity.ToolbarControlDetailListViewActivity;
-import com.xinxin.everyxday.activity.ToolbarControlWebViewActivity;
 import com.xinxin.everyxday.base.imgloader.ImgLoadUtil;
 import com.xinxin.everyxday.bean.ShowOrderFeaturedBean;
 import com.xinxin.everyxday.dao.model.Like;
@@ -36,34 +30,21 @@ import com.xinxin.everyxday.dao.util.DbService;
 import com.xinxin.everyxday.global.InterfaceUrlDefine;
 import com.xinxin.everyxday.util.TimeUtil;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment<ShowOrderFeaturedBean> {
 	
 	private ArrayList<ShowOrderFeaturedBean> voList = new ArrayList<ShowOrderFeaturedBean>();
 
-	private final ArrayList<Integer> likedPositions = new ArrayList<>();
-
 	private final Map<ImageView, AnimatorSet> likeAnimations = new HashMap<>();
 
-	private static final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
 	private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
 	private static final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
 
 	private DbService mDbService;
-	
-	public static FragmentShowOrderFeaturedContent newInstance(Bundle args) {
-		FragmentShowOrderFeaturedContent myFragment = new FragmentShowOrderFeaturedContent();
-        myFragment.setArguments(args);
-        return myFragment;
-    }
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -166,7 +147,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 				intent.putExtra("today_new_url", vo.getDetail());
 				intent.putExtra("today_new_id", vo.getId());
 				intent.putExtra("today_new_buyurl", vo.getBuyurl());
-				intent.putExtra("today_detail_new_buyurl", vo.getDetailNew());
+				intent.putExtra("today_detail_new_url", vo.getDetailNew());
 
 				System.out.println("=================  " + vo.getDetailNew());
 

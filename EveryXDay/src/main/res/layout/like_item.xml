@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <LinearLayout
+        android:id="@+id/id_back"
+        android:layout_width="80dp"
+        android:layout_height="220dp"
+        android:layout_gravity="right"
+        android:background="@color/white"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/id_remove"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dp"
+            android:background="@mipmap/ic_close"
+            >
+        </Button>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/id_front"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <ImageView
+            android:id="@+id/showorder_list_img"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop" />
+        <com.andexert.library.RippleView
+            android:id="@+id/item_rippleview"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:rv_rippleDuration="200"
+            app:rv_type="rectangle">
+            <ImageView
+                android:id="@+id/showorder_list_img_above"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/abc_list_selector_disabled_holo_dark"/>
+        </com.andexert.library.RippleView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/showorder_list_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/showorder_item_nickname"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/showorder_list_user_name">
+                <TextView
+                    android:id="@+id/new_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="7月7日"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+                    tools:ignore="MissingPrefix"/>
+
+                <TextView
+                    android:id="@+id/new_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/new_time"
+                    android:layout_marginLeft="4dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="#科技"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+                    tools:ignore="MissingPrefix"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+
+</FrameLayout>

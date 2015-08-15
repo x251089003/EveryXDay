@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.nispok.snackbar.Snackbar;
 import com.xinxin.everyxday.fragment.FragmentAbout;
+import com.xinxin.everyxday.fragment.FragmentLike;
 import com.xinxin.everyxday.fragment.FragmentSetting;
 import com.xinxin.everyxday.fragment.FragmentShareProduct;
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
@@ -93,6 +94,8 @@ public class EveryXDayMainActivity extends Activity{
                         fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
                         break;
                     case 2:
+                        FragmentLike likeFragment = new FragmentLike();
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, likeFragment).commit();
                         break;
                     case 4:
                         FragmentShareProduct shareFragment = new FragmentShareProduct();
@@ -192,6 +195,12 @@ public class EveryXDayMainActivity extends Activity{
                     case 1:
                         ab.setTitle("分类");
                         meuP = 1;
+                        mDrawerLayout.closeDrawers();
+                        menuView.setItemChecked(position, true);
+                        break;
+                    case 2:
+                        ab.setTitle("喜欢过的");
+                        meuP = 2;
                         mDrawerLayout.closeDrawers();
                         menuView.setItemChecked(position, true);
                         break;

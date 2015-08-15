@@ -72,7 +72,7 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
             finish();
             return;
         }
-        detailNeww = intent.getStringExtra("today_detail_new_buyurl");
+        detailNeww = intent.getStringExtra("today_detail_new_url");
         super.onCreate(savedInstanceState);
         inflater = LayoutInflater.from(this);
     }

@@ -173,7 +173,7 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
                 intent.putExtra("today_new_url", vo.getDetail());
                 intent.putExtra("today_new_id", vo.getId());
                 intent.putExtra("today_new_buyurl", vo.getBuyurl());
-                intent.putExtra("today_detail_new_buyurl", vo.getDetailNew());
+                intent.putExtra("today_detail_new_url", vo.getDetailNew());
 
                 startActivity(intent);
             }

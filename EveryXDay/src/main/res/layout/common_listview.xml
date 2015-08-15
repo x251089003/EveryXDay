@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <com.xinxin.everyxday.widget.swipelistview.SwipeListView
+        android:id="@+id/common_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:scrollbars="none"
+        swipe:swipeActionLeft="reveal"
+        swipe:swipeMode="left"
+        swipe:swipeBackView="@+id/id_back"
+        swipe:swipeFrontView="@+id/id_front"
+        swipe:swipeAnimationTime="100"
+        swipe:swipeOpenOnLongPress="true"
+        swipe:swipeCloseAllItemsWhenMoveList="true"
+        />
+
+    <!--<ListView-->
+        <!--android:id="@+id/common_listview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/white"-->
+        <!--android:divider="@null"-->
+        <!--android:listSelector="@android:color/transparent"-->
+        <!--android:cacheColorHint="#00000000"-->
+        <!--android:scrollbars="none"-->
+        <!--/>-->
+
+</LinearLayout>
