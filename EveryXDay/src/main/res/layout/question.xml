@@ -9,7 +9,7 @@
     >
 
     <include
-        layout="@layout/toolbar"
+        layout="@layout/common_toolbar"
         android:id="@+id/toolbar"/>
 
     <ExpandableListView

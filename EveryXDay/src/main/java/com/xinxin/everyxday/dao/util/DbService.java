@@ -42,7 +42,7 @@ public class DbService {
     }
 
     public List<Like> loadAllLike(){
-        return likeDao.loadAll();
+        return likeDao.queryRaw("WHERE _ID > 0 ORDER BY _ID DESC");
     }
 
     /**

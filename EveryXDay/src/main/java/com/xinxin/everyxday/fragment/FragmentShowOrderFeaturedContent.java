@@ -77,9 +77,8 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 
 			SwipeRefreshLayout refreshListView = (SwipeRefreshLayout)listView;
 			ListView contentView = (ListView)refreshListView.findViewById(R.id.list_view);
-			contentView.setDivider(new ColorDrawable(R.color.transparent));
+			contentView.setDivider(null);
 			contentView.setDividerHeight(0);
-			contentView.setFastScrollEnabled(true);
 			contentView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 		}
 		
@@ -146,6 +145,9 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 				intent.putExtra("today_new_title", vo.getTitle().replace("今日最佳：", ""));
 				intent.putExtra("today_new_url", vo.getDetail());
 				intent.putExtra("today_new_id", vo.getId());
+				intent.putExtra("today_new_cover",vo.getCover());
+				intent.putExtra("today_new_time",vo.getCreateTime());
+				intent.putExtra("today_new_avatar",vo.getAvatar());
 				intent.putExtra("today_new_buyurl", vo.getBuyurl());
 				intent.putExtra("today_detail_new_url", vo.getDetailNew());
 
@@ -235,4 +237,9 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		return ShowOrderFeaturedBean.class;
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		notifyMyListView();
+	}
 }

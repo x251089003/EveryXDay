@@ -7,7 +7,7 @@
     android:background="@color/white">
 
     <include
-        layout="@layout/toolbar"
+        layout="@layout/common_toolbar"
         android:id="@+id/toolbar"/>
 
     <ScrollView

@@ -39,6 +39,7 @@ import com.xinxin.everyxday.base.loopj.requestinstance.CommonRequestWrapDelegate
 import com.xinxin.everyxday.base.loopj.requestinstance.CommonRequestWrapWithBean;
 import com.xinxin.everyxday.bean.ShowOrderDetialBean;
 import com.xinxin.everyxday.bean.base.CommonResponseBody;
+import com.xinxin.everyxday.dao.util.DbService;
 import com.xinxin.everyxday.widget.AlignTextView;
 import com.xinxin.everyxday.widget.CBAlignTextView;
 
@@ -57,13 +58,15 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
 
     private ArrayList<ShowOrderDetialBean.ContentsEntity> showOrderDetialList;
 
-    private String detailNeww;
+
 
     private boolean isRefreshing = false;
 
     private ObservableListView refreshView;
 
     private ProgressBarCircularIndeterminate loadProgress;
+
+    private boolean isLiked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +75,14 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
             finish();
             return;
         }
-        detailNeww = intent.getStringExtra("today_detail_new_url");
         super.onCreate(savedInstanceState);
+
         inflater = LayoutInflater.from(this);
     }
 
     private void loadListData() {
         CommonRequestWrapWithBean<ShowOrderDetialBean> worthBuyRequest = new CommonRequestWrapWithBean<ShowOrderDetialBean>(
-                this, detailNeww, null, false, new ShowOrderDetailRequestWrapDelegateImpl(),
+                this, detailNew, null, false, new ShowOrderDetailRequestWrapDelegateImpl(),
                 ShowOrderDetialBean.class);
 
         worthBuyRequest.getRequest();
@@ -254,22 +257,6 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem menu) {
-        int id = menu.getItemId();
-        if (id == R.id.menu_about) {
-
-            return true;
-        }
-        return false;
     }
 
 }

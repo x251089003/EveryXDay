@@ -249,6 +249,12 @@ public abstract class PagingListViewWrapBase {
 		}
 	}
 
+	public void notifyMyListView(){
+		if(listView != null){
+			listAdapter.notifyDataSetChanged();
+		}
+	}
+
 	public String getListHeaderViewTag(){
 		return LIST_HEADER_VIEW;
 	}

@@ -284,6 +284,10 @@ public abstract class ListBaseActivity<T> extends SwipeBackSherlockActivity impl
 	public void updateListView(){
 		pagingListViewWrap.updateListView(inflater);
 	}
+
+	public void notifyMyListView(){
+		pagingListViewWrap.notifyMyListView();
+	}
 	
 	public ListView getListView(){
 		return pagingListViewWrap.getListView();

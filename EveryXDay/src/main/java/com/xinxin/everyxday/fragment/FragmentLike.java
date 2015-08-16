@@ -180,8 +180,11 @@ public class FragmentLike extends Fragment {
                     Intent intent = new Intent();
                     intent.setClass(getActivity(), ToolbarControlDetailListViewActivity.class);
                     intent.putExtra("today_new_title", vo.getTitle().replace("今日最佳：", ""));
-                    intent.putExtra("today_new_id", vo.getNewid());
+                    intent.putExtra("today_new_id", Integer.parseInt(vo.getNewid()));
                     intent.putExtra("today_detail_new_url", vo.getDetailNew());
+                    intent.putExtra("today_new_cover",vo.getCover());
+                    intent.putExtra("today_new_time",vo.getCreateTime());
+                    intent.putExtra("today_new_avatar",vo.getAvatar());
 
                     startActivity(intent);
                 }

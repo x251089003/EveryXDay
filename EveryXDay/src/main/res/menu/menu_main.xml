@@ -19,7 +19,7 @@
     tools:context=".ToolbarControlDetailListViewActivity">
 
     <item
-        android:id="@+id/menu_about"
+        android:id="@+id/menu_like"
         android:orderInCategory="100"
         android:title="喜欢"
         android:icon="@mipmap/ic_heart_outline_grey"

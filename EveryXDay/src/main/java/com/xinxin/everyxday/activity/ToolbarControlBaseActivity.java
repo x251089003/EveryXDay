@@ -16,12 +16,20 @@
 
 package com.xinxin.everyxday.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -29,13 +37,33 @@ import com.github.ksoichiro.android.observablescrollview.Scrollable;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.xinxin.everyxday.R;
+import com.xinxin.everyxday.dao.model.Like;
+import com.xinxin.everyxday.dao.util.DbService;
 import com.xinxin.everyxday.widget.swipeback.SwipeBackSherlockActivity;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class ToolbarControlBaseActivity<S extends Scrollable> extends SwipeBackSherlockActivity implements ObservableScrollViewCallbacks {
 
     private Toolbar mToolbar;
     private S mScrollable;
     private String viewTitle;
+    private TextView titleTextView;
+    private ImageView likeImageView;
+    private String avatar;
+    private String cover;
+    private Date createTime;
+    private int newId;
+    public String detailNew;
+
+    private DbService mDbService;
+
+    private final Map<ImageView, AnimatorSet> likeAnimations = new HashMap<>();
+
+    private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
+    private static final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +72,46 @@ public abstract class ToolbarControlBaseActivity<S extends Scrollable> extends S
             finish();
             return;
         }
-
+        avatar = intent.getStringExtra("today_new_avatar");
+        cover = intent.getStringExtra("today_new_cover");
+        createTime = (Date)intent.getSerializableExtra("today_new_time");
+        System.out.println("time ========================= " + createTime.toString());
+        detailNew = intent.getStringExtra("today_detail_new_url");
+        newId = intent.getIntExtra("today_new_id", -1);
         viewTitle = intent.getStringExtra("today_new_title");
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
+        mDbService = DbService.getInstance(this);
+
+        titleTextView = (TextView)findViewById(R.id.toolbar_title);
+        titleTextView.setText(viewTitle);
+
+        likeImageView = (ImageView)findViewById(R.id.imageView_like);
+
+        if(mDbService.queryLike("WHERE NEWID = "+ newId).size() != 0){
+            likeImageView.setBackgroundResource(R.mipmap.ic_heart_red);
+        }else{
+            likeImageView.setBackgroundResource(R.mipmap.ic_heart_outline_grey);
+        }
+        likeImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDbService.queryLike("WHERE NEWID = "+ newId).size() == 0){
+                    Like likeBean = new Like();
+                    likeBean.setAvatar(avatar);
+                    likeBean.setCover(cover);
+                    likeBean.setCreateTime(createTime);
+                    likeBean.setDetailNew(detailNew);
+                    likeBean.setNewid(newId + "");
+                    likeBean.setTitle(viewTitle);
+                    mDbService.saveLike(likeBean);
+                    updateHeartButton(likeImageView, true);
+                }
+            }
+        });
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
-        mToolbar.setTitle(viewTitle);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,5 +187,44 @@ public abstract class ToolbarControlBaseActivity<S extends Scrollable> extends S
             }
         });
         animator.start();
+    }
+
+    private void updateHeartButton(final ImageView view, boolean animated) {
+        if (animated) {
+            if (!likeAnimations.containsKey(view)) {
+                AnimatorSet animatorSet = new AnimatorSet();
+                likeAnimations.put(view, animatorSet);
+
+                ObjectAnimator rotationAnim = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f);
+                rotationAnim.setDuration(300);
+                rotationAnim.setInterpolator(ACCELERATE_INTERPOLATOR);
+
+                ObjectAnimator bounceAnimX = ObjectAnimator.ofFloat(view, "scaleX", 0.2f, 1f);
+                bounceAnimX.setDuration(300);
+                bounceAnimX.setInterpolator(OVERSHOOT_INTERPOLATOR);
+
+                ObjectAnimator bounceAnimY = ObjectAnimator.ofFloat(view, "scaleY", 0.2f, 1f);
+                bounceAnimY.setDuration(300);
+                bounceAnimY.setInterpolator(OVERSHOOT_INTERPOLATOR);
+                bounceAnimY.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        view.setBackgroundResource(R.mipmap.ic_heart_red);
+                    }
+                });
+
+                animatorSet.play(rotationAnim);
+                animatorSet.play(bounceAnimX).with(bounceAnimY).after(rotationAnim);
+
+                animatorSet.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        likeAnimations.remove(view);
+                    }
+                });
+
+                animatorSet.start();
+            }
+        }
     }
 }

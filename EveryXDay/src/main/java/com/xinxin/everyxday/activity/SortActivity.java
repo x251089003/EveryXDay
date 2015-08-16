@@ -28,6 +28,8 @@ import com.txx.androidpaginglibrary.listwrap.listview.PagingListViewWrapBase;
 import com.xinxin.everyxday.R;
 import com.xinxin.everyxday.base.imgloader.ImgLoadUtil;
 import com.xinxin.everyxday.bean.ShowOrderFeaturedBean;
+import com.xinxin.everyxday.dao.model.Like;
+import com.xinxin.everyxday.dao.util.DbService;
 import com.xinxin.everyxday.fragment.ListBaseActivity;
 import com.xinxin.everyxday.global.InterfaceUrlDefine;
 import com.xinxin.everyxday.util.TimeUtil;
@@ -48,7 +50,6 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
     private Toolbar mToolbar;
 
     private ArrayList<ShowOrderFeaturedBean> voList = new ArrayList<ShowOrderFeaturedBean>();
-    private final ArrayList<Integer> likedPositions = new ArrayList<>();
     private final Map<ImageView, AnimatorSet> likeAnimations = new HashMap<>();
 
     private static final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
@@ -56,6 +57,8 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
     private static final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
 
     private String viewTitle;
+
+    private DbService mDbService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,8 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
 
         viewTitle = intent.getStringExtra("title");
         super.onCreate(savedInstanceState);
+        mDbService = DbService.getInstance(this);
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
         mToolbar.setTitle(viewTitle);// 标题的文字需在setSupportActionBar之前，不然会无效
@@ -115,7 +120,7 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
     public void addListViewToContainer(View listView) {
         SwipeRefreshLayout refreshListView = (SwipeRefreshLayout)listView;
         ListView contentView = (ListView)refreshListView.findViewById(R.id.list_view);
-        contentView.setDivider(new ColorDrawable(R.color.transparent));
+        contentView.setDivider(null);
         contentView.setDividerHeight(0);
         contentView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 
@@ -143,14 +148,23 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!likedPositions.contains(position)) {
-                    likedPositions.add(position);
+                if(mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size() == 0){
+                    Like likeBean = new Like();
+                    likeBean.setAvatar(vo.getAvatar());
+                    likeBean.setCover(vo.getCover());
+                    likeBean.setCreateTime(vo.getCreateTime());
+                    likeBean.setDetailNew(vo.getDetailNew());
+                    likeBean.setNewid(vo.getId() + "");
+                    likeBean.setTitle(vo.getTitle());
+                    mDbService.saveLike(likeBean);
                     updateHeartButton(like, true, position);
                     System.out.println("daxiao === " + likeAnimations.size());
                 }
             }
         });
-        if (likedPositions.contains(position)) {
+
+        System.out.println("LikeList === " + mDbService.queryLike("WHERE NEWID = " + vo.getId()).size());
+        if(mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size() != 0){
             like.setBackgroundResource(R.mipmap.ic_heart_red);
         }else{
             like.setBackgroundResource(R.mipmap.ic_heart_outline_grey);
@@ -174,6 +188,9 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
                 intent.putExtra("today_new_id", vo.getId());
                 intent.putExtra("today_new_buyurl", vo.getBuyurl());
                 intent.putExtra("today_detail_new_url", vo.getDetailNew());
+                intent.putExtra("today_new_cover",vo.getCover());
+                intent.putExtra("today_new_time",vo.getCreateTime());
+                intent.putExtra("today_new_avatar",vo.getAvatar());
 
                 startActivity(intent);
             }
@@ -223,6 +240,12 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        notifyMyListView();
     }
 
     @Override
