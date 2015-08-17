@@ -129,9 +129,8 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 			like.setBackgroundResource(R.mipmap.ic_heart_outline_grey);
 		}
 		
-		TextView publishTime = (TextView)convertView.findViewById(R.id.showorder_list_user_publish_time);
-//		publishTime.setText(TimeUtil.getStandardDate(""+vo.getCreateTime().getTime()/1000));
-		publishTime.setText(TimeUtil.dateToStr(vo.getCreateTime()));
+		TextView publishTime = (TextView)convertView.findViewById(R.id.new_time);
+		publishTime.setText(TimeUtil.getMonthAndDay(vo.getCreateTime()));
 		
 		ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
 		ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);

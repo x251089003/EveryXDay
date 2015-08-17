@@ -559,4 +559,22 @@ public class TimeUtil {
 		return jj;
 	}
 
+	public static String getMonthAndDay(Date createTime){
+		String time = dateToStr(createTime);
+		String month = "";
+		String day="";
+		if("0".equals(time.substring(5,6))){
+			month = time.substring(6, 7);
+		}else{
+			month = time.substring(5,7);
+		}
+		if("0".equals(time.substring(8,9))){
+			day = time.substring(9, 10);
+		}else{
+			day = time.substring(8,10);
+		}
+
+		return month + "月" + day + "日";
+	}
+
 }

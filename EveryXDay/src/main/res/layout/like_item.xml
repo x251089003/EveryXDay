@@ -38,6 +38,7 @@
             android:id="@+id/showorder_list_img"
             android:layout_width="match_parent"
             android:layout_height="220dp"
+            android:background="@color/white"
             android:scaleType="centerCrop" />
         <com.andexert.library.RippleView
             android:id="@+id/item_rippleview"

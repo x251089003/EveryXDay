@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,6 +35,8 @@ import java.util.List;
  */
 public class FragmentLike extends Fragment {
 
+    protected static final String TAG = "FragmentLike";
+
     protected LayoutInflater inflater;
 
     private List<Like> likeList;
@@ -46,6 +48,8 @@ public class FragmentLike extends Fragment {
     private RelativeLayout parentLayout;
 
     private LikeAdapter mLikeAdapter;
+
+    private SwipeListView mListView;
 
     class MyHandler extends Handler {
 
@@ -96,19 +100,13 @@ public class FragmentLike extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public int convertDpToPixel(float dp) {
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        float px = dp * (metrics.densityDpi / 160f);
-        return (int) px;
-    }
-
     private void initListView(){
         DisplayMetrics dm = new DisplayMetrics();
         dm = getResources().getDisplayMetrics();
         int screenWidth  = dm.widthPixels;
         int distance = screenWidth - DeviceInfoUtil.dip2px(getActivity(),80);
         View view = inflater.inflate(R.layout.common_listview,null);
-        SwipeListView mListView = (SwipeListView)view.findViewById(R.id.common_listview);
+        mListView = (SwipeListView)view.findViewById(R.id.common_listview);
         mListView.setOffsetLeft(distance);
         if(mLikeAdapter == null){
             mLikeAdapter = new LikeAdapter();
@@ -160,7 +158,7 @@ public class FragmentLike extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             final Like vo = likeList.get(position);
 
             if (convertView == null) {
@@ -172,6 +170,20 @@ public class FragmentLike extends Fragment {
 
             ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
             ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
+
+            TextView publishTime = (TextView)convertView.findViewById(R.id.new_time);
+            publishTime.setText(TimeUtil.getMonthAndDay(vo.getCreateTime()));
+
+            Button delete = (Button)convertView.findViewById(R.id.id_remove);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDbService.deleteLike(vo.getId());
+                    likeList.remove(position);
+                    notifyDataSetChanged();
+                    mListView.closeOpenedItems();
+                }
+            });
 
             RippleView mRippleView = (RippleView)convertView.findViewById(R.id.item_rippleview);
             mRippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
