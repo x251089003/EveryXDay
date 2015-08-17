@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:fadingEdge="none"
         android:dividerHeight="0dp"
+        android:scrollbars="none"
         android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb" />
 
 </android.support.v4.widget.SwipeRefreshLayout>

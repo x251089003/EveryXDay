@@ -44,6 +44,8 @@
             android:id="@+id/textView2"
             android:textSize="14sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
 
         <TextView
@@ -54,6 +56,8 @@
             android:id="@+id/textView_version"
             android:textSize="14sp"
             android:textColor="@color/ac_title_color"
+            fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+            tools:ignore="MissingPrefix"
             />
     </LinearLayout>
 

@@ -79,7 +79,6 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 			ListView contentView = (ListView)refreshListView.findViewById(R.id.list_view);
 			contentView.setDivider(null);
 			contentView.setDividerHeight(0);
-			contentView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 		}
 		
 		containerView.removeAllViews();
