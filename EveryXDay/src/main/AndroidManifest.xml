@@ -49,6 +49,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/mySwipeBackLayout"/>
         <activity
+            android:name=".activity.OpenSourceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/mySwipeBackLayout"/>
+        <activity
+            android:name=".activity.ServiceTermActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/mySwipeBackLayout"/>
+        <activity
             android:name=".activity.SortActivity"
             android:screenOrientation="portrait"
             android:theme="@style/mySwipeBackLayout"/>

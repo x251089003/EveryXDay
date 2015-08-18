@@ -238,7 +238,7 @@
                 android:layout_height="56dp"
                 android:paddingLeft="10dp"
                 android:gravity="center_vertical"
-                android:text="评个分吧"
+                android:text="给NEW评分"
                 android:textSize="14sp"
                 android:textColor="@color/ac_title_color"
                 android:textStyle="bold"/>
@@ -279,7 +279,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:text="0KB"
+                    android:text="0.0KB"
                     android:textSize="14sp"
                     android:textColor="@color/ac_title_color"
                     android:textStyle="bold">
@@ -334,7 +334,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingTop="32dp"
-            android:paddingBottom="96dp"
+            android:paddingBottom="128dp"
             android:gravity="center_horizontal">
 
             <ImageView

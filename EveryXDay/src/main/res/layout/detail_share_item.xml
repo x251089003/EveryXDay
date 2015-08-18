@@ -28,7 +28,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:paddingTop="32dp"
-        android:paddingBottom="96dp"
+        android:paddingBottom="128dp"
         android:gravity="center_horizontal">
 
         <ImageView
