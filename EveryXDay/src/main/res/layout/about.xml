@@ -61,4 +61,19 @@
             />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:text="Copyright©2015\n北京仙淘科技有限公司"
+        android:textSize="14sp"
+        android:textColor="@color/ac_title_color"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        fontPath="fonts/FZLanTingHeiS-L-GB-Regular.TTF"
+        tools:ignore="MissingPrefix"
+        />
+
 </RelativeLayout>

@@ -227,6 +227,231 @@
         limitations under the License.
     </string>
 
+    <string name="greendao">
+        Copyright &#169; 2011-2015 Markus Junginger, greenrobot (http://greenrobot.de)
+        \n\nThis file is part of greenDAO Generator.
+        \n\ngreenDAO Generator is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+        \n\ngreenDAO Generator is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+        \n\nYou should have received a copy of the GNU General Public License
+        along with greenDAO Generator.  If not, see (http://www.gnu.org/licenses/).
+    </string>
+
+    <string name="calligraphy">
+        Copyright 2013 Christopher Jenkins
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="rippleeffect">
+        The MIT License (MIT)
+        \n\nCopyright &#169; 2014 Robin Chutaux
+        \n\nPermission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the \"Software\"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        \n\nThe above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        \n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+    </string>
+
+    <string name="butterknife">
+        Copyright 2013 Jake Wharton
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="rebound">
+        BSD License
+        \n\nFor Rebound software
+        \n\nCopyright &#169; 2013, Facebook, Inc. All rights reserved.
+        \n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+        \n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+        \n\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+        \n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    </string>
+
+    <string name="gson">
+        Copyright 2008 Google Inc.
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="sbl">
+        Copyright 2013 Issac Wong
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="aos">
+        Copyright 2014 Soichiro Kashima
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="mdl">
+        Copyright 2015 navasmdc
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="aslv">
+        Copyright &#169; 2012 47 Degrees, LLC http://47deg.com hello@47deg.com
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="atv">
+        Copyright 2015 yuedong
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        \nyou may not use this file except in compliance with the License.
+        \nYou may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="noa">
+        Copyright 2012 Jake Wharton
+        \n\nLicensed under the Apache License, Version 2.0 (the \"License\");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        \n\nhttp://www.apache.org/licenses/LICENSE-2.0
+        \n\nUnless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    </string>
+
+    <string name="banquan">
+        1. NEW（以下简称\"本软件\"）由个人开发者李欣欣版权所有，未经授权禁止二次打包或复制。
+        \n2. 本软件上刊载的所有内容以及本软件用户发表并授权刊载于本软件的所有内容，
+        包括但不限于文字、图片、声音、视频、图表、标志、标识、广告、商标、商号、域名、软件、程序、
+        数据、数据文件、发现、发明、作品、设计、技术、方法、流程、计划、公式、专栏目录与名称、
+        内容分类标准、过去、目前和计划的研究开发成果以及任何其他信息或资料，均受中国现行法律法规、
+        规章制度及适用之国际公约中有关著作权、商标权、专利权及／或其它财产所有权法律的保护，为本人所有。
+        使用者将本软件上刊载的内容与服务用于商业、盈利、广告性目的时，需征得本人的书面特别授权，
+        注明作者及文章出处并按有关规定支付相应费用。未经本人的明确书面特别授权，
+        任何人不得为任何目的使用以及向任何自然人或单位提供、披露、复印、复制、出售、出让、许可、营销、
+        出版、宣讲、转让、处置或利用本软件上提供的任何内容或服务，或在非本人所属的服务器上做接口服务，
+        否则本人将依据相关法律法规追究经济赔偿和其它侵权法律责任。
+        \n3. 对不遵守本声明或其他违法、恶意使用本软件内容者，本人保留追究其法律责任的权利。
+    </string>
+
+    <string name="tiaokuan">
+        1.特别提示
+        \n欢迎您来到NEW。请您仔细阅读以下条款，如果您对本协议的任何条款表示异议，您可以选择不进入NEW。当您注册登录成功，无论是进入NEW，还是在NEW上发布任何内容（即\“内容\”），均意味着您（即\“用户\”）完全接受本协议项下的全部条款。
+        \n2.服务内容
+        \n2.1 本服务的具体内容由NEW根据实际情况提供，NEW保留随时变更、中断或终止部分或全部服务的权利。NEW不承担因业务调整给用户造成的损失。除非本协议另有其它明示规定，增加或强化目前本服务的任何新功能，包括所推出的新产品，均受到本协议之规范。用户了解并同意，本服务仅依其当前所呈现的状况提供，对于任何用户通讯或个人化设定之时效、删除、传递错误、未予储存或其它任何问题，NEW均不承担任何责任。
+        \n2.2 NEW在提供本服务时，可能会对部分服务的用户收取一定的费用。在此情况下，NEW会在相关页面上做明确的提示。如用户拒绝支付该等费用，则不能使用相关的服务。
+        \n2.3 用户理解，NEW仅提供相关的本服务，除此之外与相关本服务有关的设备（如电脑、调制解调器及其他与接入互联网有关的装置）及所需的费用（如为接入互联网而支付的电话费及上网费）均应由用户自行负担。
+        \n3.使用规则
+        \n3.1 用户承诺不得以任何方式利用NEW直接或间接从事违反中国法律、以及社会公德的行为，NEW有权对违反上述承诺的内容予以删除。
+        \n3.2 用户不得利用NEW服务制作、上载、复制、发布、传播或者转载如下内容：
+        \n反对宪法所确定的基本原则的；
+        \n危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；
+        \n损害国家荣誉和利益的；
+        \n煽动民族仇恨、民族歧视，破坏民族团结的；
+        \n破坏国家宗教政策，宣扬邪教和封建迷信的；
+        \n散布谣言，扰乱社会秩序，破坏社会稳定的；
+        \n散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；
+        \n侮辱或者诽谤他人，侵害他人合法权益的；
+        \n含有法律、行政法规禁止的其他内容的信息。
+        \n3.3 NEW有权对用户使用NEW的情况进行审查和监督，如用户在使用NEW时违反任何上述规定，NEW或其授权的人有权要求用户改正或直接采取一切必要的措施（包括但不限于更改或删除用户张贴的内容、暂停或终止用户使用NEW的权利）以减轻用户不当行为造成的影响。
+        \n4.内容所有权
+        \n4.1 NEW提供的本服务内容可能包括：文字、软件、声音、图片、录象、图表等。所有这些内容受版权、商标和其它财产所有权法律的保护。
+        \n4.2 用户只有在获得NEW或其他相关权利人的授权之后才能使用这些内容，不能擅自复制、再造这些内容、或创造与内容有关的派生产品。
+        \n4.3 NEW鼓励用户充分利用NEW平台自由地张贴和共享自己的信息，但这些内容必须位于公共领域内，或者用户拥有这些内容的使用权。同时，用户对于其创作并在NEW上发布的合法内容依法享有著作权及其相关权利。用户不应通过NEW张贴其它受版权保护的内容。NEW如果收到正式版权投诉，将会删除这些内容。
+        \n4.4 在NEW张贴的公开信息：
+        \n在本协议中，“本服务公开使用区域”系指一般公众可以使用的区域。
+        \n用户同意已就用户于本服务公开使用区域及本服务其它任何公开使用区域张贴之内容，包括照片、文字或影音资料等内容，授予NEW全球性、免许可费及非独家的使用权，小红书可以为了展示、散布及推广张贴前述内容之特定服务目的，将前述内容复制、修改、改写、改编或出版，对于照片及文字影音资料的上述使用，仅为张贴该照片或文字影音于本服务之目的而为之。在用户将前述内容放入本服务期间，使用权持续有效；若用户将前述内容自本服务中删除，则使用权于删除时终止。
+        \n用户同意已就用户于本服务其它公开使用区域张贴的其它内容，授予NEW免许可费、永久有效、不可撤销、非独家及可完全再授权之权利在全球使用、复制、修改、改写、改编、发行、翻译、创造衍生性著作，及/或将前述内容（部分或全部）加以散布、表演、展示，及/ 或放入利用任何现在已知和未来开发出之形式、媒体和科技之其它著作物当中。
+        \n5.隐私保护
+        \n5.1 保护用户隐私是NEW的一项基本政策，NEW保证不对外公开或向第三方提供用户注册资料及用户在使用本服务时存储在NEW的非公开内容，但下列情况除外：
+        \n事先获得用户的明确授权；
+        \n根据有关的法律法规要求；
+        \n按照相关政府主管部门的要求；
+        \n为维护社会公众的利益；
+        \n维护NEW的合法权益。
+        \n5.2 NEW可能会与第三方合作向用户提供相关的本服务，在此情况下，如该第三方同意承担与NEW同等的保护用户隐私的责任，则NEW可将用户的注册资料等提供给该第三方。
+        \n5.3 在不透露单个用户隐私资料的前提下，NEW有权对整个用户数据库进行分析并对用户数据库进行商业上的利用。
+        \n6.免责声明
+        \n6.1 用户将照片、个人信息等资料上传到互联网上，有可能会被其他组织或个人复制、转载、擅改或做其它非法用途，用户必须充分意识此类风险的存在。用户明确同意其使用NEW服务所存在的风险（包括但不限于受到第三方侵权或对第三方造成侵权）将完全由其自己承担；因其使用NEW服务而产生的一切后果也由其自己承担，NEW对此不承担任何责任。
+        \n6.2 NEW不担保本服务一定能满足用户的要求，也不担保本服务不会中断，对本服务的及时性、安全性、准确性、真实性、完整性也都不作担保。
+        \n6.3 对于因不可抗力或NEW不能控制的原因造成的本服务中断或其它缺陷，NEW不承担任何责任，但将尽力减少因此而给用户造成的损失和影响。
+        \n6.4 根据有关法律法规，NEW在此郑重提请用户注意，任何经由本服务以上载、张贴、发送电子邮件或任何其它方式传送的资讯、资料、文字、软件、音乐、音讯、照片、图形、视讯、信息或其它资料（以下简称“内容”），无论系公开还是私下传送，均由内容提供者承担责任。NEW无法控制经由本服务传送之内容，因此不保证内容的正确性、完整性或品质。在任何情况下，NEW均不为任何内容负责，包含但不限于任何内容之任何错误或遗漏，以及经由本服务以张贴、发送电子邮件或其它方式传送任何内容而衍生之任何损失或损害。但NEW有权依法停止传输任何前述内容并采取相应行动，包括但不限于暂停用户使用本服务的全部或部分，保存有关记录，并向有关机关报告。
+        \n6.5 NEW作为网络服务提供者，对非法转载，虚假发布、盗版行为的发生不具备充分的监控能力。NEW对他人在网站上实施的此类侵权行为不承担法律责任，侵权的法律责任概由本人承担。
+        \n7.协议修改
+        \n7.1 NEW将有权随时修改本协议的有关条款，一旦本协议的内容发生变动，NEW将会通过适当方式在网站上提示。
+        \n7.2 如果不同意NEW对本协议相关条款所做的修改，用户有权停止使用本服务。如果用户继续使用本服务，则视为用户接受NEW对本协议相关条款所做的修改。
+    </string>
+
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>

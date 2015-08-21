@@ -21,7 +21,7 @@ public class ServiceTermActivity extends SwipeBackSherlockActivity implements Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.contact);
+        setContentView(R.layout.service_term);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
         mToolbar.setTitle("服务条款");// 标题的文字需在setSupportActionBar之前，不然会无效

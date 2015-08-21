@@ -1,5 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include
+        layout="@layout/common_toolbar"
+        android:id="@+id/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:background="@color/white"
+            android:id="@+id/parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="版权声明"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <com.xinxin.everyxday.widget.CBAlignTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/banquan"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="服务条款"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/tiaokuan"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec"
+                android:layout_marginBottom="128dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
@@ -44,7 +44,7 @@
                 />
 
 
-            <com.xinxin.everyxday.widget.AlignTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
@@ -84,7 +84,7 @@
                 />
 
 
-            <com.xinxin.everyxday.widget.AlignTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
@@ -125,7 +125,7 @@
                 />
 
 
-            <com.xinxin.everyxday.widget.AlignTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
@@ -145,6 +145,489 @@
                 android:layout_height="1px"
                 android:background="#ececec" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="greenDao"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/greendao"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="Calligraphy"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/calligraphy"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="RippleEffect"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/rippleeffect"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="butterknife"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/butterknife"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="rebound"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/rebound"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="gson"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/gson"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="SwipeBackLayout"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/sbl"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="Android-ObservableScrollView"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/aos"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="MaterialDesignLibrary"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/mdl"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="android-swipelistview"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/aslv"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="AlignTextView"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/atv"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="44dp"
+                android:text="NineOldAndroids"
+                android:textSize="16sp"
+                android:textColor="@color/ac_title_color"
+                fontPath="fonts/FZLanTingHeiS-DB1-GB-Regular.TTF"
+                tools:ignore="MissingPrefix"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d5d5d5"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/noa"
+                android:textSize="12sp"
+                android:textColor="@color/ac_title_color"
+                android:textStyle="bold"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ececec"
+                android:layout_marginBottom="128dp"
+                />
         </LinearLayout>
 
     </ScrollView>
