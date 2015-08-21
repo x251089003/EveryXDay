@@ -35,6 +35,7 @@ import com.xinxin.everyxday.global.InterfaceUrlDefine;
 import com.xinxin.everyxday.util.TimeUtil;
 import com.xinxin.everyxday.widget.swipeback.SwipeBackSherlockActivity;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -113,8 +114,11 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
     public RequestParams getRequestParams() {
         RequestParams params = new RequestParams();
         params.put("offset", 0);
+        params.put("category",URLEncoder.encode(viewTitle.replace("#","")));
         return params;
     }
+
+
 
     @Override
     public void addListViewToContainer(View listView) {
@@ -156,6 +160,7 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
                     likeBean.setDetailNew(vo.getDetailNew());
                     likeBean.setNewid(vo.getId() + "");
                     likeBean.setTitle(vo.getTitle());
+                    likeBean.setCategory(vo.getCategory());
                     mDbService.saveLike(likeBean);
                     updateHeartButton(like, true, position);
                     System.out.println("daxiao === " + likeAnimations.size());
@@ -172,6 +177,9 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
 
         TextView publishTime = (TextView)convertView.findViewById(R.id.new_time);
         publishTime.setText(TimeUtil.getMonthAndDay(vo.getCreateTime()));
+
+        TextView category = (TextView)convertView.findViewById(R.id.new_sort);
+        category.setText("#"+vo.getCategory());
 
         ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
         ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
@@ -190,7 +198,7 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
                 intent.putExtra("today_new_cover",vo.getCover());
                 intent.putExtra("today_new_time",vo.getCreateTime());
                 intent.putExtra("today_new_avatar",vo.getAvatar());
-
+                intent.putExtra("today_new_category", vo.getCategory());
                 startActivity(intent);
             }
         });

@@ -23,10 +23,10 @@ public class RequestPostDataWrap {
 		String requestParamsStr = convertRequestParamsToString(requestParams);
 
 		if (!StringUtil.isEmpty(requestParamsStr)) {
-//			System.out.println("\r\n requestParams.getParamString() : " + requestParamsStr);
+			System.out.println("\r\n requestParams.getParamString() : " + requestParamsStr);
 			return requestType + "?" + requestParamsStr;
 		} else {
-//			System.out.println("\r\n requestType : " + requestType);
+			System.out.println("\r\n requestType : " + requestType);
 			return requestType;
 		}
 	}

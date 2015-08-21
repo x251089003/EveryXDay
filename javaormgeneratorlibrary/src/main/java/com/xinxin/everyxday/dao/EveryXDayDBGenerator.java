@@ -29,6 +29,7 @@ public class EveryXDayDBGenerator {
         like.addStringProperty("title");
         like.addStringProperty("cover");
         like.addStringProperty("detailNew");
+        like.addStringProperty("category");
         like.addDateProperty("createTime");
     }
 

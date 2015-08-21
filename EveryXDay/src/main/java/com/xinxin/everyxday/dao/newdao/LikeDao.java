@@ -29,7 +29,8 @@ public class LikeDao extends AbstractDao<Like, Long> {
         public final static Property Title = new Property(3, String.class, "title", false, "TITLE");
         public final static Property Cover = new Property(4, String.class, "cover", false, "COVER");
         public final static Property DetailNew = new Property(5, String.class, "detailNew", false, "DETAIL_NEW");
-        public final static Property CreateTime = new Property(6, java.util.Date.class, "createTime", false, "CREATE_TIME");
+        public final static Property Category = new Property(6, String.class, "category", false, "CATEGORY");
+        public final static Property CreateTime = new Property(7, java.util.Date.class, "createTime", false, "CREATE_TIME");
     };
 
 
@@ -51,7 +52,8 @@ public class LikeDao extends AbstractDao<Like, Long> {
                 "\"TITLE\" TEXT," + // 3: title
                 "\"COVER\" TEXT," + // 4: cover
                 "\"DETAIL_NEW\" TEXT," + // 5: detailNew
-                "\"CREATE_TIME\" INTEGER);"); // 6: createTime
+                "\"CATEGORY\" TEXT," + // 6: category
+                "\"CREATE_TIME\" INTEGER);"); // 7: createTime
     }
 
     /** Drops the underlying database table. */
@@ -95,9 +97,14 @@ public class LikeDao extends AbstractDao<Like, Long> {
             stmt.bindString(6, detailNew);
         }
  
+        String category = entity.getCategory();
+        if (category != null) {
+            stmt.bindString(7, category);
+        }
+ 
         java.util.Date createTime = entity.getCreateTime();
         if (createTime != null) {
-            stmt.bindLong(7, createTime.getTime());
+            stmt.bindLong(8, createTime.getTime());
         }
     }
 
@@ -117,7 +124,8 @@ public class LikeDao extends AbstractDao<Like, Long> {
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // title
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // cover
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // detailNew
-            cursor.isNull(offset + 6) ? null : new java.util.Date(cursor.getLong(offset + 6)) // createTime
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // category
+            cursor.isNull(offset + 7) ? null : new java.util.Date(cursor.getLong(offset + 7)) // createTime
         );
         return entity;
     }
@@ -131,7 +139,8 @@ public class LikeDao extends AbstractDao<Like, Long> {
         entity.setTitle(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setCover(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setDetailNew(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setCreateTime(cursor.isNull(offset + 6) ? null : new java.util.Date(cursor.getLong(offset + 6)));
+        entity.setCategory(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setCreateTime(cursor.isNull(offset + 7) ? null : new java.util.Date(cursor.getLong(offset + 7)));
      }
     
     /** @inheritdoc */

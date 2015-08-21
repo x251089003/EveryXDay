@@ -114,6 +114,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 					likeBean.setDetailNew(vo.getDetailNew());
 					likeBean.setNewid(vo.getId() + "");
 					likeBean.setTitle(vo.getTitle());
+					likeBean.setCategory(vo.getCategory());
 					mDbService.saveLike(likeBean);
 					updateHeartButton(like, true, position);
 					System.out.println("daxiao === " + likeAnimations.size());
@@ -121,7 +122,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 			}
 		});
 
-		System.out.println("LikeList === " + mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size());
+		System.out.println("LikeList === " + mDbService.queryLike("WHERE NEWID = " + vo.getId()).size());
 		if(mDbService.queryLike("WHERE NEWID = "+ vo.getId()).size() != 0){
 			like.setBackgroundResource(R.mipmap.ic_heart_red);
 		}else{
@@ -130,6 +131,9 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		
 		TextView publishTime = (TextView)convertView.findViewById(R.id.new_time);
 		publishTime.setText(TimeUtil.getMonthAndDay(vo.getCreateTime()));
+
+		TextView category = (TextView)convertView.findViewById(R.id.new_sort);
+		category.setText("#"+vo.getCategory());
 		
 		ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
 		ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
@@ -148,7 +152,7 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 				intent.putExtra("today_new_avatar",vo.getAvatar());
 				intent.putExtra("today_new_buyurl", vo.getBuyurl());
 				intent.putExtra("today_detail_new_url", vo.getDetailNew());
-
+				intent.putExtra("today_new_category", vo.getCategory());
 				System.out.println("=================  " + vo.getDetailNew());
 
 				startActivity(intent);

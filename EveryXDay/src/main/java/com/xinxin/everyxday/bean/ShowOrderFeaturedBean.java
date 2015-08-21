@@ -12,6 +12,15 @@ public class ShowOrderFeaturedBean {
 	private String detail;
 	private String detailNew;
 	private String buyurl;
+	private String category;
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	public String getDetailNew() {
 		return detailNew;

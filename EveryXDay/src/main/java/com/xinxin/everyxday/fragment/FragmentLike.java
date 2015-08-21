@@ -174,6 +174,9 @@ public class FragmentLike extends Fragment {
             TextView publishTime = (TextView)convertView.findViewById(R.id.new_time);
             publishTime.setText(TimeUtil.getMonthAndDay(vo.getCreateTime()));
 
+            TextView category = (TextView)convertView.findViewById(R.id.new_sort);
+            category.setText("#"+vo.getCategory());
+
             Button delete = (Button)convertView.findViewById(R.id.id_remove);
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override

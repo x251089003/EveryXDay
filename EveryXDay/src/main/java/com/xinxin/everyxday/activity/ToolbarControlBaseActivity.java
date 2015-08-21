@@ -57,6 +57,7 @@ public abstract class ToolbarControlBaseActivity<S extends Scrollable> extends S
     private Date createTime;
     private int newId;
     public String detailNew;
+    private String category;
 
     private DbService mDbService;
 
@@ -79,6 +80,7 @@ public abstract class ToolbarControlBaseActivity<S extends Scrollable> extends S
         detailNew = intent.getStringExtra("today_detail_new_url");
         newId = intent.getIntExtra("today_new_id", -1);
         viewTitle = intent.getStringExtra("today_new_title");
+        category = intent.getStringExtra("today_new_category");
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         mDbService = DbService.getInstance(this);
@@ -104,6 +106,7 @@ public abstract class ToolbarControlBaseActivity<S extends Scrollable> extends S
                     likeBean.setDetailNew(detailNew);
                     likeBean.setNewid(newId + "");
                     likeBean.setTitle(viewTitle);
+                    likeBean.setCategory(category);
                     mDbService.saveLike(likeBean);
                     updateHeartButton(likeImageView, true);
                 }

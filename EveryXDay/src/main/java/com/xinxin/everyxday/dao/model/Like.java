@@ -15,6 +15,7 @@ public class Like {
     private String title;
     private String cover;
     private String detailNew;
+    private String category;
     private java.util.Date createTime;
 
     // KEEP FIELDS - put your custom fields here
@@ -27,13 +28,14 @@ public class Like {
         this.id = id;
     }
 
-    public Like(Long id, String newid, String avatar, String title, String cover, String detailNew, java.util.Date createTime) {
+    public Like(Long id, String newid, String avatar, String title, String cover, String detailNew, String category, java.util.Date createTime) {
         this.id = id;
         this.newid = newid;
         this.avatar = avatar;
         this.title = title;
         this.cover = cover;
         this.detailNew = detailNew;
+        this.category = category;
         this.createTime = createTime;
     }
 
@@ -83,6 +85,14 @@ public class Like {
 
     public void setDetailNew(String detailNew) {
         this.detailNew = detailNew;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public java.util.Date getCreateTime() {
