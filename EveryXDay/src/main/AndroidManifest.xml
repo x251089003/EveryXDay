@@ -79,6 +79,19 @@
                 <category android:name="com.github.ksoichiro.android.observablescrollview.samples" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+
+        <meta-data android:value="55dc2dec67e58ed7fa00419c" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="official" android:name="UMENG_CHANNEL"/>
+
     </application>
 
 </manifest>
