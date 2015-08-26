@@ -27,10 +27,11 @@ import com.xinxin.everyxday.util.LocalStorageUtil;
 
 import java.io.File;
 
+
 /**
  * Created by xinxin on 15/7/28.
  */
-public class FragmentSetting extends Fragment{
+public class FragmentSetting extends Fragment {
 
     private View settingView;
     private RippleView question;
@@ -61,14 +62,14 @@ public class FragmentSetting extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         settingView = inflater.inflate(R.layout.setting, null);
 
-        cacheSize = (TextView)settingView.findViewById(R.id.clear_mb);
+        cacheSize = (TextView) settingView.findViewById(R.id.clear_mb);
         try {
             cacheSize.setText(DataCleanUtil.getCacheSize(new File(mLocalStorageUtil.getAppDir())));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        question = (RippleView)settingView.findViewById(R.id.question);
+        question = (RippleView) settingView.findViewById(R.id.question);
         question.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -77,7 +78,7 @@ public class FragmentSetting extends Fragment{
             }
         });
 
-        contact = (RippleView)settingView.findViewById(R.id.contact);
+        contact = (RippleView) settingView.findViewById(R.id.contact);
         contact.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -86,7 +87,7 @@ public class FragmentSetting extends Fragment{
             }
         });
 
-        serviceTerm = (RippleView)settingView.findViewById(R.id.service);
+        serviceTerm = (RippleView) settingView.findViewById(R.id.service);
         serviceTerm.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -95,7 +96,7 @@ public class FragmentSetting extends Fragment{
             }
         });
 
-        openSource = (RippleView)settingView.findViewById(R.id.opensource);
+        openSource = (RippleView) settingView.findViewById(R.id.opensource);
         openSource.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -104,18 +105,18 @@ public class FragmentSetting extends Fragment{
             }
         });
 
-        score = (RippleView)settingView.findViewById(R.id.mark);
+        score = (RippleView) settingView.findViewById(R.id.mark);
         score.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
                 Uri uri = Uri.parse("market://details?id=" + getActivity().getPackageName());
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
 
-        clear = (RippleView)settingView.findViewById(R.id.clear);
+        clear = (RippleView) settingView.findViewById(R.id.clear);
         clear.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -129,7 +130,7 @@ public class FragmentSetting extends Fragment{
             }
         });
 
-        checkUpdate = (RippleView)settingView.findViewById(R.id.checkupdate);
+        checkUpdate = (RippleView) settingView.findViewById(R.id.checkupdate);
         checkUpdate.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
@@ -138,14 +139,10 @@ public class FragmentSetting extends Fragment{
                 UmengUpdateAgent.setUpdateOnlyWifi(false);
                 UmengUpdateAgent.setUpdateListener(new UmengUpdateListener() {
                     @Override
-                    public void onUpdateReturned(int updateStatus,UpdateResponse updateInfo) {
+                    public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
                         switch (updateStatus) {
                             case UpdateStatus.Yes: // has update
                                 UmengUpdateAgent.showUpdateDialog(getActivity(), updateInfo);
-                                Dialog dialog = new Dialog(getActivity(),"NEW新版本", updateInfo.updateLog);
-                                dialog.getButtonAccept().setText("确定");
-                                dialog.getButtonCancel().setText("取消");
-                                dialog.show();
                                 break;
                             case UpdateStatus.No: // has no update
                                 Snackbar.with(getActivity()) // context

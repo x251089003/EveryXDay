@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.nispok.snackbar.Snackbar;
+import com.umeng.update.UmengUpdateAgent;
 import com.xinxin.everyxday.fragment.FragmentAbout;
 import com.xinxin.everyxday.fragment.FragmentLike;
 import com.xinxin.everyxday.fragment.FragmentSetting;
@@ -61,6 +62,9 @@ public class EveryXDayMainActivity extends Activity{
         ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
+
+        UmengUpdateAgent.setUpdateOnlyWifi(false);
+        UmengUpdateAgent.update(this);
 
         fragmentManager = getFragmentManager();
         menuLayout = (LinearLayout)findViewById(R.id.navdrawer);

@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/abc_list_selector_disabled_holo_dark"/>
+            android:background="@color/greyer_transparent"/>
 
         <TextView
             android:id="@+id/sort_left_name"

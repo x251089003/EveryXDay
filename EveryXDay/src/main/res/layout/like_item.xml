@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:scaleType="centerCrop"
-                android:background="@drawable/abc_list_selector_disabled_holo_dark"/>
+                android:background="@color/greyer_transparent"/>
         </com.andexert.library.RippleView>
 
         <RelativeLayout
