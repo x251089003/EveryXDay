@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:text="哈哈哈哈哈哈哈哈"
         android:textColor="@color/ac_title_color"
         android:textSize="16sp"

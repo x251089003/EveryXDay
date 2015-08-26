@@ -10,9 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:paddingBottom="24dp"
         android:text="哈哈哈哈哈哈哈哈"
         android:textColor="@color/ac_title_color"
         android:textSize="14sp"
-        android:lineSpacingMultiplier="1.2"/>
+        android:lineSpacingMultiplier="1.5"/>
 
 </LinearLayout>
