@@ -13,6 +13,14 @@ import android.widget.Toast;
 import com.andexert.library.RippleView;
 import com.gc.materialdesign.widgets.Dialog;
 import com.nispok.snackbar.Snackbar;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.bean.SocializeEntity;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.controller.listener.SocializeListeners;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.SinaSsoHandler;
+import com.umeng.socialize.sso.UMSsoHandler;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
@@ -42,9 +50,17 @@ public class FragmentSetting extends Fragment {
     private RippleView clear;
     private RippleView checkUpdate;
 
+    private RippleView weixin;
+    private RippleView pengyouquan;
+    private RippleView sina;
+    private RippleView qq;
+
     private TextView cacheSize;
 
     private LocalStorageUtil mLocalStorageUtil;
+
+    // 首先在您的Activity中添加如下成员变量
+    final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share");
 
     public static FragmentSetting newInstance(Bundle args) {
         FragmentSetting myFragment = new FragmentSetting();
@@ -56,6 +72,10 @@ public class FragmentSetting extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLocalStorageUtil = new LocalStorageUtil();
+        // 设置分享内容
+        mController.setShareContent("我在NEW发现了一个好东西");
+        // 设置分享图片, 参数2为图片的url地址
+        mController.setShareMedia(new UMImage(getActivity(), R.drawable.ic_launcher));
     }
 
     @Override
@@ -172,11 +192,51 @@ public class FragmentSetting extends Fragment {
             }
         });
 
+        sina = (RippleView) settingView.findViewById(R.id.sina);
+        sina.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                // 参数1为Context类型对象， 参数2为要分享到的目标平台， 参数3为分享操作的回调接口
+//                mController.postShare(getActivity(), SHARE_MEDIA.SINA,
+//                        new SocializeListeners.SnsPostListener() {
+//                            @Override
+//                            public void onStart() {
+//                                Toast.makeText(getActivity(), "开始分享.", Toast.LENGTH_SHORT).show();
+//                            }
+//                            @Override
+//                            public void onComplete(SHARE_MEDIA platform, int eCode,SocializeEntity entity) {
+//                                if (eCode == 200) {
+//                                    Toast.makeText(getActivity(), "分享成功.", Toast.LENGTH_SHORT).show();
+//                                } else {
+//                                    String eMsg = "";
+//                                    if (eCode == -101){
+//                                        eMsg = "没有授权";
+//                                    }
+//                                    Toast.makeText(getActivity(), "分享失败[" + eCode + "] " +
+//                                            eMsg,Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+                //设置新浪SSO handler
+                mController.getConfig().setSsoHandler(new SinaSsoHandler());
+            }
+        });
+
         return settingView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        /**使用SSO授权必须添加如下代码 */
+        UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(requestCode) ;
+        if(ssoHandler != null){
+            ssoHandler.authorizeCallBack(requestCode, resultCode, data);
+        }
     }
 }

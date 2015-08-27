@@ -337,35 +337,65 @@
             android:paddingBottom="128dp"
             android:gravity="center_horizontal">
 
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:id="@+id/imageView_weixin"
+            <com.andexert.library.RippleView
+                android:id="@+id/weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:background="@mipmap/weixin"/>
+                app:rv_rippleDuration="200"
+                app:rv_centered="true" >
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:id="@+id/imageView_weixin"
+                    android:background="@mipmap/weixin"/>
+            </com.andexert.library.RippleView>
 
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:id="@+id/imageView_friend"
+            <com.andexert.library.RippleView
+                android:id="@+id/pengyouquan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@mipmap/pengyouquan"/>
+                app:rv_rippleDuration="200"
+                app:rv_centered="true" >
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:id="@+id/imageView_friend"
+                    android:background="@mipmap/pengyouquan"/>
+            </com.andexert.library.RippleView>
 
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:id="@+id/imageView_sina"
+            <com.andexert.library.RippleView
+                android:id="@+id/sina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@mipmap/sina"/>
+                app:rv_rippleDuration="200"
+                app:rv_centered="true" >
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:id="@+id/imageView_sina"
+                    android:background="@mipmap/sina"/>
+            </com.andexert.library.RippleView>
 
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:id="@+id/imageView_qq"
+            <com.andexert.library.RippleView
+                android:id="@+id/qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:background="@mipmap/qq"/>
+                app:rv_rippleDuration="200"
+                app:rv_centered="true"
+                >
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:id="@+id/imageView_qq"
+                    android:background="@mipmap/qq"/>
+            </com.andexert.library.RippleView>
+
         </LinearLayout>
 
     </LinearLayout>
