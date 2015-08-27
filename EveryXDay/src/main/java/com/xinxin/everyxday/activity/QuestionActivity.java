@@ -172,7 +172,7 @@ public class QuestionActivity extends SwipeBackSherlockActivity implements View.
             if (convertView == null) {
                 childHolder = new ChildHolder();
                 convertView = inflater.inflate(R.layout.childrencontent, null);
-                childHolder.son_title_tv = (AlignTextView) convertView.findViewById(R.id.textView_problem_content);
+                childHolder.son_title_tv = (CBAlignTextView) convertView.findViewById(R.id.textView_problem_content);
                 convertView.setTag(childHolder);
             } else {
                 childHolder = (ChildHolder) convertView.getTag();
@@ -187,7 +187,7 @@ public class QuestionActivity extends SwipeBackSherlockActivity implements View.
         }
 
         class ChildHolder {
-            AlignTextView son_title_tv;
+            CBAlignTextView son_title_tv;
         }
 
     }
