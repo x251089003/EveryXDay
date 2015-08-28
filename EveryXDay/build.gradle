@@ -47,4 +47,6 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile files('src/main/libs/umeng-update-v2.6.0.1.jar')
     compile files('src/main/libs/libammsdk.jar')
+    compile files('src/main/libs/open_sdk_r5276_lite.jar')
+    compile files('src/main/libs/mta-sdk-1.6.2.jar')
 }

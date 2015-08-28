@@ -12,6 +12,8 @@ public class Globe {
 
 	public static final String WX_APP_ID = "wxcf223f10cc5cc73d";
 
+	public static final String QQ_APP_ID = "1104759471";
+
 	public static class ShowMsgActivity {
 		public static final String STitle = "showmsg_title";
 		public static final String SMessage = "showmsg_message";

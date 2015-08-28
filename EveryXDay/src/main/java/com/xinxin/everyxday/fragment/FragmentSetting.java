@@ -15,9 +15,13 @@ import android.widget.Toast;
 import com.andexert.library.RippleView;
 import com.gc.materialdesign.widgets.Dialog;
 import com.nispok.snackbar.Snackbar;
+import com.tencent.connect.share.QQShare;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
@@ -28,11 +32,14 @@ import com.xinxin.everyxday.activity.OpenSourceActivity;
 import com.xinxin.everyxday.activity.QuestionActivity;
 import com.xinxin.everyxday.activity.ServiceTermActivity;
 import com.xinxin.everyxday.global.Globe;
+import com.xinxin.everyxday.tencent.BaseUiListener;
 import com.xinxin.everyxday.util.AppInstallUtil;
 import com.xinxin.everyxday.util.DataCleanUtil;
 import com.xinxin.everyxday.util.LocalStorageUtil;
 import com.xinxin.everyxday.util.WXBitmapConvertToByteUtil;
 import com.xinxin.everyxday.wxapi.WXBaseEntryActivity;
+
+import org.json.JSONObject;
 
 import java.io.File;
 
@@ -60,6 +67,8 @@ public class FragmentSetting extends Fragment {
 
     private LocalStorageUtil mLocalStorageUtil;
 
+    private Tencent mTencent;
+
     public static FragmentSetting newInstance(Bundle args) {
         FragmentSetting myFragment = new FragmentSetting();
         myFragment.setArguments(args);
@@ -70,6 +79,9 @@ public class FragmentSetting extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLocalStorageUtil = new LocalStorageUtil();
+        // Tencent类是SDK的主要实现类，开发者可通过Tencent类访问腾讯开放的OpenAPI。
+        // 其中APP_ID是分配给第三方应用的appid，类型为String。
+        mTencent = Tencent.createInstance(Globe.QQ_APP_ID, getActivity());
     }
 
     @Override
@@ -202,6 +214,14 @@ public class FragmentSetting extends Fragment {
             }
         });
 
+        qq = (RippleView) settingView.findViewById(R.id.qq);
+        qq.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                onClickQQShare();
+            }
+        });
+
         sina = (RippleView) settingView.findViewById(R.id.sina);
         sina.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
@@ -245,6 +265,27 @@ public class FragmentSetting extends Fragment {
         }
     }
 
+    private void onClickQQShare() {
+        if(!AppInstallUtil.isQQInstalled(getActivity())){
+            Snackbar.with(getActivity()) // context
+                    .colorResource(R.color.app_main_theme_color_transparent)
+                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                    .text("请先安装QQ客户端") // text to display
+                    .show(getActivity());
+            return;
+        }else {
+            final Bundle params = new Bundle();
+            params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+            params.putString(QQShare.SHARE_TO_QQ_TITLE, "一个神秘的礼物");
+            params.putString(QQShare.SHARE_TO_QQ_SUMMARY, "这里没有浮躁与喧嚣，这里会让你静下心来感受生活的美好，一切精彩尽在NEW！");
+            params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://www.taoxiaoxian.com");
+            params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, "http://imgcache.qq.com/qzone/space_item/pre/0/66768.gif");
+            params.putString(QQShare.SHARE_TO_QQ_APP_NAME, "NEW");
+            params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
+            mTencent.shareToQQ(getActivity(), params, new BaseUiListener(getActivity()));
+        }
+    }
+
     private String buildTransaction(final String type) {
         return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
     }
@@ -252,6 +293,13 @@ public class FragmentSetting extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (null != mTencent){
+            mTencent.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
 }
