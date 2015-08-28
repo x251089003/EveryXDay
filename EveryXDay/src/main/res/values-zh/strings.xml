@@ -452,6 +452,11 @@
         \n7.2 如果不同意NEW对本协议相关条款所做的修改，用户有权停止使用本服务。如果用户继续使用本服务，则视为用户接受NEW对本协议相关条款所做的修改。
     </string>
 
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unknown">发送返回</string>
+
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>

@@ -1,1 +1,1 @@
-include ':EveryXDay', ':javaormgeneratorlibrary', 'AndroidLDrawerLibrary', 'AndroidNetWorkLibrary', 'AndroidPagingLibrary', 'AndroidSocialSdkLibrary'
+include ':EveryXDay', ':javaormgeneratorlibrary', 'AndroidLDrawerLibrary', 'AndroidNetWorkLibrary', 'AndroidPagingLibrary'

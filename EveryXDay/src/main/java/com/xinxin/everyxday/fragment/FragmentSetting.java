@@ -2,6 +2,8 @@ package com.xinxin.everyxday.fragment;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,14 +15,9 @@ import android.widget.Toast;
 import com.andexert.library.RippleView;
 import com.gc.materialdesign.widgets.Dialog;
 import com.nispok.snackbar.Snackbar;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.bean.SocializeEntity;
-import com.umeng.socialize.controller.UMServiceFactory;
-import com.umeng.socialize.controller.UMSocialService;
-import com.umeng.socialize.controller.listener.SocializeListeners;
-import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.sso.SinaSsoHandler;
-import com.umeng.socialize.sso.UMSsoHandler;
+import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
@@ -30,8 +27,12 @@ import com.xinxin.everyxday.activity.ContactUsActivity;
 import com.xinxin.everyxday.activity.OpenSourceActivity;
 import com.xinxin.everyxday.activity.QuestionActivity;
 import com.xinxin.everyxday.activity.ServiceTermActivity;
+import com.xinxin.everyxday.global.Globe;
+import com.xinxin.everyxday.util.AppInstallUtil;
 import com.xinxin.everyxday.util.DataCleanUtil;
 import com.xinxin.everyxday.util.LocalStorageUtil;
+import com.xinxin.everyxday.util.WXBitmapConvertToByteUtil;
+import com.xinxin.everyxday.wxapi.WXBaseEntryActivity;
 
 import java.io.File;
 
@@ -59,9 +60,6 @@ public class FragmentSetting extends Fragment {
 
     private LocalStorageUtil mLocalStorageUtil;
 
-    // 首先在您的Activity中添加如下成员变量
-    final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share");
-
     public static FragmentSetting newInstance(Bundle args) {
         FragmentSetting myFragment = new FragmentSetting();
         myFragment.setArguments(args);
@@ -72,10 +70,6 @@ public class FragmentSetting extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLocalStorageUtil = new LocalStorageUtil();
-        // 设置分享内容
-        mController.setShareContent("我在NEW发现了一个好东西");
-        // 设置分享图片, 参数2为图片的url地址
-        mController.setShareMedia(new UMImage(getActivity(), R.drawable.ic_launcher));
     }
 
     @Override
@@ -192,37 +186,67 @@ public class FragmentSetting extends Fragment {
             }
         });
 
+        weixin = (RippleView) settingView.findViewById(R.id.weixin);
+        weixin.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                shareToWX(0);
+            }
+        });
+
+        pengyouquan = (RippleView) settingView.findViewById(R.id.pengyouquan);
+        pengyouquan.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+            @Override
+            public void onComplete(RippleView rippleView) {
+                shareToWX(1);
+            }
+        });
+
         sina = (RippleView) settingView.findViewById(R.id.sina);
         sina.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
-                // 参数1为Context类型对象， 参数2为要分享到的目标平台， 参数3为分享操作的回调接口
-//                mController.postShare(getActivity(), SHARE_MEDIA.SINA,
-//                        new SocializeListeners.SnsPostListener() {
-//                            @Override
-//                            public void onStart() {
-//                                Toast.makeText(getActivity(), "开始分享.", Toast.LENGTH_SHORT).show();
-//                            }
-//                            @Override
-//                            public void onComplete(SHARE_MEDIA platform, int eCode,SocializeEntity entity) {
-//                                if (eCode == 200) {
-//                                    Toast.makeText(getActivity(), "分享成功.", Toast.LENGTH_SHORT).show();
-//                                } else {
-//                                    String eMsg = "";
-//                                    if (eCode == -101){
-//                                        eMsg = "没有授权";
-//                                    }
-//                                    Toast.makeText(getActivity(), "分享失败[" + eCode + "] " +
-//                                            eMsg,Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });
-                //设置新浪SSO handler
-                mController.getConfig().setSsoHandler(new SinaSsoHandler());
+
             }
         });
 
         return settingView;
+    }
+
+    private void shareToWX(int type){
+        if(!AppInstallUtil.isWeiXinInstalled(getActivity())){
+            Snackbar.with(getActivity()) // context
+                    .colorResource(R.color.app_main_theme_color_transparent)
+                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                    .text("请先安装微信客户端") // text to display
+                    .show(getActivity());
+            return;
+        }else{
+            Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+            WXWebpageObject webpage = new WXWebpageObject();
+            webpage.webpageUrl = Globe.APP_TARGET_URL;
+
+            WXMediaMessage msg = new WXMediaMessage(webpage);
+            msg.title = "一个神秘的礼物";
+            msg.description = "这里没有浮躁与喧嚣，这里会让你静下心来感受生活的美好，一切精彩尽在NEW！";
+            msg.thumbData = WXBitmapConvertToByteUtil.bmpToByteArray(bmp, false);
+
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = buildTransaction("webpage");
+            req.message = msg;
+
+            if(type == 0){
+                req.scene = SendMessageToWX.Req.WXSceneSession;
+            }else{
+                req.scene = SendMessageToWX.Req.WXSceneTimeline;
+            }
+
+            WXBaseEntryActivity.getIWXAPI(getActivity()).sendReq(req);
+        }
+    }
+
+    private String buildTransaction(final String type) {
+        return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
     }
 
     @Override
@@ -230,13 +254,4 @@ public class FragmentSetting extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        /**使用SSO授权必须添加如下代码 */
-        UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(requestCode) ;
-        if(ssoHandler != null){
-            ssoHandler.authorizeCallBack(requestCode, resultCode, data);
-        }
-    }
 }

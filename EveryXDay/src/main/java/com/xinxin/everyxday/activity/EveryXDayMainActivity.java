@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.nispok.snackbar.Snackbar;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.umeng.update.UmengUpdateAgent;
 import com.xinxin.everyxday.fragment.FragmentAbout;
 import com.xinxin.everyxday.fragment.FragmentLike;
@@ -24,6 +26,7 @@ import com.xinxin.everyxday.fragment.FragmentShareProduct;
 import com.xinxin.everyxday.fragment.FragmentShowOrderFeaturedContent;
 import com.xinxin.everyxday.fragment.FragmentSortContent;
 import com.xinxin.everyxday.fragment.FragmentSupportUs;
+import com.xinxin.everyxday.global.Globe;
 import com.xinxin.everyxday.util.ResultInterface;
 import com.xinxin.everyxday.widget.GlobalMenuAdapter;
 import com.xinxin.ldrawer.ActionBarDrawerToggle;
@@ -59,11 +62,14 @@ public class EveryXDayMainActivity extends Activity{
 
     private long mExitTime;
 
+    private IWXAPI api;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
         fragmentManager = getFragmentManager();
+        regToWx();
         initActionBar();
         initUpdate();
         initViews();
@@ -71,6 +77,11 @@ public class EveryXDayMainActivity extends Activity{
 
         showFragment(1);
 
+    }
+
+    private void regToWx(){
+        api = WXAPIFactory.createWXAPI(this, Globe.WX_APP_ID, true);
+        api.registerApp(Globe.WX_APP_ID);
     }
 
     private void initActionBar(){
@@ -175,15 +186,20 @@ public class EveryXDayMainActivity extends Activity{
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
-            if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                Snackbar.with(getApplicationContext()) // context
-                        .colorResource(R.color.app_main_theme_color_transparent)
-                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
-                        .text("再按一次退出程序") // text to display
-                        .show(this);
-                mExitTime = System.currentTimeMillis();
-            } else {
-                finish();
+            if (mDrawerLayout.isDrawerOpen(menuLayout)) {
+                mDrawerLayout.closeDrawer(menuLayout);
+            }else {
+
+                if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                    Snackbar.with(getApplicationContext()) // context
+                            .colorResource(R.color.app_main_theme_color_transparent)
+                            .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                            .text("再按一次退出程序") // text to display
+                            .show(this);
+                    mExitTime = System.currentTimeMillis();
+                } else {
+                    finish();
+                }
             }
 
             return true;
