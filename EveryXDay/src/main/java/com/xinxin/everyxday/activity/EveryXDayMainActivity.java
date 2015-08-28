@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -32,23 +33,26 @@ import com.xinxin.everyxday.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-//TODO 需要封装个BaseFragment
-//TODO Fragment的replace和add
-
 public class EveryXDayMainActivity extends Activity{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
     private ListView menuView;
-    GlobalMenuAdapter globalMenuAdapter;
+    private GlobalMenuAdapter globalMenuAdapter;
 
     private LinearLayout menuLayout;
 
     private FragmentShowOrderFeaturedContent showFragment;
+    private FragmentSortContent sortFragment;
+    private FragmentLike likeFragment;
+    private FragmentShareProduct shareFragment;
+    private FragmentSupportUs supportFragment;
+    private FragmentSetting settingFragment;
+    private FragmentAbout aboutFragment;
 
     private int meuP = 0;
-    ActionBar ab;
+    private ActionBar ab;
     private FragmentManager fragmentManager;
 
     private Fragment mContent;
@@ -59,63 +63,75 @@ public class EveryXDayMainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
+        fragmentManager = getFragmentManager();
+        initActionBar();
+        initUpdate();
+        initViews();
+        initViewEvents();
+
+        showFragment(1);
+
+    }
+
+    private void initActionBar(){
         ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
+    }
 
+    private void initUpdate(){
         UmengUpdateAgent.setUpdateOnlyWifi(false);
         UmengUpdateAgent.update(this);
+    }
 
-        fragmentManager = getFragmentManager();
+    private void initViews(){
         menuLayout = (LinearLayout)findViewById(R.id.navdrawer);
         menuView = (ListView)findViewById(R.id.menuview);
-        globalMenuAdapter = new GlobalMenuAdapter(this,listener);
-        menuView.setAdapter(globalMenuAdapter);
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.setScrimColor(getResources().getColor(R.color.whitetransparent));
-
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerArrow = new DrawerArrowDrawable(this) {
             @Override
             public boolean isLayoutRtl() {
                 return false;
             }
         };
+    }
+
+    private void initViewEvents(){
+        if(null == globalMenuAdapter) {
+            globalMenuAdapter = new GlobalMenuAdapter(this, listener);
+        }
+        menuView.setAdapter(globalMenuAdapter);
+
+        mDrawerLayout.setScrimColor(getResources().getColor(R.color.whitetransparent));
+
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-            drawerArrow, R.string.drawer_open,
-            R.string.drawer_close) {
+                drawerArrow, R.string.drawer_open,
+                R.string.drawer_close) {
 
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu();
                 switch (meuP){
                     case 0:
-                        showFragment = new FragmentShowOrderFeaturedContent();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, showFragment).commit();
+                        showFragment(1);
                         break;
                     case 1:
-                        FragmentSortContent sortFragment = new FragmentSortContent();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, sortFragment).commit();
+                        showFragment(2);
                         break;
                     case 2:
-                        FragmentLike likeFragment = new FragmentLike();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, likeFragment).commit();
+                        showFragment(3);
                         break;
                     case 4:
-                        FragmentShareProduct shareFragment = new FragmentShareProduct();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, shareFragment).commit();
+                        showFragment(4);
                         break;
                     case 5:
-                        FragmentSupportUs supportFragment = new FragmentSupportUs();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, supportFragment).commit();
+                        showFragment(5);
                         break;
                     case 7:
-                        FragmentSetting settingFragment = new FragmentSetting();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, settingFragment).commit();
+                        showFragment(6);
                         break;
                     case 8:
-                        FragmentAbout aboutFragment = new FragmentAbout();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
+                        showFragment(7);
                         break;
                     default:
                         break;
@@ -129,16 +145,6 @@ public class EveryXDayMainActivity extends Activity{
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-
-        initShowOrderFragment();
-
-    }
-
-    private void initShowOrderFragment() {
-        if(showFragment == null) {
-            showFragment = new FragmentShowOrderFeaturedContent();
-        }
-        fragmentManager.beginTransaction().replace(R.id.content_frame, showFragment).commit();
     }
 
     @Override
@@ -238,6 +244,98 @@ public class EveryXDayMainActivity extends Activity{
             }
         }
     };
+
+    /**
+     * 展现Fragment
+     * @param index
+     */
+    public void showFragment(int index) {
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+        // 想要显示一个fragment,先隐藏所有fragment，防止重叠
+        hideFragments(ft);
+
+        switch (index) {
+            case 1:
+                // 如果fragment1已经存在则将其显示出来
+                if (showFragment != null)
+                    ft.show(showFragment);
+                    // 否则是第一次切换则添加fragment1，注意添加后是会显示出来的，replace方法也是先remove后add
+                else {
+                    showFragment = new FragmentShowOrderFeaturedContent();
+                    ft.add(R.id.content_frame, showFragment);
+                }
+                break;
+            case 2:
+                if (sortFragment != null)
+                    ft.show(sortFragment);
+                else {
+                    sortFragment = new FragmentSortContent();
+                    ft.add(R.id.content_frame, sortFragment);
+                }
+                break;
+            case 3:
+                if (likeFragment != null)
+                    ft.show(likeFragment);
+                else {
+                    likeFragment = new FragmentLike();
+                    ft.add(R.id.content_frame, likeFragment);
+                }
+                break;
+            case 4:
+                if (shareFragment != null)
+                    ft.show(shareFragment);
+                else {
+                    shareFragment = new FragmentShareProduct();
+                    ft.add(R.id.content_frame, shareFragment);
+                }
+                break;
+            case 5:
+                if (supportFragment != null)
+                    ft.show(supportFragment);
+                else {
+                    supportFragment = new FragmentSupportUs();
+                    ft.add(R.id.content_frame, supportFragment);
+                }
+                break;
+            case 6:
+                if (settingFragment != null)
+                    ft.show(settingFragment);
+                else {
+                    settingFragment = new FragmentSetting();
+                    ft.add(R.id.content_frame, settingFragment);
+                }
+                break;
+            case 7:
+                if (aboutFragment != null)
+                    ft.show(aboutFragment);
+                else {
+                    aboutFragment = new FragmentAbout();
+                    ft.add(R.id.content_frame, aboutFragment);
+                }
+                break;
+        }
+        ft.commit();
+    }
+
+    // 当fragment已被实例化，就隐藏起来
+    public void hideFragments(FragmentTransaction ft) {
+        if (showFragment != null)
+            ft.hide(showFragment);
+        if (sortFragment != null)
+            ft.hide(sortFragment);
+        if (likeFragment != null)
+            ft.hide(likeFragment);
+        if (shareFragment != null)
+            ft.hide(shareFragment);
+        if (supportFragment != null)
+            ft.hide(supportFragment);
+        if (settingFragment != null)
+            ft.hide(settingFragment);
+        if (aboutFragment != null)
+            ft.hide(aboutFragment);
+    }
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
