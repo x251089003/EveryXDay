@@ -13,15 +13,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andexert.library.RippleView;
-import com.gc.materialdesign.widgets.Dialog;
 import com.nispok.snackbar.Snackbar;
+import com.sina.weibo.sdk.api.ImageObject;
+import com.sina.weibo.sdk.api.TextObject;
+import com.sina.weibo.sdk.api.WeiboMultiMessage;
+import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
+import com.sina.weibo.sdk.api.share.SendMultiMessageToWeiboRequest;
+import com.sina.weibo.sdk.api.share.WeiboShareSDK;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.sina.weibo.sdk.auth.WeiboAuthListener;
+import com.sina.weibo.sdk.auth.sso.SsoHandler;
+import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.utils.Utility;
 import com.tencent.connect.share.QQShare;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
-import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
-import com.tencent.tauth.UiError;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
@@ -32,14 +41,13 @@ import com.xinxin.everyxday.activity.OpenSourceActivity;
 import com.xinxin.everyxday.activity.QuestionActivity;
 import com.xinxin.everyxday.activity.ServiceTermActivity;
 import com.xinxin.everyxday.global.Globe;
+import com.xinxin.everyxday.sina.AccessTokenKeeper;
 import com.xinxin.everyxday.tencent.BaseUiListener;
 import com.xinxin.everyxday.util.AppInstallUtil;
 import com.xinxin.everyxday.util.DataCleanUtil;
 import com.xinxin.everyxday.util.LocalStorageUtil;
 import com.xinxin.everyxday.util.WXBitmapConvertToByteUtil;
 import com.xinxin.everyxday.wxapi.WXBaseEntryActivity;
-
-import org.json.JSONObject;
 
 import java.io.File;
 
@@ -68,6 +76,9 @@ public class FragmentSetting extends Fragment {
     private LocalStorageUtil mLocalStorageUtil;
 
     private Tencent mTencent;
+    private AuthInfo mAuthInfo;
+    private SsoHandler mSsoHandler;
+    private IWeiboShareAPI mIWeiboShareAPI;
 
     public static FragmentSetting newInstance(Bundle args) {
         FragmentSetting myFragment = new FragmentSetting();
@@ -82,6 +93,10 @@ public class FragmentSetting extends Fragment {
         // Tencent类是SDK的主要实现类，开发者可通过Tencent类访问腾讯开放的OpenAPI。
         // 其中APP_ID是分配给第三方应用的appid，类型为String。
         mTencent = Tencent.createInstance(Globe.QQ_APP_ID, getActivity());
+        mAuthInfo = new AuthInfo(getActivity(), Globe.SINA_APP_KEY, Globe.SINA_REDIRECT_URL, null);
+        mSsoHandler = new SsoHandler(getActivity(), mAuthInfo);
+        mIWeiboShareAPI =  WeiboShareSDK.createWeiboAPI(getActivity(), Globe.SINA_APP_KEY);
+        mIWeiboShareAPI.registerApp();
     }
 
     @Override
@@ -226,7 +241,7 @@ public class FragmentSetting extends Fragment {
         sina.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
-
+                onClickSinaShare();
             }
         });
 
@@ -286,6 +301,44 @@ public class FragmentSetting extends Fragment {
         }
     }
 
+    private void onClickSinaShare(){
+        if(!AppInstallUtil.isWeiBoInstalled(getActivity())){
+            Snackbar.with(getActivity()) // context
+                    .colorResource(R.color.app_main_theme_color_transparent)
+                    .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                    .text("请先安装新浪微博客户端") // text to display
+                    .show(getActivity());
+            return;
+        }else {
+            Oauth2AccessToken mAccessToken = AccessTokenKeeper.readAccessToken(getActivity());
+            if (!mAccessToken.isSessionValid()) {
+                mSsoHandler.authorizeClientSso(new AuthListener());
+                Toast.makeText(getActivity(),"调用授权",Toast.LENGTH_SHORT).show();
+            }else{
+                Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+                ImageObject imageObject = new ImageObject();
+                imageObject.identify = Utility.generateGUID();
+                imageObject.imageData = WXBitmapConvertToByteUtil.bmpToByteArray(bmp, false);
+
+                TextObject textObject = new TextObject();
+                textObject.text = "这里没有浮躁与喧嚣，这里会让你静下心来感受生活的美好，一切精彩尽在NEW！";
+
+                WeiboMultiMessage weiboMessage = new WeiboMultiMessage();
+                weiboMessage.imageObject = imageObject;
+                weiboMessage.textObject = textObject;
+
+                // 2. 初始化从第三方到微博的消息请求
+                SendMultiMessageToWeiboRequest request = new SendMultiMessageToWeiboRequest();
+                // 用transaction唯一标识一个请求
+                request.transaction = String.valueOf(System.currentTimeMillis());
+                request.multiMessage = weiboMessage;
+
+                mIWeiboShareAPI.sendRequest(getActivity(), request);
+                Toast.makeText(getActivity(),"可以分享啦",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     private String buildTransaction(final String type) {
         return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
     }
@@ -297,8 +350,54 @@ public class FragmentSetting extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (null != mTencent){
             mTencent.onActivityResult(requestCode, resultCode, data);
+        }
+        if (mSsoHandler != null) {
+            mSsoHandler.authorizeCallBack(requestCode, resultCode, data);
+        }
+    }
+
+    /**
+     * 微博认证授权回调类。
+     * 1. SSO 授权时，需要在 {@link #onActivityResult} 中调用 {@link SsoHandler#authorizeCallBack} 后，
+     *    该回调才会被执行。
+     * 2. 非 SSO 授权时，当授权结束后，该回调就会被执行。
+     * 当授权成功后，请保存该 access_token、expires_in、uid 等信息到 SharedPreferences 中。
+     */
+    class AuthListener implements WeiboAuthListener {
+
+        @Override
+        public void onComplete(Bundle values) {
+            // 从 Bundle 中解析 Token
+            Oauth2AccessToken mAccessToken = Oauth2AccessToken.parseAccessToken(values);
+            System.out.println("呵呵呵呵呵呵呵呵呵呵呵呵呵");
+            //从这里获取用户输入的 电话号码信息
+            if (mAccessToken.isSessionValid()) {
+                // 保存 Token 到 SharedPreferences
+                AccessTokenKeeper.writeAccessToken(getActivity(), mAccessToken);
+                Toast.makeText(getActivity(),
+                        "授权成功啦", Toast.LENGTH_SHORT).show();
+            } else {
+                // 以下几种情况，您会收到 Code：
+                // 1. 当您未在平台上注册的应用程序的包名与签名时；
+                // 2. 当您注册的应用程序包名与签名不正确时；
+                // 3. 当您在平台上注册的包名和签名与您当前测试的应用的包名和签名不匹配时。
+                String code = values.getString("code");
+                Toast.makeText(getActivity(),"授权失败啦" + code,Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onCancel() {
+            Toast.makeText(getActivity(),"取消授权啦",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onWeiboException(WeiboException e) {
+            Toast.makeText(getActivity(),
+                    "Auth exception : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

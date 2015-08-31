@@ -96,8 +96,8 @@ public class FragmentShowOrderFeaturedContent extends RefreshingListBaseFragment
 		
 		final ShowOrderFeaturedBean vo = voList.get(position);
 		
-		ImageView userPhoto = (ImageView)convertView.findViewById(R.id.showorder_list_user_avater);
-		ImgLoadUtil.displayImageWithAnimation(vo.getAvatar(), userPhoto);
+//		ImageView userPhoto = (ImageView)convertView.findViewById(R.id.showorder_list_user_avater);
+//		ImgLoadUtil.displayImageWithAnimation(vo.getAvatar(), userPhoto);
 		
 		TextView userName = (TextView)convertView.findViewById(R.id.showorder_list_user_name);
 		userName.setText(vo.getTitle().replace("今日最佳：", ""));

@@ -22,4 +22,10 @@ public class Globe {
 
 	public static final String APP_TARGET_URL = "http://www.taoxiaoxian.com";
 
+	public static final String SINA_APP_KEY = "3778651605";
+	public static final String SINA_REDIRECT_URL = "http://www.taoxiaoxian.com";
+	public static final String SINA_SCOPE = "email,direct_messages_read,direct_messages_write,"
+		+ "friendships_groups_read,friendships_groups_write,statuses_to_me_read,"
+			+ "follow_app_official_microblog," + "invitation_write";
+
 }
