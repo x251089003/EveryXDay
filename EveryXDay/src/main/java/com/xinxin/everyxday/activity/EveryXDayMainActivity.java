@@ -362,6 +362,10 @@ public class EveryXDayMainActivity extends Activity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //触发fm的
+        if(settingFragment != null) {
+            settingFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
 }
