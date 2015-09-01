@@ -59,8 +59,6 @@ public class EveryXDayMainActivity extends Activity{
     private ActionBar ab;
     private FragmentManager fragmentManager;
 
-    private Fragment mContent;
-
     private long mExitTime;
 
     private IWXAPI api;
