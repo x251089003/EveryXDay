@@ -34,7 +34,7 @@ public class GlobalMenuAdapter extends ArrayAdapter<GlobalMenuAdapter.GlobalMenu
     }
 
     private void setupMenuItems() {
-        menuItems.add(new GlobalMenuItem(R.mipmap.home, "NEW"));
+        menuItems.add(new GlobalMenuItem(R.mipmap.home, "主页"));
         menuItems.add(new GlobalMenuItem(R.mipmap.sort, "分类"));
         menuItems.add(new GlobalMenuItem(R.mipmap.like, "喜欢过的"));
         menuItems.add(GlobalMenuItem.dividerMenuItem());

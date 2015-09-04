@@ -182,7 +182,7 @@ public class SortActivity extends RefreshingListBaseActivity<ShowOrderFeaturedBe
         category.setText("#"+vo.getCategory());
 
         ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
-        ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
+        ImgLoadUtil.displayImageWithAnimation(vo.getCover(), orderImg);
 
         RippleView mRippleView = (RippleView)convertView.findViewById(R.id.item_rippleview);
         mRippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {

@@ -8,15 +8,18 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.nispok.snackbar.Snackbar;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.umeng.update.UmengUpdateAgent;
@@ -67,6 +70,13 @@ public class EveryXDayMainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(R.color.app_main_theme_color);
+        }
         fragmentManager = getFragmentManager();
         regToWx();
         initActionBar();
@@ -266,7 +276,6 @@ public class EveryXDayMainActivity extends Activity{
      */
     public void showFragment(int index) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-
         // 想要显示一个fragment,先隐藏所有fragment，防止重叠
         hideFragments(ft);
 

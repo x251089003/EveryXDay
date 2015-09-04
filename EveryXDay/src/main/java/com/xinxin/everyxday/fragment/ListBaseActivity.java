@@ -3,16 +3,19 @@ package com.xinxin.everyxday.fragment;
 import java.util.List;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 
 import com.loopj.android.http.RequestParams;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.txx.androidpaginglibrary.listwrap.listview.PagingListViewWrapBase;
 import com.txx.androidpaginglibrary.listwrap.listview.PagingListViewWrapBase.PagingListViewWrapDelegate;
 import com.txx.androidpaginglibrary.listwrap.listview.PagingRefreshingListViewWrap;
@@ -43,6 +46,13 @@ public abstract class ListBaseActivity<T> extends SwipeBackSherlockActivity impl
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_common_listview);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+			SystemBarTintManager tintManager = new SystemBarTintManager(this);
+			tintManager.setStatusBarTintEnabled(true);
+			tintManager.setStatusBarTintResource(R.color.app_main_theme_color);
+		}
 		containerView = (LinearLayout)findViewById(R.id.myLinearLayout);
 		context = this;
 		inflater = LayoutInflater.from(context);

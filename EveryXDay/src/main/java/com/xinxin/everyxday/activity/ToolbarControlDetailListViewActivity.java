@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
@@ -28,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -38,6 +40,7 @@ import com.andexert.library.RippleView;
 import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.nispok.snackbar.Snackbar;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
@@ -109,7 +112,13 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
             return;
         }
         super.onCreate(savedInstanceState);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(R.color.app_main_theme_color);
+        }
         inflater = LayoutInflater.from(this);
 
         mTencent = Tencent.createInstance(Globe.QQ_APP_ID, this);
@@ -282,7 +291,7 @@ public class ToolbarControlDetailListViewActivity extends ToolbarControlBaseActi
                     ImageView detailImageView = (ImageView) convertView.findViewById(R.id.img);
                     System.out.println("des === " +showOrderDetialList.get(position).getDescription() );
                     detailDescription.setText(showOrderDetialList.get(position).getDescription());
-                    ImgLoadUtil.displayImageWithAnimationAndNoCorner(showOrderDetialList.get(position).getImg(), detailImageView);
+                    ImgLoadUtil.displayImage(showOrderDetialList.get(position).getImg(), detailImageView);
                     break;
                 case ITEM_SHARE_TYPE:
                     RippleView weixin = (RippleView) convertView.findViewById(R.id.weixin);

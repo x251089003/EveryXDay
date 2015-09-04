@@ -31,7 +31,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('src/main/libs/MiPush_SDK_Client_2_2_13_sdk.jar')
     compile files('src/main/libs/commons-codec-1.10.jar')
-    compile project(':AndroidLDrawerLibrary')
     compile project(':AndroidNetWorkLibrary')
     compile project(':AndroidPagingLibrary')
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -40,7 +39,6 @@ dependencies {
     compile 'com.facebook.rebound:rebound:0.3.8'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
-    compile 'me.imid.swipebacklayout.lib:library:1.0.0'
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.2'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
     compile 'de.greenrobot:greendao:2.0.0'
@@ -51,4 +49,6 @@ dependencies {
     compile files('src/main/libs/mta-sdk-1.6.2.jar')
     compile files('src/main/libs/open_sdk_r5276_lite.jar')
     compile files('src/main/libs/weiboSDKCore_3.1.2.jar')
+    compile project(':AndroidLDrawerLibrary')
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 }

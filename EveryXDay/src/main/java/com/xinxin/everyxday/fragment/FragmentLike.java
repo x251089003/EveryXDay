@@ -169,7 +169,7 @@ public class FragmentLike extends Fragment {
             userName.setText(vo.getTitle().replace("今日最佳：", ""));
 
             ImageView orderImg = (ImageView)convertView.findViewById(R.id.showorder_list_img);
-            ImgLoadUtil.displayImageWithAnimationAndNoCorner(vo.getCover(), orderImg);
+            ImgLoadUtil.displayImageWithAnimation(vo.getCover(), orderImg);
 
             TextView publishTime = (TextView)convertView.findViewById(R.id.new_time);
             publishTime.setText(TimeUtil.getMonthAndDay(vo.getCreateTime()));

@@ -27,15 +27,16 @@ public class ImageLoadingConfig {
 				.cacheOnDisk(true).considerExifParams(true)
 				.imageScaleType(ImageScaleType.EXACTLY)
 				.bitmapConfig(Bitmap.Config.RGB_565)
-				.displayer(new AnimatioinAndCornerBitmapDisplayer(10)).build();
+				.displayer(new AnimatioinAndCornerBitmapDisplayer(10))
+				.build();
 
 		return displayImageOptions;
 	}
 	
 	// 列表图片加载option有动画不带圆角
-	public static DisplayImageOptions generateDisplayImageOptionsWithAnimationAndNoCorner(int drawableId) {
+	public static DisplayImageOptions generateDisplayImageOptionsWithAnimationAndNoCorner() {
 		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
-				.showImageOnLoading(drawableId).cacheInMemory(true)
+				.cacheInMemory(true)
 				.cacheOnDisk(true).considerExifParams(true)
 				.imageScaleType(ImageScaleType.EXACTLY)
 				.bitmapConfig(Bitmap.Config.RGB_565)

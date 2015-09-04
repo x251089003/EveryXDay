@@ -1,14 +1,11 @@
+
 package com.xinxin.everyxday.widget.swipeback;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.preference.PreferenceActivity;
 import android.view.View;
 
-/**
- * sample for Actionbar sherlock
- * @author Yrom
- */
-public class SwipeBackSherlockActivity extends ActionBarActivity implements SwipeBackActivityBase{
+public class SwipeBackPreferenceActivity extends PreferenceActivity implements com.xinxin.everyxday.widget.swipeback.SwipeBackActivityBase {
     private SwipeBackActivityHelper mHelper;
 
     @Override
@@ -27,13 +24,13 @@ public class SwipeBackSherlockActivity extends ActionBarActivity implements Swip
     @Override
     public View findViewById(int id) {
         View v = super.findViewById(id);
-        if (v != null)
-            return v;
-        return mHelper.findViewById(id);
+        if (v == null && mHelper != null)
+            return mHelper.findViewById(id);
+        return v;
     }
     
     @Override
-    public SwipeBackLayout getSwipeBackLayout() {
+    public com.xinxin.everyxday.widget.swipeback.SwipeBackLayout getSwipeBackLayout() {
         return mHelper.getSwipeBackLayout();
     }
     @Override
@@ -44,9 +41,5 @@ public class SwipeBackSherlockActivity extends ActionBarActivity implements Swip
     @Override
     public void scrollToFinishActivity() {
         getSwipeBackLayout().scrollToFinishActivity();
-    }
-
-    protected int getScreenHeight() {
-        return findViewById(android.R.id.content).getHeight();
     }
 }
