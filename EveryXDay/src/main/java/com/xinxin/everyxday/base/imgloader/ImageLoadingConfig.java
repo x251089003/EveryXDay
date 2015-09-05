@@ -8,7 +8,9 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.xinxin.everyxday.widget.AnimatioinAndCornerBitmapDisplayer;
 
 public class ImageLoadingConfig {
-	
+
+
+
 	// 列表图片加载option没有动画
 	public static DisplayImageOptions generateDisplayImageOptions(int drawableId) {
 		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
@@ -27,16 +29,15 @@ public class ImageLoadingConfig {
 				.cacheOnDisk(true).considerExifParams(true)
 				.imageScaleType(ImageScaleType.EXACTLY)
 				.bitmapConfig(Bitmap.Config.RGB_565)
-				.displayer(new AnimatioinAndCornerBitmapDisplayer(10))
-				.build();
+				.displayer(new AnimatioinAndCornerBitmapDisplayer(10)).build();
 
 		return displayImageOptions;
 	}
-	
+
 	// 列表图片加载option有动画不带圆角
-	public static DisplayImageOptions generateDisplayImageOptionsWithAnimationAndNoCorner() {
+	public static DisplayImageOptions generateDisplayImageOptionsWithAnimationAndNoCorner(int drawableId) {
 		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
-				.cacheInMemory(true)
+				.showImageOnLoading(drawableId).cacheInMemory(true)
 				.cacheOnDisk(true).considerExifParams(true)
 				.imageScaleType(ImageScaleType.EXACTLY)
 				.bitmapConfig(Bitmap.Config.RGB_565)
@@ -67,7 +68,7 @@ public class ImageLoadingConfig {
 
 		return displayImageOptions;
 	}
-	
+
 	public static DisplayImageOptions generateDisplayImageOptionsWithDefaultImg(
 			int drawableId) {
 		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
@@ -80,7 +81,7 @@ public class ImageLoadingConfig {
 		return displayImageOptions;
 
 	}
-	
+
 	public static DisplayImageOptions generateDisplayImageOptionsWithNotClear() {
 		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
 				.resetViewBeforeLoading(false).cacheOnDisk(true)
@@ -91,7 +92,7 @@ public class ImageLoadingConfig {
 		return displayImageOptions;
 
 	}
-	
+
 	//启动图加载option
 	public static DisplayImageOptions generateDisplayStartupImageOptions() {
 		DisplayImageOptions displayImageOptions = new DisplayImageOptions.Builder()
@@ -103,4 +104,5 @@ public class ImageLoadingConfig {
 		return displayImageOptions;
 
 	}
+
 }

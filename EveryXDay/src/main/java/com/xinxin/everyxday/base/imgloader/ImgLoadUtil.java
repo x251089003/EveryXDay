@@ -14,30 +14,30 @@ import com.xinxin.everyxday.R;
  */
 public class ImgLoadUtil {
 
-	private static final DisplayImageOptions commonDisplayOptions = ImageLoadingConfig.generateDisplayImageOptionsWithAnimationAndNoCorner();
-	private static final DisplayImageOptions commonDisplayOptionsWithAnimation = ImageLoadingConfig.generateDisplayImageOptions();
-//	private static final DisplayImageOptions commonDisplayOptionsWithAnimationAndNoCorner = ImageLoadingConfig.generateDisplayImageOptionsWithAnimationAndNoCorner(R.drawable.common_default_loading_bg);
-	
+	private static final DisplayImageOptions commonDisplayOptions = ImageLoadingConfig.generateDisplayImageOptions(R.drawable.white_bg);
+	private static final DisplayImageOptions commonDisplayOptionsWithAnimation = ImageLoadingConfig.generateDisplayImageOptionsWithAnimation(R.drawable.white_bg);
+	private static final DisplayImageOptions commonDisplayOptionsWithAnimationAndNoCorner = ImageLoadingConfig.generateDisplayImageOptionsWithAnimationAndNoCorner(R.drawable.white_bg);
+
 	public static void displayImage(String imgUrl, ImageView imgView){
-		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptionsWithAnimation);
-	}
-	
-	public static void displayImageWithAnimation(String imgUrl, ImageView imgView){
 		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptions);
 	}
-	
-//	public static void displayImageWithAnimationAndNoCorner(String imgUrl, ImageView imgView){
-//		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptions);
+
+//	public static void displayImageWithAnimation(String imgUrl, ImageView imgView){
+//		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptionsWithAnimation);
 //	}
-	
+
+	public static void displayImageWithAnimationAndNoCorner(String imgUrl, ImageView imgView){
+		ImageLoader.getInstance().displayImage(imgUrl, imgView, commonDisplayOptionsWithAnimationAndNoCorner);
+	}
+
 	public static Bitmap loadImageSync(String imgUrl){
 		return ImageLoader.getInstance().loadImageSync(imgUrl, commonDisplayOptions);
 	}
-	
+
 	public static Bitmap loadImageSync(String imgUrl, int width, int height){
 		return ImageLoader.getInstance().loadImageSync(imgUrl, new ImageSize(width, height) ,commonDisplayOptions);
 	}
-	
+
 	public static void displayStartUpImage(String imgUrl, ImageView imgView){
 		ImageLoader.getInstance().displayImage(imgUrl, imgView, ImageLoadingConfig.generateDisplayStartupImageOptions());
 	}
